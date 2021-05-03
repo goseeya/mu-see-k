@@ -1,0 +1,12 @@
+.RegisterSucceed {
+  background-image: url('../resources/paniPastelowo.jpg');
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  height: 500px;
+}

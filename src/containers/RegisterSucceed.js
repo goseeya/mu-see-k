@@ -1,3 +1,6 @@
+import '../styles/RegisterSucceed.css';
+
+
 const RegisterSucceed = () => {
     return (
       <div className="RegisterSucceed">

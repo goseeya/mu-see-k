@@ -1,3 +1,6 @@
+import '../styles/RegisterFailed.css';
+
+
 const RegisterFailed = () => {
     return (
       <div className="RegisterFailed">

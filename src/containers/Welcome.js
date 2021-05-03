@@ -1,6 +1,9 @@
 // import logo from './logo.svg';
 // import './App.css';
 
+import '../styles/Welcome.css';
+
+
 const Welcome = () => {
   return (
     <div className="Welcome">

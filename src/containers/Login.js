@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import '../styles/Login.css';
 
 const Login = () => {
   const [name, setName] = useState("");
@@ -15,7 +16,7 @@ const Login = () => {
         <header className="Login-header">
           Zaloguj
         </header>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="Login-form">
       <label>
         Nazwa:
         <input

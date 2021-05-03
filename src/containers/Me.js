@@ -1,3 +1,6 @@
+import '../styles/Me.css';
+
+
 const Me = () => {
     return (
       <div className="Me">

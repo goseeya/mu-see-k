@@ -1,3 +1,6 @@
+import '../styles/Register.css';
+
+
 const Register = () => {
     return (
       <div className="Register">

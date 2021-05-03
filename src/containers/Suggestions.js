@@ -1,3 +1,6 @@
+import '../styles/Suggestions.css';
+
+
 const Suggestions = () => {
     return (
       <div className="Suggestions">

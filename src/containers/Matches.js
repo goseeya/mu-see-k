@@ -1,3 +1,6 @@
+import '../styles/Matches.css';
+
+
 const Matches = () => {
     return (
       <div className="Matches">
