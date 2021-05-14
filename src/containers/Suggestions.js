@@ -1,9 +1,12 @@
 import '../styles/Suggestions.css';
 import * as mockedSuggestions from '../mocks/suggestions.json';
-import { useState } from 'react'; 
+import axios from 'axios';
+
+
+import { useState, useEffect } from 'react'; 
 
 const Suggestions = () => {
-  const suggestionsArray = mockedSuggestions.suggestions;
+  // const suggestionsArray = mockedSuggestions.suggestions;
   const [currentSuggestionIndex, setCurrentSuggestionIndex] = useState(0);
   const [noMorePeopleToShow, setShowNoMorePeopleToShow] = useState(false);
 
@@ -20,6 +23,21 @@ const Suggestions = () => {
 
     setCurrentPhotoIndex(0);
   }
+
+  let [localhostSuggestions, setLocalhostSuggestions] = useState([]);
+  const suggestionsArray = localhostSuggestions;
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:8080/muzyka/lista", {
+        headers: {
+          'Access-Control-Allow-Origin': true,
+        }
+      })
+      .then(response => {
+        console.log(response);
+        setLocalhostSuggestions(response.data)});
+  }, []);
 
   const swypeNo = () => {
     swype();
@@ -46,13 +64,13 @@ const Suggestions = () => {
   const showPrevPhotoButton = currentPhotoIndex > 0;
   const showNextPhotoButton = currentPhotoIndex < 2;
 
-  const currentPersonToShow = suggestionsArray[currentSuggestionIndex];
+  const currentPersonToShow = suggestionsArray && suggestionsArray[currentSuggestionIndex];
     return (
       <div className="Suggestions">
         <header className="Suggestions Suggestions-header">
           Propozycje dla Ciebie
         </header>
-          <div>
+          {suggestionsArray && suggestionsArray.length > 0 && <div>
             <ul>
               <li>{currentPersonToShow.name}</li>
               <li>{currentPersonToShow.sex === "K" ? "Kobieta" : "Męzyzna"}</li>
@@ -72,7 +90,7 @@ const Suggestions = () => {
               {currentPersonToShow.about}
             </div>
             <p>Inspiracje: {currentPersonToShow.inspirations}</p>
-          </div>
+          </div>}
       </div>
     );
   }
