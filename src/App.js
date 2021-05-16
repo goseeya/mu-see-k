@@ -36,7 +36,7 @@ function App() {
     // </div>
     <Router>
       <div className="App">
-        <nav>
+        {/* <nav>
           <ul>
             <li>
               <Link to="/">Witaj w MuSeeK</Link>
@@ -63,7 +63,7 @@ function App() {
               <Link to="/me">O mnie</Link>
             </li>
           </ul>
-        </nav>
+        </nav> */}
         <Switch>
           <Route path="/suggestions">
             <Suggestions />
@@ -87,7 +87,7 @@ function App() {
             <Me />
           </Route>
           <Route path="/">
-            <Welcome />
+            <Suggestions />
           </Route>
         </Switch>
       </div>
