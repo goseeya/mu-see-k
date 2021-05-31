@@ -101,11 +101,14 @@ h2 {
 
 .Icon {
   cursor: pointer;
+  filter:drop-shadow(4px 2px 1px rgb(41, 40, 40));
 }
 
 .Current-suggestion {
   /* display: flex; */
   align-self: center;
+  border-radius: 8px;
+  box-shadow: 2px 2px 4px #000000;
 }
 
 .Current-suggestions-radio-buttons {
