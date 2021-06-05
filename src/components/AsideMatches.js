@@ -5,8 +5,10 @@ import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserCircle, faBriefcase } from '@fortawesome/free-solid-svg-icons'
 import classNames from 'classnames';
+import {withRouter} from 'react-router-dom';
 
-const AsideMatches = ({matches}) => {
+
+const AsideMatches = ({matches, history}) => {
   // const suggestionsArray = mockedSuggestions.suggestions;
 //   const [currentSuggestionIndex, setCurrentSuggestionIndex] = useState(0);
 //   const [noMorePeopleToShow, setShowNoMorePeopleToShow] = useState(false);
@@ -60,6 +62,10 @@ const AsideMatches = ({matches}) => {
 //     }
 //   }
 
+const goToAboutMe = () => {
+  history.push('/myProfile');
+}
+
 
 
     return (
@@ -67,7 +73,7 @@ const AsideMatches = ({matches}) => {
         
         <header className="AsideMatches AsideMatches-header">
           <FontAwesomeIcon className="Icon" icon={faUserCircle} />
-          <span className="Icon">Mój profil</span>
+          <span className="Icon" onClick={goToAboutMe}>Mój profil</span>
         <FontAwesomeIcon className="Icon" icon={faBriefcase} />
         </header>
         <div className="AsideMatches AsideMatches-matchesContainer">
@@ -79,5 +85,5 @@ const AsideMatches = ({matches}) => {
     );
   }
   
-  export default AsideMatches;
+  export default withRouter(AsideMatches);
   

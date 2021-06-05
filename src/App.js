@@ -1,6 +1,7 @@
 // import logo from './logo.svg';
 import './App.css';
 
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -84,6 +85,9 @@ function App() {
             <Matches />
           </Route>
           <Route path="/me">
+            <Me />
+          </Route>          
+          <Route path="/myProfile">
             <Me />
           </Route>
           <Route path="/">
