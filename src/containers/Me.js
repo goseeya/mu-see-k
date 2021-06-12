@@ -46,7 +46,7 @@ const Me = () => {
 
   const getAboutMe = () => {
     axios
-    .get("http://localhost:8080/api/getaboutme", {
+    .post("http://localhost:8080/api/getaboutme", {
       headers: {
         'Access-Control-Allow-Origin': true,
       }

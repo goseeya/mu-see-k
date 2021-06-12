@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from 'react'; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUserCircle, faBriefcase } from '@fortawesome/free-solid-svg-icons'
+import { faSignOutAlt, faBriefcase } from '@fortawesome/free-solid-svg-icons'
 import classNames from 'classnames';
 import {withRouter} from 'react-router-dom';
 
@@ -66,13 +66,18 @@ const goToAboutMe = () => {
   history.push('/myProfile');
 }
 
+const goToLogout = () => {
+  window.location.href = 'http://localhost:8080/logout';
+  // history.go('http://localhost:8080/logout');
+}
+
 
 
     return (
         <div className="AsideMatches">
         
         <header className="AsideMatches AsideMatches-header">
-          <FontAwesomeIcon className="Icon" icon={faUserCircle} onClick={goToAboutMe} />
+          <FontAwesomeIcon className="Icon" icon={faSignOutAlt} onClick={goToLogout} />
           <span className="Icon" onClick={goToAboutMe}>Mój profil</span>
         <a href="https://bossa.pl/sites/b30/files/public_files/d37ca6b170e82388f485170d45c292c7/wykresy%20kontynuacyjne.png"><FontAwesomeIcon className="Icon" icon={faBriefcase} /></a>
         </header>
