@@ -72,9 +72,9 @@ const goToAboutMe = () => {
         <div className="AsideMatches">
         
         <header className="AsideMatches AsideMatches-header">
-          <FontAwesomeIcon className="Icon" icon={faUserCircle} />
+          <FontAwesomeIcon className="Icon" icon={faUserCircle} onClick={goToAboutMe} />
           <span className="Icon" onClick={goToAboutMe}>Mój profil</span>
-        <FontAwesomeIcon className="Icon" icon={faBriefcase} />
+        <a href="https://bossa.pl/sites/b30/files/public_files/d37ca6b170e82388f485170d45c292c7/wykresy%20kontynuacyjne.png"><FontAwesomeIcon className="Icon" icon={faBriefcase} /></a>
         </header>
         <div className="AsideMatches AsideMatches-matchesContainer">
             <h2>Polubione</h2>
