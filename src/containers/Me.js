@@ -78,28 +78,71 @@ const Me = () => {
     axios({
       method: 'post',
       url: 'http://localhost:8080/api/putAboutMe',
-      headers: {'Access-Control-Allow-Origin': true,}, 
+      // headers: {'Access-Control-Allow-Origin': true,},
+      // crossdomain: true, 
       data: {
-        name: imie,
-      phoneNumber: telefon,
-      location: lokalizacja,
-      sex: plec,
-      genre: gatunek,
-      instrument: instrument,
-      forMoney: zaPieniadze,
-      description: opis,
-      inspirations: inspiracje,
-      image1: adresObrazka,
-      image2: adresObrazka,
-      image3: adresObrazka,
-      mp3: "",
-      searchFor: [
-          {
-              "instrument": wyborInstrument,
-              "sex": wyborPlec
-          },
-      ],
+      //   name: "sfdfsdf",
+      // phoneNumber: "sfdfsdf",
+      // location: "sfdfsdf",
+      // sex: "sfdfsdf",
+      // genre: "sfdfsdf",
+      // instrument: "sfdfsdf",
+      // forMoney: "sfdfsdf",
+      // description: "sfdfsdf",
+      // inspirations: "sfdfsdf",
+      // image1: "sfdfsdf",
+      // image2: "sfdfsdf",
+      // image3: "sfdfsdf",
+      // mp3: "",
+      // searchFor: [
+      //     {
+      //         "instrument": "sfdfsdf",
+      //         "sex": "sfdfsdf"
+      //     },
+      // ],
+      // {
+        name: "Lars Ulrich",
+        phoneNumber: "802222422",
+        location: "Warszawa",
+        sex: "M",
+        genre: "rock",
+        instrument: "perkusja",
+        forMoney: true,
+        description: "For whom the bell tolls?",
+        inspirations: "Judas Priest",
+        image1: "cliff1.jpg",
+        image2: "cliff2.jpg",
+        image3: null,
+        mp3: "fwtbt.m4a",
+        searchFor: [
+            {"instrument": "gitara", "sex": "M"},
+            {"instrument": "wokal", "sex": "M"},
+            {"instrument": "bas", "sex": "M"}
+        ]
+    // }
+    
       }
+      // data: {
+      //   name: imie,
+      // phoneNumber: telefon,
+      // location: lokalizacja,
+      // sex: plec,
+      // genre: gatunek,
+      // instrument: instrument,
+      // forMoney: zaPieniadze,
+      // description: opis,
+      // inspirations: inspiracje,
+      // image1: adresObrazka,
+      // image2: adresObrazka,
+      // image3: adresObrazka,
+      // mp3: "",
+      // searchFor: [
+      //     {
+      //         "instrument": wyborInstrument,
+      //         "sex": wyborPlec
+      //     },
+      // ],
+      // }
     })
     
 
