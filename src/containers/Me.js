@@ -149,10 +149,8 @@ const Me = () => {
     axios.post('http://localhost:8080/api/putAboutMe', {
 
       
-        headers: {
-          'Access-Control-Allow-Origin': true,
-        },
-        body: {
+      
+       
       
 
       "name": "Jayms",
@@ -185,7 +183,7 @@ const Me = () => {
               "instrument": "bas",
               "sex": "M"
           }
-      ],
+      ]}, {
 
       
 
@@ -209,6 +207,9 @@ const Me = () => {
   //             "sex": wyborPlec
   //         },
   //     ],
+  headers:{
+    Accept: 'application/json',
+   'Content-Type': 'application/json'
   }})
     .then(function (response) {
       console.log(response);
