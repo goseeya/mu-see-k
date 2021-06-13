@@ -74,7 +74,43 @@ const Me = () => {
   const submitAboutMe = (e) => {
     e.preventDefault();
     console.log("submitAboutMe");
-    axios.post('http://localhost:8080/api/putAboutMe', {
+
+    axios({
+      method: 'post',
+      url: 'http://localhost:8080/api/putAboutMe',
+      headers: {'Access-Control-Allow-Origin': true,}, 
+      data: {
+        name: imie,
+      phoneNumber: telefon,
+      location: lokalizacja,
+      sex: plec,
+      genre: gatunek,
+      instrument: instrument,
+      forMoney: zaPieniadze,
+      description: opis,
+      inspirations: inspiracje,
+      image1: adresObrazka,
+      image2: adresObrazka,
+      image3: adresObrazka,
+      mp3: "",
+      searchFor: [
+          {
+              "instrument": wyborInstrument,
+              "sex": wyborPlec
+          },
+      ],
+      }
+    })
+    
+
+    // axios.post('http://localhost:8080/api/putAboutMe', {
+
+      
+    //     headers: {
+    //       'Access-Control-Allow-Origin': true,
+    //     },
+    //     body: {
+      
 
       // "name": "Jayms",
       // "phoneNumber": "0700887000",
@@ -111,26 +147,26 @@ const Me = () => {
       
 
 
-      "name": imie,
-      "phoneNumber": telefon,
-      "location": lokalizacja,
-      "sex": plec,
-      "genre": gatunek,
-      "instrument": instrument,
-      "forMoney": zaPieniadze,
-      "description": opis,
-      "inspirations": inspiracje,
-      "image1": adresObrazka,
-      "image2": adresObrazka,
-      "image3": adresObrazka,
-      "mp3": "",
-      "searchFor": [
-          {
-              "instrument": wyborInstrument,
-              "sex": wyborPlec
-          },
-      ],
-  })
+  //     "name": imie,
+  //     "phoneNumber": telefon,
+  //     "location": lokalizacja,
+  //     "sex": plec,
+  //     "genre": gatunek,
+  //     "instrument": instrument,
+  //     "forMoney": zaPieniadze,
+  //     "description": opis,
+  //     "inspirations": inspiracje,
+  //     "image1": adresObrazka,
+  //     "image2": adresObrazka,
+  //     "image3": adresObrazka,
+  //     "mp3": "",
+  //     "searchFor": [
+  //         {
+  //             "instrument": wyborInstrument,
+  //             "sex": wyborPlec
+  //         },
+  //     ],
+  // }})
     .then(function (response) {
       console.log(response);
       // showTheForm = false;
