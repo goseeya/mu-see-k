@@ -164,10 +164,10 @@ const Me = () => {
       "forMoney": true,
       "description": "Nothing else matters",
       "inspirations": "Black Sabbath",
-      "image1": PLICZEK,
-      "image2": PLICZEK,
-      "image3": PLICZEK,
-      "mp3": PLICZEK,
+      "image1": "PLICZEK",
+      "image2": "PLICZEK",
+      "image3": "PLICZEK",
+      "mp3": "PLICZEK",
       "searchFor": [
           {
               "instrument": "perkusja",
