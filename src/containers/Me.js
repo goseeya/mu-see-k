@@ -68,10 +68,12 @@ const Me = () => {
 
   useEffect(() => {
 
-   getAboutMe();
+  //  getAboutMe();
   }, []);
 
-  const submitAboutMe = () => {
+  const submitAboutMe = (e) => {
+    e.preventDefault();
+    console.log("submitAboutMe");
     axios.post('http://localhost:8080/api/putAboutMe', {
 
       // "name": "Jayms",
@@ -161,11 +163,11 @@ const Me = () => {
 
 {/* GG{JSON.stringify(showTheForm)}GG */}
 
-          {showTheForm && <>HHH
+          {showTheForm && <>
           <p>Wypełnij formularz "O mnie"</p>
           <form onSubmit={submitAboutMe} className="Login-form">
       <label>
-        Imię:
+        Login:
         <input
           type="text"
           value={imie}
@@ -173,7 +175,7 @@ const Me = () => {
         />
       </label>
       <label>
-        Telefon:
+        Numer telefonu:
         <input
           type="text"
           value={telefon}
@@ -181,53 +183,83 @@ const Me = () => {
         />
       </label>
       <label>
-        Lokalizacja:
+        Miejsce prób:
         <input
           type="text"
           value={lokalizacja}
           onChange={e => setLokalizacja(e.target.value)}
         />
       </label>
-      <label>
-        Płeć:
-        <input
-          type="text"
-          value={plec}
-          onChange={e => setPlec(e.target.value)}
-        />
-      </label>
-      <label>
-        Gatunek:
-        <input
-          type="text"
-          value={gatunek}
-          onChange={e => setGatunek(e.target.value)}
-        />
-      </label>
-      <label>
-        Instrument:
-        <input
-          type="text"
-          value={instrument}
-          onChange={e => setInstrument(e.target.value)}
-        />
-      </label>
-      <label>
-        Za pieniądze:
-        <input
-          type="checkbox"
-          value={zaPieniadze}
-          onChange={e => setZapieniadze(e.target.value)}
-        />
-      </label>
-      <label>
+            Moja płeć
+      <div onChange={e => setPlec(e.target.value)}>
+            <input
+              type="radio"
+              value="K"
+              name="plec"
+            />
+            Kobieta
+            <input
+              type="radio"
+              value="M"
+              name="plec"
+            />
+            Męczyzna
+            <input
+              type="radio"
+              value="N"
+              name="plec"
+            />
+            Niebinarna
+        </div>
+
+        <label>
         Opis:
-        <input
-          type="text"
+        <textarea
+          placeholder="Kilka słów o mnie"
           value={opis}
           onChange={e => setOpis(e.target.value)}
         />
       </label>
+
+
+      <label>
+          Gatunek muzyczny, jaki chcę uprawiać:
+          <select value={gatunek} onChange={e => setGatunek(e.target.value)}>
+            <option value="rock">Rock</option>
+            <option value="pop">Pop</option>
+            <option value="hipHip">Hip-hop</option>
+            <option value="poezjaSpiewana">Poezja śpiewana</option>
+          </select>
+        </label>
+
+        <label>
+          Mój instrument to:
+          <select value={instrument} onChange={e => setInstrument(e.target.value)}>
+            <option value="gitara">Gitara</option>
+            <option value="bas">Bas</option>
+            <option value="wokal">Wokal</option>
+            <option value="perkusja">Perkusja</option>
+          </select>
+        </label>
+
+
+
+        Chcę grać dla
+      <div onChange={e => setZapieniadze(e.target.value)}>
+            <input
+              type="radio"
+              value="true"
+              name="zaPieniadze"
+            />
+            Dla kasy
+            <input
+              type="radio"
+              value="false"
+              name="zaPieniadza"
+            />
+            Dla fun-u!
+        </div>
+
       <label>
         Inspiracje:
         <input
@@ -244,23 +276,42 @@ const Me = () => {
           onChange={e => setAdresobrazka(e.target.value)}
         />
       </label>
-      <label>
-        Pierwszy wybór (instrument):
-        <input
-          type="text"
-          value={wyborInstrument}
-          onChange={e => setWyborinstrument(e.target.value)}
-        />
-      </label>
-      <label>
-        Pierwszy wybór (płeć):
-        <input
-          type="text"
-          value={wyborPlec}
-          onChange={e => setWyborplec(e.target.value)}
-        />
-      </label>
-      {<input type="submit" value="Zapisz" />}
+
+      <h2>Kogo szukam?</h2>
+
+        Pierwszy zawodnik:
+        Płeć:
+        <div onChange={e => setWyborplec(e.target.value)}>
+            <input
+              type="radio"
+              value="K"
+              name="wyborPlec"
+            />
+            Kobieta
+            <input
+              type="radio"
+              value="M"
+              name="wyborPlec"
+            />
+            Męczyzna
+            <input
+              type="radio"
+              value="N"
+              name="wyborPlec"
+            />
+            Niebinarna
+        </div>
+        <label>
+          Instrument:
+          <select value={wyborPlec} onChange={e => setWyborinstrument(e.target.value)}>
+            <option value="gitara">Gitara</option>
+            <option value="bas">Bas</option>
+            <option value="wokal">Wokal</option>
+            <option value="perkusja">Perkusja</option>
+          </select>
+        </label>
+
+      {<input type="submit" value="Zapisz moje ustawienia" />}
         
     </form>
           </>}
