@@ -148,11 +148,6 @@ const Me = () => {
 
     axios.post('http://localhost:8080/api/putAboutMe', {
 
-      
-      
-       
-      
-
       "name": "Jayms",
       "phoneNumber": "0700887000",
       "location": "Warszawa",
@@ -183,7 +178,7 @@ const Me = () => {
               "instrument": "bas",
               "sex": "M"
           }
-      ]}, {
+      ]}
 
       
 
@@ -207,9 +202,7 @@ const Me = () => {
   //             "sex": wyborPlec
   //         },
   //     ],
-  headers:{
-   'Content-Type': 'application/json'
-  }})
+)
     .then(function (response) {
       console.log(response);
       // showTheForm = false;
