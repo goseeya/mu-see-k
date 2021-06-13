@@ -208,7 +208,6 @@ const Me = () => {
   //         },
   //     ],
   headers:{
-    Accept: 'application/json',
    'Content-Type': 'application/json'
   }})
     .then(function (response) {
