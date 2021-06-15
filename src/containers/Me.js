@@ -178,7 +178,9 @@ const Me = () => {
           }
       ]};
 
-    axios.post('/api/putAboutMe', moczek)
+    // axios.post('/api/putAboutMe', moczek)
+
+    axios({url:'/api/putAboutMe' , method:'post', body: moczek})
 
       
 
