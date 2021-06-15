@@ -213,3 +213,16 @@ body, #root, .App, .Register {
   /* font-family: "Open Sans", sans-serif; */
   /* line-height: 2; */
 }
+
+.Validation {
+  margin-top: 20px;
+  padding: 4px;
+  color: red;
+  width: 200px;
+  font-size: 15px;
+  background-color: gainsboro;
+}
+
+.RegisterButton {
+  margin-top: 20px;
+}

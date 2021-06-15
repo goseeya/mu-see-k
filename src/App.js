@@ -15,7 +15,7 @@ import Register from './containers/Register';
 import RegisterFailed from './containers/RegisterFailed';
 import Matches from './containers/Matches';
 import Me from './containers/Me';
-import Login from './containers/Login';
+// import Login from './containers/Login';
 
 function App() {
   return (
@@ -72,13 +72,13 @@ function App() {
           <Route path="/register">
             <Register />
           </Route>
-          <Route path="/login">
+          {/* <Route path="/login">
             <Login />
-          </Route>
-          <Route path="/register-succeed">
+          </Route> */}
+          <Route path="/registerSucceed">
             <RegisterSucceed />
           </Route>
-          <Route path="/register-failed">
+          <Route path="/registerFailed">
             <RegisterFailed />
           </Route>
           <Route path="/matches">

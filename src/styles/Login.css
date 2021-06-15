@@ -11,8 +11,10 @@
   height: 500px;
 }
 
-.Login-form {
-  display: flex;
+.Login-form-me {
+  /* display: flex; */
+  color: rgb(13, 17, 126);
+  display: contents;
   align-items: center;
   flex-direction: column;
 }

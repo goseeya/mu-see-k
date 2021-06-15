@@ -1,18 +1,42 @@
 import '../styles/RegisterFailed.css';
+import Header from './Header';
+import {withRouter} from 'react-router-dom';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import axios from 'axios';
+
+const RegisterFailed = ({history}) => {
+
+  // let history = useHistory();
 
 
-const RegisterFailed = () => {
+
+  const goBack = () => {
+    history.goBack();
+  }
+
+  const tryAgain = () => {
+    history.push('/register');
+  }
     return (
+      // <div className="RegisterFailed">
+      //   <Header />
+      //   <header className="RegisterFailed-header">
+      //     Rejestracja nieudana
+      //   </header>
+      //     <button onClick={tryAgain}>Spróbuj ponownie</button>
+      // </div>
       <div className="RegisterFailed">
-        <header className="RegisterFailed-header">
-          Rejestracja nieudana
+        <header className="RegisterFailedHeader">
+        <FontAwesomeIcon className="Icon IconLeft" icon={faArrowLeft} onClick={goBack} />
         </header>
-          <div>
-           content here
-          </div>
+        <h1 className="Register-header">
+          Rejestracja nieudana
+        </h1>
+        <button className="TryAgainButton" onClick={tryAgain}>Spróbuj ponownie</button>
       </div>
     );
   }
   
-  export default RegisterFailed;
+  export default withRouter(RegisterFailed);
   

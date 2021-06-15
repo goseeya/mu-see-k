@@ -1,7 +1,7 @@
 import '../styles/Suggestions.css';
 import * as mockedSuggestions from '../mocks/suggestions.json';
 import axios from 'axios';
-import { faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft, faArrowRight, faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -14,6 +14,8 @@ const Suggestions = () => {
   // const suggestionsArray = mockedSuggestions.suggestions;
   const [currentSuggestionIndex, setCurrentSuggestionIndex] = useState(0);
   const [noMorePeopleToShow, setShowNoMorePeopleToShow] = useState(false);
+
+  const [showSuggestions, setShowSuggestions] = useState(true);
 
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
   // const [showPrevPhotoArrow, setShowPrevPhotoArrow] = useState(false);
@@ -30,25 +32,29 @@ const Suggestions = () => {
   }
 
   let [localhostSuggestions, setLocalhostSuggestions] = useState([]);
-  const suggestionsArray = localhostSuggestions;
+  let [localhostMatches, setLocalhostMatches] = useState([]);
+  const matchesArray = localhostMatches;
+  let suggestionsArray = localhostSuggestions;
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/muzyka/lista", {
+      .post("http://localhost:8080/api/getsuggestions", {
         headers: {
           'Access-Control-Allow-Origin': true,
         }
       })
       .then(response => {
         console.log(response);
-        setLocalhostSuggestions(response.data)});
+        setLocalhostSuggestions(response.data.suggestions)});
   }, []);
 
   const swypeNo = () => {
+    axios.post('localhost:8080/api/putdecission', {"suggestionId":currentSuggestionIndex,"decission":false})
     swype();
   }
 
   const swypeYes = () => {
+    axios.post('localhost:8080/api/putdecission', {"suggestionId":currentSuggestionIndex,"decission":true})
     swype();
   }
 
@@ -114,6 +120,21 @@ const Suggestions = () => {
 }
 ];
   const currentPersonToShow = suggestionsArray && suggestionsArray[currentSuggestionIndex];
+  useEffect(() => {
+    axios
+      .post("http://localhost:8080/api/getmatched", {
+        headers: {
+          'Access-Control-Allow-Origin': true,
+        }
+      })
+      .then(response => {
+        console.log(response);
+        setLocalhostMatches(response.data.matched)});
+  }, []);
+
+  const toggleSuggestions = () => setShowSuggestions(!showSuggestions);
+
+ suggestionsArray = showSuggestions ? suggestionsArray : matchesArray;
     return (
       <div className="Suggestions">
         <AsideMatches matches={mockedMatches} />
@@ -122,6 +143,7 @@ const Suggestions = () => {
           Propozycje dla Ciebie
           iiiii<CircleUserIcon/>
         </header> */}
+        <h1 className="SuggestionsHeader">{showSuggestions ? 'Sugestie' : 'Dopasowania'}</h1>
           {suggestionsArray && suggestionsArray.length > 0 && <div className="Suggestions-container-2">
             {!noMorePeopleToShow && <h2 className="Suggestions-container-suggestionTitle">{currentPersonToShow.name} ({currentPersonToShow.instrument})</h2>}
             {/* <ul>
@@ -129,7 +151,7 @@ const Suggestions = () => {
               <li>{currentPersonToShow.sex === "K" ? "Kobieta" : "Męzyzna"}</li>
               <li>Instrument: {currentPersonToShow.instrument}</li>
             </ul> */}
-            {!noMorePeopleToShow && <img className="Current-suggestion" src={currentPersonToShow.image[currentPhotoIndex]} alt="User photo" width="375" height="565"/>}
+            {!noMorePeopleToShow && <img className="Current-suggestion" src={currentPersonToShow.image1} alt="User photo" width="375" height="565"/>}
             {!noMorePeopleToShow && <div className="Current-suggestions-radio-buttons" onChange={onPhotoChange}>
               <input type="radio" id="firstPhoto" name="photoRadio" value="firstPhoto"
                 defaultChecked></input>
@@ -138,9 +160,13 @@ const Suggestions = () => {
               {/* {showPrevPhotoButton && <button onClick={prevPhoto}>poprzednie zdj</button>} */}
               {/* {showNextPhotoButton && <button onClick={nextPhoto}>następne zdj</button>} */}
             </div>}
-            {!noMorePeopleToShow && <div className="Current-suggestions-swypeIcons" >
+            {!noMorePeopleToShow && showSuggestions && <div className="Current-suggestions-swypeIcons" >
               <FontAwesomeIcon className="Icon fa-3x Current-suggestions-swypeIcons-no" icon={faTimesCircle} onClick={swypeNo} />
               <FontAwesomeIcon className="Icon fa-3x Current-suggestions-swypeIcons-yes" icon={faCheckCircle} onClick={swypeYes} />
+            </div>}
+            {!noMorePeopleToShow && !showSuggestions && <div className="Current-suggestions-swypeIcons" >
+              <FontAwesomeIcon className="Icon fa-3x Current-suggestions-swypeIcons-no" icon={faArrowLeft} onClick={swype} />
+              <FontAwesomeIcon className="Icon fa-3x Current-suggestions-swypeIcons-yes" icon={faArrowRight} onClick={swype} />
             </div>}
             {noMorePeopleToShow && <h2 style={{color: 'white'}}>Nie ma nikogo więcej :(</h2>}
             {!noMorePeopleToShow && <div className="Current-suggestion-about">
@@ -150,6 +176,7 @@ const Suggestions = () => {
             Inspiracje: {currentPersonToShow.inspirations}
             </div>}
           </div>}
+          <button onClick={toggleSuggestions}>{showSuggestions ? "Pokaz dopasowania" : "Pokaz sugestie"}</button>
         </div>
       </div>
     );

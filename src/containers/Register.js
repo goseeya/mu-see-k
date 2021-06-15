@@ -13,14 +13,13 @@ import {
 } from "react-router-dom";
 
 const Register = () => {
-  const [login, setLogin] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordRepeated, setPasswordRepeated] = useState("");
   let history = useHistory();
   const registerSucceed = false;
 
-  const passwordCorrect = password === passwordRepeated;
+  const passwordCorrect = password === passwordRepeated && password !== "";
   const emailCorrect = email.includes('@');
 
   const handleSubmit = (evt) => {
@@ -33,12 +32,14 @@ const Register = () => {
     .then(function (response) {
       console.log(response);
       registerSucceed = true;
+      history.push('/registerSucceed');
     })
     .catch(function (error) {
       console.log(error);
+      history.push('/registerFailed');
     });
 
-    alert(`Submitting with Login ${login}`)
+    // alert(`Submitting with email ${email}`)
 }
 
   const goBack = () => {
@@ -54,14 +55,6 @@ const Register = () => {
           Zarejestruj się w MuSeeK!
         </h1>
         <form onSubmit={handleSubmit} className="Login-form">
-      <label>
-        Login:
-        <input
-          type="text"
-          value={login}
-          onChange={e => setLogin(e.target.value)}
-        />
-      </label>
       <label>
         E-mail:
         <input
@@ -86,7 +79,11 @@ const Register = () => {
           onChange={e => setPasswordRepeated(e.target.value)}
         />
       </label>
-      {passwordCorrect && emailCorrect && <input type="submit" value="Rejestruj" />}
+      {(!emailCorrect || !passwordCorrect) && <div className="Validation">
+        {!emailCorrect && <p>Niepoprawny e-mail.</p>}
+        {!passwordCorrect && <p>Hasło ma być niepuste i ma się zgadzać z powtórzonym.</p>}
+      </div>}
+      {passwordCorrect && emailCorrect && <input type="submit" value="Rejestruj" className="RegisterButton" />}
         
     </form></>)}
     {registerSucceed && <Link to="/login">Zaloguj się</Link>}

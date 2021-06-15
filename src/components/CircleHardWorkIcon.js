@@ -4,7 +4,6 @@ import '../styles/AsideMatches.css';
 import { useState, useEffect } from 'react'; 
 
 const CircleHardWorkIcon = () => {
-  // const suggestionsArray = mockedSuggestions.suggestions;
   const [currentSuggestionIndex, setCurrentSuggestionIndex] = useState(0);
   const [noMorePeopleToShow, setShowNoMorePeopleToShow] = useState(false);
 

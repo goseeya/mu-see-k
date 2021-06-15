@@ -1,29 +1,27 @@
 {
   "files": {
-    "main.css": "/static/css/main.8e1ad7a4.chunk.css",
-    "main.js": "/static/js/main.db8403bb.chunk.js",
-    "main.js.map": "/static/js/main.db8403bb.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.5eff2899.js",
-    "runtime-main.js.map": "/static/js/runtime-main.5eff2899.js.map",
-    "static/js/2.0392384e.chunk.js": "/static/js/2.0392384e.chunk.js",
-    "static/js/2.0392384e.chunk.js.map": "/static/js/2.0392384e.chunk.js.map",
-    "static/js/3.d34c999d.chunk.js": "/static/js/3.d34c999d.chunk.js",
-    "static/js/3.d34c999d.chunk.js.map": "/static/js/3.d34c999d.chunk.js.map",
+    "main.css": "/static/css/main.82bae6a6.chunk.css",
+    "main.js": "/static/js/main.cab4c863.chunk.js",
+    "main.js.map": "/static/js/main.cab4c863.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.8002a344.js",
+    "runtime-main.js.map": "/static/js/runtime-main.8002a344.js.map",
+    "static/js/2.647d4615.chunk.js": "/static/js/2.647d4615.chunk.js",
+    "static/js/2.647d4615.chunk.js.map": "/static/js/2.647d4615.chunk.js.map",
+    "static/js/3.d00ef996.chunk.js": "/static/js/3.d00ef996.chunk.js",
+    "static/js/3.d00ef996.chunk.js.map": "/static/js/3.d00ef996.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.8e1ad7a4.chunk.css.map": "/static/css/main.8e1ad7a4.chunk.css.map",
-    "static/js/2.0392384e.chunk.js.LICENSE.txt": "/static/js/2.0392384e.chunk.js.LICENSE.txt",
+    "static/css/main.82bae6a6.chunk.css.map": "/static/css/main.82bae6a6.chunk.css.map",
+    "static/js/2.647d4615.chunk.js.LICENSE.txt": "/static/js/2.647d4615.chunk.js.LICENSE.txt",
     "static/media/Welcome.css": "/static/media/dredziarz.ca5b9eea.jpg",
-    "static/media/RegisterFailed.css": "/static/media/dziecko.eeff4ba3.jpg",
-    "static/media/Matches.css": "/static/media/gitara.59e45522.jpg",
     "static/media/Me.css": "/static/media/kaseta.4c3cfdc2.jpg",
-    "static/media/Login.css": "/static/media/koncert.279d52b7.jpg",
     "static/media/RegisterSucceed.css": "/static/media/paniPastelowo.fd073679.jpg",
+    "static/media/RegisterFailed.css": "/static/media/unhappy.55baccfb.png",
     "static/media/Register.css": "/static/media/vintage.f16931e9.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.5eff2899.js",
-    "static/js/2.0392384e.chunk.js",
-    "static/css/main.8e1ad7a4.chunk.css",
-    "static/js/main.db8403bb.chunk.js"
+    "static/js/runtime-main.8002a344.js",
+    "static/js/2.647d4615.chunk.js",
+    "static/css/main.82bae6a6.chunk.css",
+    "static/js/main.cab4c863.chunk.js"
   ]
 }

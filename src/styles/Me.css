@@ -1,133 +1,97 @@
 .Me {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  background-repeat: no-repeat;
-  background-size: cover;
-  color: white;
-  /* height: 500px; */
-/* 
-  flex-direction: row;
-  flex-wrap: wrap; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
 }
 
 .Me::after {
-  content: "";
-  background: url('../resources/kaseta.jpg');
-  opacity: 0.5;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  background-repeat: no-repeat;
-  background-size: cover;
-  right: 0;
-  position: absolute;
-  z-index: -1;   
-  min-height: 100%;
-  display: block;
-overflow: auto;
-height: 1000px;
+    content: "";
+    background: url('../resources/kaseta.jpg');
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+    min-height: 100%;
+    display: block;
+    overflow: auto;
+    height: 1000px;
 }
 
 .Me-form {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
-
-
-
 .Me-header {
-  justify-content: flex-start;
-
-  text-align: center;
-  font-size: 40px;
-  color: rgb(13, 17, 126);
-  
+    justify-content: flex-start;
+    text-align: center;
+    font-size: 40px;
+    color: rgb(13, 17, 126);
 }
 
 .MeHeader {
-  justify-content: flex-start;
-
-  padding-left: 10px;
-  background: linear-gradient(
-    262deg
-    ,#1057ca,#24151b);
-  display: flex;
-  align-items: center;
-  position: relative;
-  box-shadow: 0 1px 8px 0 rgb(0 17 25 / 27%);
-  z-index: 2;
-  box-sizing: inherit;
-  /* justify-content: space-around; */
-  /* min-width: 325px; */
-  /* width: 100%; */
-width: 100%;
-  background-color: gainsboro;
-  flex-grow: 1;
-  background: linear-gradient(
-    262deg
-    ,#1057ca,#24151b);
-  display: flex;
-  align-items: center;
-  position: relative;
-  box-shadow: 0 1px 8px 0 rgb(0 17 25 / 27%);
-  height: 60px;
-  z-index: 2;
-  box-sizing: inherit;
-  /* justify-content: space-around; */
+    justify-content: flex-start;
+    padding-left: 10px;
+    background: linear-gradient( 262deg, #1057ca, #24151b);
+    display: flex;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 1px 8px 0 rgb(0 17 25 / 27%);
+    z-index: 2;
+    box-sizing: inherit;
+    width: 100%;
+    background-color: gainsboro;
+    flex-grow: 1;
+    background: linear-gradient( 262deg, #1057ca, #24151b);
+    display: flex;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 1px 8px 0 rgb(0 17 25 / 27%);
+    height: 60px;
+    z-index: 2;
+    box-sizing: inherit;
 }
 
 .Register-container {
-  flex-grow: 4;
-  background-color: darkblue;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-@media only screen and (max-device-width : 640px) {
-  /* Styles */
-  /* .AsideMatches {
-width: 100%  }
-
-.Current-suggestion-about {
-  width: 100%;
-} */
-  
-  .Register-container {
-  }
-  }
-
-.Register-container-2 {
-  display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-grow: 4;
+    background-color: darkblue;
+    display: flex;
     align-items: center;
+    justify-content: center;
 }
 
-/* h2 {
-  color: black;
-  margin-left: 10px;
-} */
-
-body, #root, .App, .Me {
-  /* min-height: 100vh; */
-  color: darkblue;
+@media only screen and (max-device-width: 640px) {
+    .Register-container-2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    body,
+    #root,
+    .App,
+    .Me {
+        color: darkblue;
+    }
+    .myPictures {
+        padding: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .myPicture {
+        margin: 10px;
+        width: 80%;
+    }
 }
-
-.myPictures {
-  padding: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.myPicture {
-  margin: 10px;
-  width: 80%;
-}
-

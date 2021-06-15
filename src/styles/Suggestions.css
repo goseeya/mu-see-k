@@ -56,11 +56,18 @@
 }
 
 .Suggestions-container {
+  /* min-width: 500px; */
   flex-grow: 4;
   background-color: darkblue;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+}
+
+.SuggestionsHeader {
+  width: 250px;
+  text-align: center;
 }
 
 @media only screen and (max-device-width : 640px) {
