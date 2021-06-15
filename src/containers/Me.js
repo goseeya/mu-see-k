@@ -178,7 +178,7 @@ const Me = () => {
           }
       ]};
 
-    axios.post('http://localhost:8080/api/putAboutMe', moczek)
+    axios.post('/api/putAboutMe', moczek)
 
       
 
