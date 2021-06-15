@@ -180,7 +180,7 @@ const Me = () => {
 
     // axios.post('/api/putAboutMe', moczek)
 
-    axios({url:'http://localhost:8080/api/putaboutme', method:'post', body: moczek})
+    axios({url:'http://localhost:8080/api/putaboutme', method:'post', "Content-Type": "application/json", "Accept": "application/json", body: moczek})
 
       
 
