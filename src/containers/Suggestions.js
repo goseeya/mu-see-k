@@ -13,7 +13,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const Suggestions = () => {
   // const suggestionsArray = mockedSuggestions.suggestions;
   const [currentSuggestionIndex, setCurrentSuggestionIndex] = useState(0);
+  const [currentMatchIndex, setCurrentMatchIndex] = useState(0);
+
   const [noMorePeopleToShow, setShowNoMorePeopleToShow] = useState(false);
+  const [noMoreMatchesToShow, setShowNoMoreMatchesToShow] = useState(false);
 
   const [showSuggestions, setShowSuggestions] = useState(true);
 
@@ -34,7 +37,7 @@ const Suggestions = () => {
   let [localhostSuggestions, setLocalhostSuggestions] = useState([]);
   let [localhostMatches, setLocalhostMatches] = useState([]);
   const matchesArray = localhostMatches;
-  let suggestionsArray = localhostSuggestions;
+  let suggestionsArray = showSuggestions ? localhostSuggestions : localhostMatches;
 
   useEffect(() => {
     axios
@@ -45,7 +48,36 @@ const Suggestions = () => {
       })
       .then(response => {
         console.log(response);
-        setLocalhostSuggestions(response.data.suggestions)});
+        setLocalhostSuggestions(response.data.suggestions)}).catch(err => {
+          setLocalhostSuggestions([
+            {
+                "userId": 3,
+                "name": "Lars Ulrich",
+                "sex": "M",
+                "instrument": "perkusja",
+                "about": "For whom the bell tolls?",
+                "mp3": "fwtbt.m4a",
+                "inspirations": "Judas Priest",
+                "image1": "cliff1.jpg",
+                "image2": "cliff2.jpg",
+                "image3": null,
+                "likesMe": false
+            },
+           {
+                "userId": 4,
+                "name": "Kirk Hammet",
+                "sex": "M",
+                "instrument": "gitara",
+                "about": "For whom the bell tolls?",
+                "mp3": "fwtbt.m4a",
+                "inspirations": "Judas Priest",
+                "image1": "cliff1.jpg",
+                "image2": "cliff2.jpg",
+                "image3": null,
+                "likesMe": false
+            }
+        ])
+        });
   }, []);
 
   const swypeNo = () => {
@@ -120,6 +152,11 @@ const Suggestions = () => {
 }
 ];
   const currentPersonToShow = suggestionsArray && suggestionsArray[currentSuggestionIndex];
+  const currentMatchToShow = matchesArray && matchesArray[currentMatchIndex];
+
+  const changeMatchIndex = () => {
+    setCurrentMatchIndex(currentMatchIndex == 0 ? 1 : 0);
+  }
   useEffect(() => {
     axios
       .post("http://localhost:8080/api/getmatched", {
@@ -129,21 +166,46 @@ const Suggestions = () => {
       })
       .then(response => {
         console.log(response);
-        setLocalhostMatches(response.data.matched)});
+        setLocalhostMatches(response.data.matched)})
+        .catch(err => {
+          setLocalhostMatches(
+  
+            [{
+                "id": 1,
+                "name": "Cliff Burton",
+                "phone": "804665422",
+                "sex": "M",
+                "instrument": "bas",
+                "genre": "rock",
+                "location": "Warszawa",
+                "formoney": true,
+                "about": "For whom the bell tolls?",
+                "inspirations": "Judas Priest",
+                "mp3": "fwtbt.m4a",
+                "image1": "https://image.shutterstock.com/image-photo/skeptic-sad-border-collie-dog-260nw-1775324372.jpg",
+                "image2": "https://image.shutterstock.com/image-photo/skeptic-sad-border-collie-dog-260nw-1775324372.jpg",
+                "image3": null
+            }]
+        
+      );
+        });
   }, []);
 
   const toggleSuggestions = () => setShowSuggestions(!showSuggestions);
 
  suggestionsArray = showSuggestions ? suggestionsArray : matchesArray;
+
+
     return (
       <div className="Suggestions">
-        <AsideMatches matches={mockedMatches} />
+        <AsideMatches matches={localhostMatches} />
         <div className="Suggestions-container">
         {/* <header className="Suggestions-header">
           Propozycje dla Ciebie
           iiiii<CircleUserIcon/>
         </header> */}
-        <h1 className="SuggestionsHeader">{showSuggestions ? 'Sugestie' : 'Dopasowania'}</h1>
+        {showSuggestions && <>
+          <h1 className="SuggestionsHeader">Sugestie</h1>
           {suggestionsArray && suggestionsArray.length > 0 && <div className="Suggestions-container-2">
             {!noMorePeopleToShow && <h2 className="Suggestions-container-suggestionTitle">{currentPersonToShow.name} ({currentPersonToShow.instrument})</h2>}
             {/* <ul>
@@ -160,13 +222,9 @@ const Suggestions = () => {
               {/* {showPrevPhotoButton && <button onClick={prevPhoto}>poprzednie zdj</button>} */}
               {/* {showNextPhotoButton && <button onClick={nextPhoto}>następne zdj</button>} */}
             </div>}
-            {!noMorePeopleToShow && showSuggestions && <div className="Current-suggestions-swypeIcons" >
+            {!noMorePeopleToShow && <div className="Current-suggestions-swypeIcons" >
               <FontAwesomeIcon className="Icon fa-3x Current-suggestions-swypeIcons-no" icon={faTimesCircle} onClick={swypeNo} />
               <FontAwesomeIcon className="Icon fa-3x Current-suggestions-swypeIcons-yes" icon={faCheckCircle} onClick={swypeYes} />
-            </div>}
-            {!noMorePeopleToShow && !showSuggestions && <div className="Current-suggestions-swypeIcons" >
-              <FontAwesomeIcon className="Icon fa-3x Current-suggestions-swypeIcons-no" icon={faArrowLeft} onClick={swype} />
-              <FontAwesomeIcon className="Icon fa-3x Current-suggestions-swypeIcons-yes" icon={faArrowRight} onClick={swype} />
             </div>}
             {noMorePeopleToShow && <h2 style={{color: 'white'}}>Nie ma nikogo więcej :(</h2>}
             {!noMorePeopleToShow && <div className="Current-suggestion-about">
@@ -176,6 +234,41 @@ const Suggestions = () => {
             Inspiracje: {currentPersonToShow.inspirations}
             </div>}
           </div>}
+        </>}
+        {!showSuggestions && <>
+          <h1 className="SuggestionsHeader">Dopasowania</h1>
+          {matchesArray && matchesArray.length > 0 && <div className="Suggestions-container-2">
+            {!noMoreMatchesToShow && <h2 className="Suggestions-container-suggestionTitle">{currentMatchToShow.name} ({currentMatchToShow.instrument})</h2>}
+            {/* <ul>
+              <li>{currentPersonToShow.name}</li>
+              <li>{currentPersonToShow.sex === "K" ? "Kobieta" : "Męzyzna"}</li>
+              <li>Instrument: {currentPersonToShow.instrument}</li>
+            </ul> */}
+            {!noMoreMatchesToShow && <img className="Current-suggestion" src={currentMatchToShow.image1} alt="User photo" width="375" height="565"/>}
+            {!noMoreMatchesToShow && <div className="Current-suggestions-radio-buttons" onChange={onPhotoChange}>
+              <input type="radio" id="firstPhoto" name="photoRadio" value="firstPhoto"
+                defaultChecked></input>
+              <input type="radio" id="secondPhoto" name="photoRadio" value="secondPhoto"
+                ></input>
+              {/* {showPrevPhotoButton && <button onClick={prevPhoto}>poprzednie zdj</button>} */}
+              {/* {showNextPhotoButton && <button onClick={nextPhoto}>następne zdj</button>} */}
+            </div>}
+            <div className="Current-suggestions-swypeIcons" >
+              <FontAwesomeIcon className="Icon fa-3x Current-suggestions-swypeIcons-no" icon={faArrowLeft} onClick={changeMatchIndex} />
+              <FontAwesomeIcon className="Icon fa-3x Current-suggestions-swypeIcons-yes" icon={faArrowRight} onClick={changeMatchIndex} />
+            </div>
+            {noMorePeopleToShow && <h2 style={{color: 'white'}}>Nie ma nikogo więcej :(</h2>}
+            {!noMorePeopleToShow && <div className="Current-suggestion-about">
+              {currentPersonToShow.about}
+            </div>}
+            {!noMorePeopleToShow && <div className="Current-suggestion-inspirations">
+            Inspiracje: {currentPersonToShow.inspirations}
+            </div>}
+          </div>}
+        </>}
+
+
+
           <button onClick={toggleSuggestions}>{showSuggestions ? "Pokaz dopasowania" : "Pokaz sugestie"}</button>
         </div>
       </div>

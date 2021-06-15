@@ -67,9 +67,31 @@ const Me = () => {
         setShowTheForm(false);
         setAboutMeData(response.data);
       }
+      
     })
     .catch(function (error) {
       console.log(error);
+      // setAboutMeData({
+      //             name: "Lars Ulrich",
+      //   phoneNumber: "802222422",
+      //   location: "Warszawa",
+      //   sex: "M",
+      //   genre: "rock",
+      //   instrument: "perkusja",
+      //   forMoney: true,
+      //   description: "For whom the bell tolls?",
+      //   inspirations: "Judas Priest",
+      //   image1: "https://image.shutterstock.com/image-photo/stock-photo-blue-balloon-on-260nw-1600368805.jpg",
+      //   image2: "https://image.shutterstock.com/image-photo/stock-photo-blue-balloon-on-260nw-1600368805.jpg",
+      //   image3: null,
+      //   mp3: "fwtbt.m4a",
+      //   searchFor: [
+      //       {"instrument": "gitara", "sex": "M"},
+      //       {"instrument": "wokal", "sex": "M"},
+      //       {"instrument": "bas", "sex": "M"}
+      //   ],
+      //   }
+      //   );
       setShowTheForm(true);
       console.log(showTheForm);
     });
@@ -259,10 +281,8 @@ const Me = () => {
            {aboutMeData.about}
           </div>
           <p>Inspiracje: </p>
-          <ul>
-            {aboutMeData.inspirations.map(el => <li>{el}</li>)}
-          </ul>
-          <p>Instrument: {aboutMeData.instrument}</p></>)}</>
+            {aboutMeData && aboutMeData.inspirations && <p>{aboutMeData.inspirations}</p>}
+          <p>Instrument: </p><p>{aboutMeData.instrument}</p></>)}</>
 
 {/* GG{JSON.stringify(showTheForm)}GG */}
 

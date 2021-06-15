@@ -12,9 +12,9 @@
 }
 
 .Login-form-me {
-  /* display: flex; */
+  display: flex;
   color: rgb(13, 17, 126);
-  display: contents;
+  /* display: contents !important; */
   align-items: center;
   flex-direction: column;
 }

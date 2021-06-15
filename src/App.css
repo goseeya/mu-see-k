@@ -5,7 +5,7 @@ html {
 }
 body {
   min-height: 100%;
-  display: block;
+  /* display: block; */
 overflow: auto;
 }
 

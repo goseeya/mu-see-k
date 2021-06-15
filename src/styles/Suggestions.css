@@ -58,6 +58,7 @@
 .Suggestions-container {
   /* min-width: 500px; */
   flex-grow: 4;
+  width: 300px;
   background-color: darkblue;
   display: flex;
   align-items: center;

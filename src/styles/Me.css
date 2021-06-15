@@ -6,7 +6,7 @@
     font-size: calc(10px + 2vmin);
     background-repeat: no-repeat;
     background-size: cover;
-    color: white;
+    color: black;
 }
 
 .Me::after {
@@ -95,3 +95,25 @@
         width: 80%;
     }
 }
+
+
+.Login {
+    background-image: url('../resources/koncert.jpg');
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    height: 500px;
+  }
+  
+  .Login-form-me {
+    display: flex;
+    color: rgb(13, 17, 126);
+    /* display: contents !important; */
+    align-items: center;
+    flex-direction: column;
+  }
