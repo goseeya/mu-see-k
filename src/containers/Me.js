@@ -167,7 +167,7 @@ const Me = () => {
 
     // axios.post('/api/putAboutMe', moczek)
 
-    axios({url:'http://localhost:8080/api/putaboutme', method:'post', "Content-Type": "application/json", "Accept": "application/json", body: moczek})
+    axios.post('http://localhost:8080/api/putaboutme', moczek, {headers: { 'Content-Type': 'application/json;charset=UTF-8', "Access-Control-Allow-Origin": "*", "Accept": "application/json" }})
 
       
 
