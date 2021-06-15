@@ -26,8 +26,8 @@ import { useState, useEffect } from 'react';
 
 const Me = () => {
 
-  let aboutMeData = null;
-  let showTheForm = true;
+  const [aboutMeData, setAboutMeData] = useState();
+  const [showTheForm, setShowTheForm] = useState(false);
 
   const [imie, setImie] = useState("");
   const [telefon, setTelefon] = useState("");
@@ -62,15 +62,15 @@ const Me = () => {
     .then(response => {
       console.log(response);
       if (response.data === null || !response.data.name) {
-        showTheForm = true;
+        setShowTheForm(true);
       } else {
-        showTheForm = false;
-        aboutMeData = response.data;
+        setShowTheForm(false);
+        setAboutMeData(response.data);
       }
     })
     .catch(function (error) {
       console.log(error);
-      showTheForm = true;
+      setShowTheForm(true);
       console.log(showTheForm);
     });
   }
