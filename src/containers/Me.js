@@ -145,38 +145,25 @@ const Me = () => {
       // }
     // })
     const moczek = {
-
-      name: "Jayms",
-      phoneNumber: "0700887000",
-      location: "Warszawa",
-      sex: "M",
-      genre: "rock",
-      instrument: "gitara",
-      forMoney: true,
-      description: "Nothing else matters",
-      inspirations: "Black Sabbath",
-      image1: "PLICZEK",
-      image2: "PLICZEK",
-      image3: "PLICZEK",
-      mp3: "PLICZEK",
-      searchFor: [
-          {
-              "instrument": "perkusja",
-              "sex": "M"
-          },
-          {
-              "instrument": "gitara",
-              "sex": "M"
-          },
-          {
-              "instrument": "wokal",
-              "sex": "M"
-          },
-          {
-              "instrument": "bas",
-              "sex": "M"
-          }
-      ]};
+      "name": "Lars Ulrich",
+      "phoneNumber": "802222422",
+      "location": "Warszawa",
+      "sex": "M",
+      "genre": "rock",
+      "instrument": "perkusja",
+      "forMoney": true,
+      "description": "For whom the bell tolls?",
+      "inspirations": "Judas Priest",
+      "image1": "cliff1.jpg",
+      "image2": "cliff2.jpg",
+      "image3": null,
+      "mp3": "fwtbt.m4a",
+      "searchFor": [
+          {"instrument": "gitara", "sex": "M"},
+          {"instrument": "wokal", "sex": "M"},
+          {"instrument": "bas", "sex": "M"}
+      ]
+  };
 
     // axios.post('/api/putAboutMe', moczek)
 
