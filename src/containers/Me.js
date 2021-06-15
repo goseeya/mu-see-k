@@ -61,10 +61,11 @@ const Me = () => {
     })
     .then(response => {
       console.log(response);
-      response.data === null ? showTheForm = true : aboutMeData = response.data
-
-      if(response.data.name) {
+      if (response.data === null || !response.data.name) {
+        showTheForm = true;
+      } else {
         showTheForm = false;
+        aboutMeData = response.data;
       }
     })
     .catch(function (error) {
