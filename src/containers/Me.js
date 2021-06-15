@@ -144,24 +144,22 @@ const Me = () => {
       // ],
       // }
     // })
-    
+    const moczek = {
 
-    axios.post('http://localhost:8080/api/putAboutMe', {
-
-      "name": "Jayms",
-      "phoneNumber": "0700887000",
-      "location": "Warszawa",
-      "sex": "M",
-      "genre": "rock",
-      "instrument": "gitara",
-      "forMoney": true,
-      "description": "Nothing else matters",
-      "inspirations": "Black Sabbath",
-      "image1": "PLICZEK",
-      "image2": "PLICZEK",
-      "image3": "PLICZEK",
-      "mp3": "PLICZEK",
-      "searchFor": [
+      name: "Jayms",
+      phoneNumber: "0700887000",
+      location: "Warszawa",
+      sex: "M",
+      genre: "rock",
+      instrument: "gitara",
+      forMoney: true,
+      description: "Nothing else matters",
+      inspirations: "Black Sabbath",
+      image1: "PLICZEK",
+      image2: "PLICZEK",
+      image3: "PLICZEK",
+      mp3: "PLICZEK",
+      searchFor: [
           {
               "instrument": "perkusja",
               "sex": "M"
@@ -178,7 +176,9 @@ const Me = () => {
               "instrument": "bas",
               "sex": "M"
           }
-      ]}
+      ]};
+
+    axios.post('http://localhost:8080/api/putAboutMe', moczek)
 
       
 
@@ -202,7 +202,7 @@ const Me = () => {
   //             "sex": wyborPlec
   //         },
   //     ],
-)
+
     .then(function (response) {
       console.log(response);
       // showTheForm = false;
