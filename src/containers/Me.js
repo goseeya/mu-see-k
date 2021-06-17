@@ -181,7 +181,7 @@ const Me = () => {
                 defaultValue={aboutMeData?.name || imie}
                 onChange={(e) => setImie(e.target.value)}
               />
-              {imie.length > 20 && <div className="Validation">Maksymalna liczba znaków to 20.</div>}
+              {imie?.length > 20 && <div className="Validation">Maksymalna liczba znaków to 20.</div>}
             </label>
             <label>
               Numer telefonu:
@@ -190,7 +190,7 @@ const Me = () => {
                 defaultValue={aboutMeData?.phoneNumber || telefon}
                 onChange={(e) => setTelefon(e.target.value)}
               />
-              {telefon.length > 12 && <div className="Validation">Maksymalna liczba znaków to 12.</div>}
+              {telefon?.length > 12 && <div className="Validation">Maksymalna liczba znaków to 12.</div>}
             </label>
             <label>
               Miejsce prób:
@@ -228,7 +228,7 @@ const Me = () => {
                 defaultValue={aboutMeData?.description || opis}
                 onChange={(e) => setOpis(e.target.value)}
               />
-              {opis.length > 600 && <div className="Validation">Maksymalna liczba znaków to 600.</div>}
+              {opis?.length > 600 && <div className="Validation">Maksymalna liczba znaków to 600.</div>}
 
             </label>
             <label>
@@ -276,7 +276,7 @@ const Me = () => {
                 defaultValue={aboutMeData?.inspirations || inspiracje}
                 onChange={(e) => setInspiracje(e.target.value)}
               />
-              {inspiracje.length > 100 && <div className="Validation">Maksymalna liczba znaków to 100.</div>}
+              {inspiracje?.length > 100 && <div className="Validation">Maksymalna liczba znaków to 100.</div>}
 
             </label>
             <label>
