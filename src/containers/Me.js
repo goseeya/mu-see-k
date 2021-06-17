@@ -164,7 +164,7 @@ const Me = () => {
               Login:
               <input
                 type="text"
-                defaultValue={aboutMeData?.name || ""}
+                defaultValue={aboutMeData?.name || imie}
                 onChange={(e) => setImie(e.target.value)}
               />
               {imie.length > 20 && <div className="Validation">Maksymalna liczba znaków to 20.</div>}
