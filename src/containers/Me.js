@@ -261,9 +261,9 @@ const Me = () => {
               <div
                 onChange={(e) => setZapieniadze(e.target.value)}
               >
-                <input type="radio" value="true" name="zaPieniadze" defaultChecked={aboutMeData?.forMoney} />
+                <input type="radio" value="true" name="zaPieniadze" defaultChecked={aboutMeData && aboutMeData?.forMoney == true} />
                 Dla kasy
-                <input type="radio" value="false" name="zaPieniadza" defaultChecked={!aboutMeData?.forMoney} />
+                <input type="radio" value="false" name="zaPieniadze" defaultChecked={aboutMeData && aboutMeData?.forMoney == false} />
                 Dla fun-u!
               </div>
             </span>
