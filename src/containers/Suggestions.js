@@ -12,7 +12,7 @@ const Suggestions = () => {
   const [currentSuggestionIndex, setCurrentSuggestionIndex] = useState(0);
   const [currentMatchIndex, setCurrentMatchIndex] = useState(0);
 
-  const [noMorePeopleToShow, setShowNoMorePeopleToShow] = useState(false);
+  const [noMorePeopleToShow, setShowNoMorePeopleToShow] = useState(true);
   const [noMoreMatchesToShow, setShowNoMoreMatchesToShow] = useState(false);
   let [localhostSuggestions, setLocalhostSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(true);
