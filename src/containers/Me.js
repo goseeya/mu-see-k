@@ -127,17 +127,17 @@ const Me = () => {
   console.log(imie.length <= 20);
   console.log(telefon.length <= 12);
   console.log(inspiracje.length <= 100);
-  console.log(imie);
-  console.log(telefon);
+  console.log(imie); //
+  console.log(telefon); //
   console.log(lokalizacja);
   console.log(plec);
-  console.log(opis);
+  console.log(opis); //
   console.log(gatunek);
   console.log(instrument);
   console.log(zaPieniadze);
   console.log(inspiracje);
-  console.log(adresObrazka);
-  console.log(adres2Obrazka);
+  console.log(adresObrazka); //
+  console.log(adres2Obrazka); //
   console.log(wyborPlec);
   console.log(wyborInstrument);
 
@@ -164,7 +164,7 @@ const Me = () => {
               Login:
               <input
                 type="text"
-                defaultValue={aboutMeData?.name || imie}
+                defaultValue={imie}
                 onChange={(e) => setImie(e.target.value)}
               />
               {imie.length > 20 && <div className="Validation">Maksymalna liczba znaków to 20.</div>}
@@ -173,7 +173,7 @@ const Me = () => {
               Numer telefonu:
               <input
                 type="text"
-                defaultValue={aboutMeData?.phoneNumber || telefon}
+                defaultValue={telefon}
                 onChange={(e) => setTelefon(e.target.value)}
               />
               {telefon.length > 12 && <div className="Validation">Maksymalna liczba znaków to 12.</div>}
@@ -211,7 +211,7 @@ const Me = () => {
               Opis:
               <textarea
                 placeholder="Kilka słów o mnie"
-                defaultValue={aboutMeData?.description || opis}
+                defaultValue={opis}
                 onChange={(e) => setOpis(e.target.value)}
               />
               {opis.length > 600 && <div className="Validation">Maksymalna liczba znaków to 600.</div>}
@@ -269,7 +269,7 @@ const Me = () => {
               Adres pierwszego obrazka:
               <input
                 type="text"
-                defaultValue={aboutMeData?.image1 || adresObrazka}
+                defaultValue={adresObrazka}
                 onChange={(e) => setAdresobrazka(e.target.value)}
               />
             </label>
@@ -277,7 +277,7 @@ const Me = () => {
               Adres drugiego obrazka:
               <input
                 type="text"
-                defaultValue={aboutMeData?.image2 || adres2Obrazka}
+                defaultValue={adres2Obrazka}
                 onChange={(e) => setAdres2obrazka(e.target.value)}
               />
             </label>

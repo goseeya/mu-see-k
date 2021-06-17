@@ -176,3 +176,9 @@ body, #root, .App, .Suggestions {
 .Current-suggestion-common {
   margin-bottom: 10px;
 }
+
+.myPicture {
+  width: 300px;
+  height: 400px;
+  margin: 10px;
+}
