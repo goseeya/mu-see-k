@@ -351,7 +351,7 @@ objectToSend
 
 {/* GG{JSON.stringify(showTheForm)}GG */}
 
-          {showTheForm && <>
+          { <>
           <p>{aboutMeData ? "Edytuj" : "Wypełnij"} formularz "O mnie"</p>
           <form onSubmit={submitAboutMe} className="Login-form-me">
       <label>
