@@ -70,14 +70,14 @@ const Me = () => {
         setTelefon(response.data.phoneNumber);
         setLokalizacja(response.data.location);
         setPlec(response.data.sex);
-        setGatunek(response.data.genre);
+        // setGatunek(response.data.genre);
         setOpis(response.data.description);
         setZapieniadze(response.data.forMoney);
         setAdresobrazka(response.data.image1);
         setAdres2obrazka(response.data.image2);
         setInspiracje(response.data.inspirations);
-        setInstrument(response.data.instrument);
-        setLokalizacja(response.data.location);
+        // setInstrument(response.data.instrument);
+        // setLokalizacja(response.data.location);
         setWyborinstrument(response.data.searchFor[0].instrument);
         setWyborplec(response.data.searchFor[0].sex);
       })
