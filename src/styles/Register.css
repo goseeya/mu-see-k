@@ -12,7 +12,7 @@
 }
 .Register::after {
   content: "";
-  background: url('../resources/vintage.jpg');
+  background: url('https://cdn.stocksnap.io/img-thumbs/280h/smiling-woman_XZMVJHEGNT.jpg');
   opacity: 0.5;
   top: 0;
   left: 0;
@@ -80,7 +80,7 @@
   z-index: 2;
   box-sizing: inherit;
   /* justify-content: space-around; */
-  min-width: 325px;
+  min-width: 100%;
   background-color: gainsboro;
   /* flex-grow: 1; */
   background: linear-gradient(

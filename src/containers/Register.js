@@ -17,7 +17,7 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [passwordRepeated, setPasswordRepeated] = useState("");
   let history = useHistory();
-  const registerSucceed = false;
+  let registerSucceed = false;
 
   const passwordCorrect = password === passwordRepeated && password !== "";
   const emailCorrect = email.includes('@');

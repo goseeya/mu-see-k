@@ -14,14 +14,14 @@ const Suggestions = () => {
 
   const [noMorePeopleToShow, setShowNoMorePeopleToShow] = useState(true);
   const [noMoreMatchesToShow, setShowNoMoreMatchesToShow] = useState(false);
-  let [localhostSuggestions, setLocalhostSuggestions] = useState([]);
+  const [localhostSuggestions, setLocalhostSuggestions] = useState(null);
   const [showSuggestions, setShowSuggestions] = useState(true);
 
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
 
   const swype = () => {
     // getSuggestions();
-    if (currentSuggestionIndex < localhostSuggestions.length - 1) {
+    if (currentSuggestionIndex < localhostSuggestions?.suggestions.length - 1) {
       setCurrentSuggestionIndex(currentSuggestionIndex+1);
     } else {
       setShowNoMorePeopleToShow(true);
@@ -46,35 +46,42 @@ const Suggestions = () => {
       if(response.data.suggestions.length > 0) {
         setShowNoMorePeopleToShow(false);
       }
-      setLocalhostSuggestions(response.data.suggestions)}).catch(err => {
-      //   setLocalhostSuggestions([
-      //     {
-      //         "userId": 3,
-      //         "name": "Lars Ulrich",
-      //         "sex": "M",
-      //         "instrument": "perkusja",
-      //         "about": "For whom the bell tolls?",
-      //         "mp3": "fwtbt.m4a",
-      //         "inspirations": "Judas Priest",
-      //         "image1": "https://cdn.stocksnap.io/img-thumbs/280h/elephant-africa_FRIXWBXJWQ.jpg",
-      //         "image2": "https://cdn.stocksnap.io/img-thumbs/280h/flower-blossom_IQGEGABPYJ.jpg",
-      //         "image3": null,
-      //         "likesMe": false
-      //     },
-      //    {
-      //         "userId": 4,
-      //         "name": "Kirk Hammet",
-      //         "sex": "M",
-      //         "instrument": "gitara",
-      //         "about": "For whom the bell tolls?",
-      //         "mp3": "fwtbt.m4a",
-      //         "inspirations": "Judas Priest",
-      //         "image1": "https://cdn.stocksnap.io/img-thumbs/280h/ice-cream_6PWT2YAFOC.jpg",
-      //         "image2": "https://cdn.stocksnap.io/img-thumbs/280h/deer-animal_BTFGK0CKJD.jpg",
-      //         "image3": null,
-      //         "likesMe": false
-      //     }
-      // ])
+      setLocalhostSuggestions(response.data)}).catch(err => {
+        console.log("lapiemy blad getsuggestions");
+    //     setLocalhostSuggestions({
+    //       "genre": "rock",
+    // "location": "Warszawa",
+    // "formoney": true,
+    // "suggestions": [
+    //       {
+    //           "userId": 3,
+    //           "name": "Lars Ulrich",
+    //           "sex": "M",
+    //           "instrument": "perkusja",
+    //           "about": "For whom the bell tolls?",
+    //           "mp3": "fwtbt.m4a",
+    //           "inspirations": "Judas Priest",
+    //           "image1": "https://cdn.stocksnap.io/img-thumbs/280h/elephant-africa_FRIXWBXJWQ.jpg",
+    //           "image2": "https://cdn.stocksnap.io/img-thumbs/280h/flower-blossom_IQGEGABPYJ.jpg",
+    //           "image3": null,
+    //           "likesMe": false
+    //       },
+    //      {
+    //           "userId": 4,
+    //           "name": "Kirk Hammet",
+    //           "sex": "M",
+    //           "instrument": "gitara",
+    //           "about": "For whom the bell tolls?",
+    //           "mp3": "fwtbt.m4a",
+    //           "inspirations": "Judas Priest",
+    //           "image1": "https://cdn.stocksnap.io/img-thumbs/280h/ice-cream_6PWT2YAFOC.jpg",
+    //           "image2": "https://cdn.stocksnap.io/img-thumbs/280h/deer-animal_BTFGK0CKJD.jpg",
+    //           "image3": null,
+    //           "likesMe": false
+    //       }
+    //   ]})
+      setShowNoMorePeopleToShow(false);
+      console.log(localhostSuggestions?.suggestions);
       console.log(err);
 
       });
@@ -83,19 +90,52 @@ const Suggestions = () => {
 
   let [localhostMatches, setLocalhostMatches] = useState([]);
   const matchesArray = localhostMatches;
-  let suggestionsArray = showSuggestions ? localhostSuggestions : localhostMatches;
+  let suggestionsArray = showSuggestions ? localhostSuggestions?.suggestions : localhostMatches;
 
   useEffect(() => {
     getSuggestions();
   }, []);
 
   const swypeNo = () => {
-    axios.post('localhost:8080/api/putdecission', {"suggestionId":currentSuggestionIndex,"decission":false})
+
+    axios
+      .post("http://localhost:8080/api/putdecission", {"suggestionId":currentSuggestionIndex,"decission":false}, {
+        headers: {
+          "Content-Type": "application/json;charset=UTF-8",
+          "Access-Control-Allow-Origin": "*",
+          Accept: "application/json",
+        },
+      })
+
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+
+
+
     swype();
   }
 
   const swypeYes = () => {
-    axios.post('localhost:8080/api/putdecission', {"suggestionId":currentSuggestionIndex,"decission":true})
+    axios
+      .post("http://localhost:8080/api/putdecission", {"suggestionId":currentSuggestionIndex,"decission":true}, {
+        headers: {
+          "Content-Type": "application/json;charset=UTF-8",
+          "Access-Control-Allow-Origin": "*",
+          Accept: "application/json",
+        },
+      })
+
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
     swype();
   }
 
@@ -174,7 +214,7 @@ const Suggestions = () => {
   "instrument": "wokal"
 }
 ];
-  const currentPersonToShow = localhostSuggestions[currentSuggestionIndex];
+  const currentPersonToShow = localhostSuggestions?.suggestions[currentSuggestionIndex];
   const currentMatchToShow = matchesArray && matchesArray[currentMatchIndex];
 
   const changeMatchIndex = () => {
@@ -254,13 +294,17 @@ const Suggestions = () => {
         </header> */}
         {showSuggestions && <>
           <h1 className="SuggestionsHeader">Sugestie</h1>
+
           {noMorePeopleToShow && <><h3 style={{color: 'white'}}>Nie ma nikogo.<FontAwesomeIcon
           className="IconReloadSuggestions"
           icon={faRedo}
           onClick={getSuggestions}
         /></h3></>}
           {suggestionsArray && suggestionsArray.length > 0 && <div className="Suggestions-container-2">
-            {!noMorePeopleToShow && localhostSuggestions.length > 0 && <h2 className="Suggestions-container-suggestionTitle">{currentPersonToShow?.name} ({currentPersonToShow?.instrument})</h2>}
+            {!noMorePeopleToShow && localhostSuggestions?.suggestions.length > 0 && <h2 className="Suggestions-container-suggestionTitle">{currentPersonToShow?.name} ({currentPersonToShow?.instrument})</h2>}
+            {!noMorePeopleToShow && localhostSuggestions?.suggestions.length > 0 && <div className="Current-suggestion-common">
+              Gram {localhostSuggestions?.genre} w miejscowości {localhostSuggestions.location} {localhostSuggestions?.formoney ? "zarobkowo" : "niezarobkowo"}
+            </div>}
             {/* <ul>
               <li>{currentPersonToShow.name}</li>
               <li>{currentPersonToShow.sex === "K" ? "Kobieta" : "Męzyzna"}</li>
@@ -275,19 +319,19 @@ const Suggestions = () => {
               {/* {showPrevPhotoButton && <button onClick={prevPhoto}>poprzednie zdj</button>} */}
               {/* {showNextPhotoButton && <button onClick={nextPhoto}>następne zdj</button>} */}
             </div>}
-            {!noMorePeopleToShow && localhostSuggestions.length > 0 && <div className="Current-suggestions-swypeIcons" >
+            {!noMorePeopleToShow && localhostSuggestions?.suggestions.length > 0 && <div className="Current-suggestions-swypeIcons" >
               <FontAwesomeIcon className="Icon fa-3x Current-suggestions-swypeIcons-no" icon={faTimesCircle} onClick={swypeNo} />
               <FontAwesomeIcon className="Icon fa-3x Current-suggestions-swypeIcons-yes" icon={faCheckCircle} onClick={swypeYes} />
             </div>}
-            {localhostSuggestions.length == 0 && <h2 style={{color: 'white'}}>Nie ma nikogo więcej :( <span className="IconReloadSuggestions"><FontAwesomeIcon
+            {localhostSuggestions?.suggestions.length == 0 && <h2 style={{color: 'white'}}>Nie ma nikogo więcej :( <span className="IconReloadSuggestions"><FontAwesomeIcon
           className="IconReloadSuggestions"
           icon={faRedo}
           onClick={getSuggestions}
         /></span></h2>}
-            {!noMorePeopleToShow && localhostSuggestions.length > 0 && <div className="Current-suggestion-about">
+            {!noMorePeopleToShow && localhostSuggestions?.suggestions.length > 0 && <div className="Current-suggestion-about">
               {currentPersonToShow?.about}
             </div>}
-            {!noMorePeopleToShow && localhostSuggestions.length > 0 && <div className="Current-suggestion-inspirations">
+            {!noMorePeopleToShow && localhostSuggestions?.suggestions.length > 0 && <div className="Current-suggestion-inspirations">
             Inspiracje: {currentPersonToShow?.inspirations}
             </div>}
           </div>}
@@ -296,14 +340,15 @@ const Suggestions = () => {
           <h1 className="SuggestionsHeader">Dopasowania</h1>
           {!localhostMatches.length > 0 && <h3 style={{color: 'white'}}>Nie ma nikogo.</h3>}
           {matchesArray && matchesArray.length > 0 && <div className="Suggestions-container-2">
-            {localhostSuggestions.length > 0 && <h2 className="Suggestions-container-suggestionTitle">{currentMatchToShow.name} ({currentMatchToShow.instrument})</h2>}
+            {localhostSuggestions?.suggestions.length > 0 && <h2 className="Suggestions-container-suggestionTitle">{currentMatchToShow.name} ({currentMatchToShow.instrument})</h2>}
+            
             {/* <ul>
               <li>{currentPersonToShow.name}</li>
               <li>{currentPersonToShow.sex === "K" ? "Kobieta" : "Męzyzna"}</li>
               <li>Instrument: {currentPersonToShow.instrument}</li>
             </ul> */}
-            {localhostSuggestions.length > 0 && <img className="Current-suggestion" src={currentPhotoIndex === 0 ? currentMatchToShow.image1 : currentMatchToShow.image2} alt="User photo" width="375" height="565"/>}
-            {localhostSuggestions.length > 0 && <div className="Current-suggestions-radio-buttons" onChange={onPhotoChange}>
+            {localhostSuggestions?.suggestions.length > 0 && <img className="Current-suggestion" src={currentPhotoIndex === 0 ? currentMatchToShow.image1 : currentMatchToShow.image2} alt="User photo" width="375" height="565"/>}
+            {localhostSuggestions?.suggestions.length > 0 && <div className="Current-suggestions-radio-buttons" onChange={onPhotoChange}>
               <input type="radio" id="firstPhoto" name="photoRadio" value="firstPhoto"
                 checked={currentPhotoIndex===0}></input>
               <input type="radio" id="secondPhoto" name="photoRadio" value="secondPhoto" checked={currentPhotoIndex===1}

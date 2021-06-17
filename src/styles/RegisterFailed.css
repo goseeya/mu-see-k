@@ -14,7 +14,7 @@
 }
 .RegisterFailed::after {
   content: "";
-  background: url('../resources/unhappy.png');
+  background: url('https://image.shutterstock.com/image-photo/sad-unhappy-face-drawn-on-260nw-1392090419.jpg');
   opacity: 0.5;
   top: 0;
   left: 0;

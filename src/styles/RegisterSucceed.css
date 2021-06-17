@@ -14,7 +14,7 @@
 }
 .RegisterSucceed::after {
   content: "";
-  background: url('../resources/paniPastelowo.jpg');
+  background: url('https://image.shutterstock.com/image-photo/happy-puppy-dog-smiling-on-260nw-1799966587.jpg');
   opacity: 0.5;
   top: 0;
   left: 0;

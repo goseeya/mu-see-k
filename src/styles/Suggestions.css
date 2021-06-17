@@ -171,3 +171,7 @@ body, #root, .App, .Suggestions {
   cursor: pointer;
   margin-left: 10px;
 }
+
+.Current-suggestion-common {
+  margin-bottom: 10px;
+}
