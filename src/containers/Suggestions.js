@@ -48,39 +48,39 @@ const Suggestions = () => {
       }
       setLocalhostSuggestions(response.data)}).catch(err => {
         console.log("lapiemy blad getsuggestions");
-    //     setLocalhostSuggestions({
-    //       "genre": "rock",
-    // "location": "Warszawa",
-    // "formoney": true,
-    // "suggestions": [
-    //       {
-    //           "userId": 3,
-    //           "name": "Lars Ulrich",
-    //           "sex": "M",
-    //           "instrument": "perkusja",
-    //           "about": "For whom the bell tolls?",
-    //           "mp3": "fwtbt.m4a",
-    //           "inspirations": "Judas Priest",
-    //           "image1": "https://cdn.stocksnap.io/img-thumbs/280h/elephant-africa_FRIXWBXJWQ.jpg",
-    //           "image2": "https://cdn.stocksnap.io/img-thumbs/280h/flower-blossom_IQGEGABPYJ.jpg",
-    //           "image3": null,
-    //           "likesMe": false
-    //       },
-    //      {
-    //           "userId": 4,
-    //           "name": "Kirk Hammet",
-    //           "sex": "M",
-    //           "instrument": "gitara",
-    //           "about": "For whom the bell tolls?",
-    //           "mp3": "fwtbt.m4a",
-    //           "inspirations": "Judas Priest",
-    //           "image1": "https://cdn.stocksnap.io/img-thumbs/280h/ice-cream_6PWT2YAFOC.jpg",
-    //           "image2": "https://cdn.stocksnap.io/img-thumbs/280h/deer-animal_BTFGK0CKJD.jpg",
-    //           "image3": null,
-    //           "likesMe": false
-    //       }
-    //   ]})
-      // setShowNoMorePeopleToShow(false);
+        setLocalhostSuggestions({
+          "genre": "rock",
+    "location": "Warszawa",
+    "formoney": true,
+    "suggestions": [
+          {
+              "userId": 3,
+              "name": "Lars Ulrich",
+              "sex": "M",
+              "instrument": "perkusja",
+              "about": "For whom the bell tolls?",
+              "mp3": "fwtbt.m4a",
+              "inspirations": "Judas Priest",
+              "image1": "https://cdn.stocksnap.io/img-thumbs/280h/elephant-africa_FRIXWBXJWQ.jpg",
+              "image2": "https://cdn.stocksnap.io/img-thumbs/280h/flower-blossom_IQGEGABPYJ.jpg",
+              "image3": null,
+              "likesMe": false
+          },
+         {
+              "userId": 4,
+              "name": "Kirk Hammet",
+              "sex": "M",
+              "instrument": "gitara",
+              "about": "For whom the bell tolls?",
+              "mp3": "fwtbt.m4a",
+              "inspirations": "Judas Priest",
+              "image1": "https://cdn.stocksnap.io/img-thumbs/280h/ice-cream_6PWT2YAFOC.jpg",
+              "image2": "https://cdn.stocksnap.io/img-thumbs/280h/deer-animal_BTFGK0CKJD.jpg",
+              "image3": null,
+              "likesMe": false
+          }
+      ]})
+      setShowNoMorePeopleToShow(false);
       console.log(localhostSuggestions?.suggestions);
       console.log(err);
 
@@ -99,7 +99,7 @@ const Suggestions = () => {
   const swypeNo = () => {
 
     axios
-      .post("http://localhost:8080/api/putdecission", {"suggestionId":currentSuggestionIndex,"decission":false}, {
+      .post("http://localhost:8080/api/putdecission", {"suggestionId":localhostSuggestions?.suggestions[currentSuggestionIndex]?.userId,"decission":false}, {
         headers: {
           "Content-Type": "application/json;charset=UTF-8",
           "Access-Control-Allow-Origin": "*",
@@ -122,7 +122,7 @@ const Suggestions = () => {
 
   const swypeYes = () => {
     axios
-      .post("http://localhost:8080/api/putdecission", {"suggestionId":currentSuggestionIndex,"decission":true}, {
+      .post("http://localhost:8080/api/putdecission", {"suggestionId":localhostSuggestions?.suggestions[currentSuggestionIndex]?.userId,"decission":true}, {
         headers: {
           "Content-Type": "application/json;charset=UTF-8",
           "Access-Control-Allow-Origin": "*",
