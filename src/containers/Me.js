@@ -28,6 +28,7 @@ const Me = () => {
 
   const [aboutMeData, setAboutMeData] = useState();
   const [showTheForm, setShowTheForm] = useState(false);
+  const [file, setFile] = useState();
 
   const [imie, setImie] = useState(aboutMeData?.name || "");
   const [telefon, setTelefon] = useState(aboutMeData?.phoneNumber || "");
@@ -77,7 +78,7 @@ instrument: "perkusja",
 forMoney: true,
 description: "For whom the bell tolls?",
 inspirations: "Judas Priest",
-image1: "https://image.shutterstock.com/image-photo/stock-photo-blue-balloon-on-260nw-1600368805.jpg",
+image1: file || "https://image.shutterstock.com/image-photo/stock-photo-blue-balloon-on-260nw-1600368805.jpg",
 image2: "https://image.shutterstock.com/image-photo/stock-photo-blue-balloon-on-260nw-1600368805.jpg",
 image3: null,
 mp3: "fwtbt.m4a",
@@ -106,7 +107,7 @@ searchFor: [
         forMoney: true,
         description: "For whom the bell tolls?",
         inspirations: "Judas Priest",
-        image1: "https://image.shutterstock.com/image-photo/stock-photo-blue-balloon-on-260nw-1600368805.jpg",
+        image1: file || "https://image.shutterstock.com/image-photo/stock-photo-blue-balloon-on-260nw-1600368805.jpg",
         image2: "https://image.shutterstock.com/image-photo/stock-photo-blue-balloon-on-260nw-1600368805.jpg",
         image3: null,
         mp3: "fwtbt.m4a",
@@ -234,7 +235,7 @@ searchFor: [
           forMoney: zaPieniadze,
           description: opis,
           inspirations: inspiracje,
-          image1: adresObrazka,
+          image1: file || adresObrazka,
           image2: adres2Obrazka,
           "image3": null,
           "mp3": "fwtbt.m4a",
@@ -294,6 +295,7 @@ searchFor: [
   console.log(aboutMeData);
 
   const uploadPicture = (e) => {
+    setFile(e.target.files[0]);
     const objectToSend = {
 
       name: imie,
