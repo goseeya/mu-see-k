@@ -66,7 +66,7 @@ const Me = () => {
       })
       .then((response) => {
         setAboutMeData(response.data);
-        setName(response.data.name);
+        setImie(response.data.name);
         setTelefon(response.data.phoneNumber);
         setLokalizacja(response.data.location);
         setPlec(response.data.sex);
