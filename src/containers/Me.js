@@ -2,8 +2,12 @@ import "../styles/Me.css";
 import Header from "./Header";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
+
 
 const Me = () => {
+  let history = useHistory();
+
   const [aboutMeData, setAboutMeData] = useState();
 
   const [imie, setImie] = useState(aboutMeData?.name || "");
@@ -109,9 +113,11 @@ const Me = () => {
       .then(function (response) {
         console.log(response);
         getAboutMe();
+        history.push('/');
       })
       .catch(function (error) {
         console.log(error);
+
       });
   };
   console.log(aboutMeData);
