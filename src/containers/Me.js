@@ -25,10 +25,10 @@ const Me = () => {
   const [adres2Obrazka, setAdres2obrazka] = useState(aboutMeData?.image2 || "");
 
   const [wyborInstrument, setWyborinstrument] = useState(
-    aboutMeData?.searchFor[0].instrument || "gitara"
+    aboutMeData?.searchFor[0]?.instrument || "gitara"
   );
   const [wyborPlec, setWyborplec] = useState(
-    aboutMeData?.searchFor[0].sex || ""
+    aboutMeData?.searchFor[0]?.sex || ""
   );
 
   const [secondPlayerAdded, setSecondPlayerAdded] = useState(
@@ -36,10 +36,10 @@ const Me = () => {
   );
 
   const [wybor2Instrument, setWybor2instrument] = useState(
-    aboutMeData?.searchFor[1].instrument || "gitara"
+    aboutMeData?.searchFor[1]?.instrument || "gitara"
   );
   const [wybor2Plec, setWybor2plec] = useState(
-    aboutMeData?.searchFor[1].sex || ""
+    aboutMeData?.searchFor[1]?.sex || ""
   );
 
   const [thirdPlayerAdded, setThirdPlayerAdded] = useState(
@@ -47,10 +47,10 @@ const Me = () => {
   );
 
   const [wybor3Instrument, setWybor3instrument] = useState(
-    aboutMeData?.searchFor[2].instrument || "gitara"
+    aboutMeData?.searchFor[2]?.instrument || "gitara"
   );
   const [wybor3Plec, setWybor3plec] = useState(
-    aboutMeData?.searchFor[2].sex || ""
+    aboutMeData?.searchFor[2]?.sex || ""
   );
 
   const getAboutMe = () => {
@@ -264,7 +264,7 @@ const Me = () => {
               Pierwszy zawodnik:
               <div style={{ height: "10px" }}></div>
               <div
-                defaultValue={aboutMeData?.searchFor[0].sex || wyborPlec}
+                defaultValue={aboutMeData?.searchFor[0]?.sex || wyborPlec}
                 onChange={(e) => setWyborplec(e.target.value)}
               >
                 Płeć:
@@ -302,7 +302,7 @@ const Me = () => {
                   <div style={{ height: "10px" }}></div> Drugi zawodnik:
                   <div style={{ height: "10px" }}></div>
                   <div
-                    defaultValue={aboutMeData?.searchFor[1].plec || wybor2Plec}
+                    defaultValue={aboutMeData?.searchFor[1]?.plec || wybor2Plec}
                     onChange={(e) => setWybor2plec(e.target.value)}
                   >
                     Płeć:
@@ -342,7 +342,7 @@ const Me = () => {
                   Trzeci zawodnik:
                   <div style={{ height: "10px" }}></div>
                   <div
-                    defaultValue={aboutMeData?.searchFor[2].sex || wybor3Plec}
+                    defaultValue={aboutMeData?.searchFor[2]?.sex || wybor3Plec}
                     onChange={(e) => setWybor3plec(e.target.value)}
                   >
                     Płeć:

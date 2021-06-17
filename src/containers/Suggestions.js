@@ -233,42 +233,42 @@ const Suggestions = () => {
       setLocalhostMatches(response.data.matched)})
       .catch(err => {
         console.log(err);
-        // setLocalhostMatches(
+        setLocalhostMatches(
 
-        //   [{
-        //       "id": 1,
-        //       "name": "Cliff Burton",
-        //       "phone": "804665422",
-        //       "sex": "M",
-        //       "instrument": "bas",
-        //       "genre": "rock",
-        //       "location": "Warszawa",
-        //       "formoney": true,
-        //       "about": "For whom the bell tolls?",
-        //       "inspirations": "Judas Priest",
-        //       "mp3": "fwtbt.m4a",
-        //       "image1": "https://image.shutterstock.com/image-photo/skeptic-sad-border-collie-dog-260nw-1775324372.jpg",
-        //       "image2": "https://image.shutterstock.com/image-photo/skeptic-sad-border-collie-dog-260nw-1775324372.jpg",
-        //       "image3": null
-        //   },
-        //   {
-        //     "id": 2,
-        //     "name": "Cliff2 Burton2",
-        //     "phone": "804665422",
-        //     "sex": "M",
-        //     "instrument": "bas",
-        //     "genre": "rock",
-        //     "location": "Warszawa",
-        //     "formoney": true,
-        //     "about": "For whom the bell tolls?",
-        //     "inspirations": "Judas Priest",
-        //     "mp3": "fwtbt.m4a",
-        //     "image1": "https://image.shutterstock.com/image-photo/happy-birthday-children-girls-confetti-260nw-1297100113.jpg",
-        //     "image2": "https://cdn.stocksnap.io/img-thumbs/280h/wine-toast_11WERM9KQ9.jpg",
-        //     "image3": null
-        // }]
+          [{
+              "id": 1,
+              "name": "Cliff Burton",
+              "phone": "804665422",
+              "sex": "M",
+              "instrument": "bas",
+              "genre": "rock",
+              "location": "Warszawa",
+              "formoney": true,
+              "about": "For whom the bell tolls?",
+              "inspirations": "Judas Priest",
+              "mp3": "fwtbt.m4a",
+              "image1": "https://image.shutterstock.com/image-photo/skeptic-sad-border-collie-dog-260nw-1775324372.jpg",
+              "image2": "https://image.shutterstock.com/image-photo/skeptic-sad-border-collie-dog-260nw-1775324372.jpg",
+              "image3": null
+          },
+          {
+            "id": 2,
+            "name": "Cliff2 Burton2",
+            "phone": "804665422",
+            "sex": "M",
+            "instrument": "bas",
+            "genre": "rock",
+            "location": "Warszawa",
+            "formoney": true,
+            "about": "For whom the bell tolls?",
+            "inspirations": "Judas Priest",
+            "mp3": "fwtbt.m4a",
+            "image1": "https://image.shutterstock.com/image-photo/happy-birthday-children-girls-confetti-260nw-1297100113.jpg",
+            "image2": "https://cdn.stocksnap.io/img-thumbs/280h/wine-toast_11WERM9KQ9.jpg",
+            "image3": null
+        }]
       
-    // );
+    );
       });
   }
   useEffect(() => {
@@ -340,15 +340,15 @@ const Suggestions = () => {
           <h1 className="SuggestionsHeader">Dopasowania</h1>
           {!localhostMatches.length > 0 && <h3 style={{color: 'white'}}>Nie ma nikogo.</h3>}
           {matchesArray && matchesArray.length > 0 && <div className="Suggestions-container-2">
-            {localhostSuggestions?.suggestions.length > 0 && <h2 className="Suggestions-container-suggestionTitle">{currentMatchToShow.name} ({currentMatchToShow.instrument})</h2>}
+            {localhostMatches && localhostMatches.length > 0  && <h2 className="Suggestions-container-suggestionTitle">{currentMatchToShow.name} ({currentMatchToShow.instrument})</h2>}
             
             {/* <ul>
               <li>{currentPersonToShow.name}</li>
               <li>{currentPersonToShow.sex === "K" ? "Kobieta" : "Męzyzna"}</li>
               <li>Instrument: {currentPersonToShow.instrument}</li>
             </ul> */}
-            {localhostSuggestions?.suggestions.length > 0 && <img className="Current-suggestion" src={currentPhotoIndex === 0 ? currentMatchToShow.image1 : currentMatchToShow.image2} alt="User photo" width="375" height="565"/>}
-            {localhostSuggestions?.suggestions.length > 0 && <div className="Current-suggestions-radio-buttons" onChange={onPhotoChange}>
+            {localhostMatches && localhostMatches.length > 0  && <img className="Current-suggestion" src={currentPhotoIndex === 0 ? currentMatchToShow.image1 : currentMatchToShow.image2} alt="User photo" width="375" height="565"/>}
+            {localhostMatches && localhostMatches.length > 0  && <div className="Current-suggestions-radio-buttons" onChange={onPhotoChange}>
               <input type="radio" id="firstPhoto" name="photoRadio" value="firstPhoto"
                 checked={currentPhotoIndex===0}></input>
               <input type="radio" id="secondPhoto" name="photoRadio" value="secondPhoto" checked={currentPhotoIndex===1}
@@ -360,14 +360,14 @@ const Suggestions = () => {
               {(currentMatchIndex > 0) && <FontAwesomeIcon className="Icon fa-3x Current-suggestions-swypeIcons-no" icon={faArrowLeft} onClick={LeftArrowClick} />}
               {(currentMatchIndex < localhostMatches.length - 1) && <FontAwesomeIcon className="Icon fa-3x Current-suggestions-swypeIcons-yes" icon={faArrowRight} onClick={RightArrowClick} />}
             </div>
-            {noMorePeopleToShow && <h2 style={{color: 'white'}}>Nie ma nikogo więcej :(</h2>}
-            {!noMorePeopleToShow && <div className="Current-suggestion-about">
+            {!localhostMatches || !localhostMatches.length > 0 && <h2 style={{color: 'white'}}>Nie ma nikogo więcej :(</h2>}
+            {localhostMatches && localhostMatches.length > 0 && <div className="Current-suggestion-about">
               {currentMatchToShow.about}
             </div>}
-            {!noMorePeopleToShow && <div className="Current-suggestion-inspirations">
+            {localhostMatches && localhostMatches.length > 0  && <div className="Current-suggestion-inspirations">
             Inspiracje: {currentMatchToShow.inspirations}
             </div>}
-            {!noMorePeopleToShow && <div className="Current-suggestion-inspirations">
+            {localhostMatches && localhostMatches.length > 0  && <div className="Current-suggestion-inspirations">
             Tel: {currentMatchToShow.phone}
             </div>}
           </div>}

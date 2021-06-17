@@ -154,6 +154,7 @@ body, #root, .App, .Suggestions {
 
 .showSuggestionsButton {
   margin-bottom: 20px;
+  margin-top: 10px;
 }
 
 .AsideMatchesTitle {
