@@ -214,7 +214,7 @@ const Suggestions = () => {
   "instrument": "wokal"
 }
 ];
-  const currentPersonToShow = localhostSuggestions?.suggestions[currentSuggestionIndex];
+  const currentPersonToShow = localhostSuggestions?.suggestions && localhostSuggestions?.suggestions[currentSuggestionIndex];
   const currentMatchToShow = matchesArray && matchesArray[currentMatchIndex];
 
   const changeMatchIndex = () => {
