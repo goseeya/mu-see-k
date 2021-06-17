@@ -29,26 +29,30 @@ const Me = () => {
   const [aboutMeData, setAboutMeData] = useState();
   const [showTheForm, setShowTheForm] = useState(false);
 
-  const [imie, setImie] = useState("");
-  const [telefon, setTelefon] = useState("");
-  const [lokalizacja, setLokalizacja] = useState("");
-  const [plec, setPlec] = useState("");
-  const [gatunek, setGatunek] = useState("");
-  const [instrument, setInstrument] = useState("");
-  const [zaPieniadze, setZapieniadze] = useState("");
-  const [opis, setOpis] = useState("");
-  const [inspiracje, setInspiracje] = useState("");
-  const [adresObrazka, setAdresobrazka] = useState("");
-  const [adres2Obrazka, setAdres2obrazka] = useState("");
-  const [wyborInstrument, setWyborinstrument] = useState("");
-  const [wyborPlec, setWyborplec] = useState("");
+  const [imie, setImie] = useState(aboutMeData?.name || "");
+  const [telefon, setTelefon] = useState(aboutMeData?.phoneNumber || "");
+  const [lokalizacja, setLokalizacja] = useState(aboutMeData?.location || "");
+  const [plec, setPlec] = useState(aboutMeData?.sex || "");
+  const [gatunek, setGatunek] = useState(aboutMeData?.genre || "");
+  const [instrument, setInstrument] = useState(aboutMeData?.instrument || "");
+  const [zaPieniadze, setZapieniadze] = useState(aboutMeData?.forMoney || false);
+  const [opis, setOpis] = useState(aboutMeData?.description || "");
+  const [inspiracje, setInspiracje] = useState(aboutMeData?.inspirations || "");
+  const [adresObrazka, setAdresobrazka] = useState(aboutMeData?.image1 || "");
+  const [adres2Obrazka, setAdres2obrazka] = useState(aboutMeData?.image2 || "");
 
-  const [secondPlayerAdded, setSecondPlayerAdded] = useState(false);
-  const [wybor2Instrument, setWybor2instrument] = useState("");
-  const [wybor2Plec, setWybor2plec] = useState("");
-  const [thirdPlayerAdded, setThirdPlayerAdded] = useState(false);
-  const [wybor3Instrument, setWybor3instrument] = useState("");
-  const [wybor3Plec, setWybor3plec] = useState("");
+  const [wyborInstrument, setWyborinstrument] = useState(aboutMeData?.searchFor[0].instrument || "");
+  const [wyborPlec, setWyborplec] = useState(aboutMeData?.searchFor[0].sex || "");
+
+  const [secondPlayerAdded, setSecondPlayerAdded] = useState(aboutMeData?.phoneNumber || false);
+
+  const [wybor2Instrument, setWybor2instrument] = useState(aboutMeData?.searchFor[1].instrument || "");
+  const [wybor2Plec, setWybor2plec] = useState(aboutMeData?.searchFor[1].sex || "");
+
+  const [thirdPlayerAdded, setThirdPlayerAdded] = useState(aboutMeData?.phoneNumber || false);
+
+  const [wybor3Instrument, setWybor3instrument] = useState(aboutMeData?.searchFor[2].instrument || "");
+  const [wybor3Plec, setWybor3plec] = useState(aboutMeData?.searchFor[2].sex || "");
 
 
 
@@ -63,6 +67,27 @@ const Me = () => {
       console.log(response);
       if (response.data === null || !response.data.name) {
         setShowTheForm(true);
+        setAboutMeData({
+          name: "Lars Ulrich",
+phoneNumber: "802222422",
+location: "Warszawa",
+sex: "M",
+genre: "rock",
+instrument: "perkusja",
+forMoney: true,
+description: "For whom the bell tolls?",
+inspirations: "Judas Priest",
+image1: "https://image.shutterstock.com/image-photo/stock-photo-blue-balloon-on-260nw-1600368805.jpg",
+image2: "https://image.shutterstock.com/image-photo/stock-photo-blue-balloon-on-260nw-1600368805.jpg",
+image3: null,
+mp3: "fwtbt.m4a",
+searchFor: [
+    {"instrument": "gitara", "sex": "M"},
+    {"instrument": "wokal", "sex": "M"},
+    {"instrument": "bas", "sex": "M"}
+],
+}
+);
       } else {
         setShowTheForm(false);
         setAboutMeData(response.data);
@@ -71,27 +96,27 @@ const Me = () => {
     })
     .catch(function (error) {
       console.log(error);
-      // setAboutMeData({
-      //             name: "Lars Ulrich",
-      //   phoneNumber: "802222422",
-      //   location: "Warszawa",
-      //   sex: "M",
-      //   genre: "rock",
-      //   instrument: "perkusja",
-      //   forMoney: true,
-      //   description: "For whom the bell tolls?",
-      //   inspirations: "Judas Priest",
-      //   image1: "https://image.shutterstock.com/image-photo/stock-photo-blue-balloon-on-260nw-1600368805.jpg",
-      //   image2: "https://image.shutterstock.com/image-photo/stock-photo-blue-balloon-on-260nw-1600368805.jpg",
-      //   image3: null,
-      //   mp3: "fwtbt.m4a",
-      //   searchFor: [
-      //       {"instrument": "gitara", "sex": "M"},
-      //       {"instrument": "wokal", "sex": "M"},
-      //       {"instrument": "bas", "sex": "M"}
-      //   ],
-      //   }
-      //   );
+      setAboutMeData({
+                  name: "Lars Ulrich",
+        phoneNumber: "802222422",
+        location: "Warszawa",
+        sex: "M",
+        genre: "rock",
+        instrument: "perkusja",
+        forMoney: true,
+        description: "For whom the bell tolls?",
+        inspirations: "Judas Priest",
+        image1: "https://image.shutterstock.com/image-photo/stock-photo-blue-balloon-on-260nw-1600368805.jpg",
+        image2: "https://image.shutterstock.com/image-photo/stock-photo-blue-balloon-on-260nw-1600368805.jpg",
+        image3: null,
+        mp3: "fwtbt.m4a",
+        searchFor: [
+            {"instrument": "gitara", "sex": "M"},
+            {"instrument": "wokal", "sex": "M"},
+            {"instrument": "bas", "sex": "M"}
+        ],
+        }
+        );
       setShowTheForm(true);
       console.log(showTheForm);
     });
@@ -263,9 +288,56 @@ const Me = () => {
     })
     .catch(function (error) {
       console.log(error);
-      showTheForm = true;
+      setShowTheForm(true);
     });
   }
+  console.log(aboutMeData);
+
+  const uploadPicture = (e) => {
+    const objectToSend = {
+
+      name: imie,
+      phoneNumber: telefon,
+      location: lokalizacja,
+      sex: plec,
+      genre: gatunek,
+      instrument: instrument,
+      forMoney: zaPieniadze,
+      description: opis,
+      inspirations: inspiracje,
+      image1: e.target.files[0],
+      image2: adres2Obrazka,
+      "image3": null,
+      "mp3": "fwtbt.m4a",
+      searchFor: [
+          {instrument: wyborInstrument, sex: wyborPlec},
+          {instrument: wybor2Instrument, sex: wybor2Plec},
+          {instrument: wybor3Instrument, sex: wybor3Plec}
+      ]
+  };
+
+
+
+
+axios.post('http://localhost:8080/api/putaboutme', 
+// moczek
+
+objectToSend
+
+
+
+
+)
+
+    // this.setState({
+    //     /* contains the preview, if you want to show the picture to the user
+    //        you can access it with this.state.currentPicture
+    //    */
+    //     picturePreview : URL.createObjectURL(e.target.files[0]),
+    //     /* this contains the file we want to send */
+    //     pictureAsFile : e.target.files[0]
+    // })
+};
     return (
       <div className="Me">
         <Header className="MeHeader" />
@@ -275,25 +347,18 @@ const Me = () => {
         <> {aboutMeData && (<><div className ="myPictures">
           <img src={aboutMeData.image1} className="myPicture" />
           <img src={aboutMeData.image2} className="myPicture" />
-        </div>
-        <p>{aboutMeData.name}</p>
-          <div>
-           {aboutMeData.about}
-          </div>
-          <p>Inspiracje: </p>
-            {aboutMeData && aboutMeData.inspirations && <p>{aboutMeData.inspirations}</p>}
-          <p>Instrument: </p><p>{aboutMeData.instrument}</p></>)}</>
+        </div></>)}</>
 
 {/* GG{JSON.stringify(showTheForm)}GG */}
 
           {showTheForm && <>
-          <p>Wypełnij formularz "O mnie"</p>
+          <p>{aboutMeData ? "Edytuj" : "Wypełnij"} formularz "O mnie"</p>
           <form onSubmit={submitAboutMe} className="Login-form-me">
       <label>
         Login:
         <input
           type="text"
-          value={imie}
+          defaultValue={aboutMeData?.name || ""}
           onChange={e => setImie(e.target.value)}
         />
       </label>
@@ -301,20 +366,29 @@ const Me = () => {
         Numer telefonu:
         <input
           type="text"
-          value={telefon}
+          defaultValue={aboutMeData?.phoneNumber || telefon}
           onChange={e => setTelefon(e.target.value)}
         />
       </label>
+
       <label>
-        Miejsce prób:
-        <input
-          type="text"
-          value={lokalizacja}
-          onChange={e => setLokalizacja(e.target.value)}
-        />
-      </label>
+       Miejsce prób:
+          <select defaultValue={aboutMeData?.location || lokalizacja} onChange={e => setLokalizacja(e.target.value)}>
+            <option value="warszawa">Warszawa</option>
+            <option value="piaseczno">Piaseczno</option>
+            <option value="lublin">Lublin</option>
+            <option value="kielce">Kielce</option>
+            <option value="radom">Radom</option>
+            <option value="olsztyn">Olsztyn</option>
+          </select>
+        </label>
+
+
+
+
+
             Moja płeć
-      <div onChange={e => setPlec(e.target.value)}>
+      <div defaultValue={aboutMeData?.sex || plec} onChange={e => setPlec(e.target.value)}>
             <input
               type="radio"
               value="K"
@@ -339,7 +413,7 @@ const Me = () => {
         Opis:
         <textarea
           placeholder="Kilka słów o mnie"
-          value={opis}
+          defaultValue={aboutMeData?.description || opis}
           onChange={e => setOpis(e.target.value)}
         />
       </label>
@@ -347,7 +421,7 @@ const Me = () => {
 
       <label>
           Gatunek muzyczny, jaki chcę uprawiać:
-          <select value={gatunek} onChange={e => setGatunek(e.target.value)}>
+          <select defaultValue={aboutMeData?.genre || gatunek} onChange={e => setGatunek(e.target.value)}>
             <option value="rock">Rock</option>
             <option value="pop">Pop</option>
             <option value="hipHip">Hip-hop</option>
@@ -357,7 +431,7 @@ const Me = () => {
 
         <label>
           Mój instrument to:
-          <select value={instrument} onChange={e => setInstrument(e.target.value)}>
+          <select defaultValue={aboutMeData?.instrument || instrument} onChange={e => setInstrument(e.target.value)}>
             <option value="gitara">Gitara</option>
             <option value="bas">Bas</option>
             <option value="wokal">Wokal</option>
@@ -368,7 +442,7 @@ const Me = () => {
 
 
         Chcę grać dla
-      <div onChange={e => setZapieniadze(e.target.value)}>
+      <div defaultValue={aboutMeData?.forMoney || zaPieniadze} onChange={e => setZapieniadze(e.target.value)}>
             <input
               type="radio"
               value="true"
@@ -387,7 +461,7 @@ const Me = () => {
         Inspiracje:
         <input
           type="text"
-          value={inspiracje}
+          defaultValue={aboutMeData?.inspiracje || inspiracje}
           onChange={e => setInspiracje(e.target.value)}
         />
       </label>
@@ -395,7 +469,7 @@ const Me = () => {
         Adres pierwszego obrazka:
         <input
           type="text"
-          value={adresObrazka}
+          defaultValue={aboutMeData?.image1 || adresObrazka}
           onChange={e => setAdresobrazka(e.target.value)}
         />
       </label>
@@ -403,9 +477,14 @@ const Me = () => {
         Adres drugiego obrazka:
         <input
           type="text"
-          value={adres2Obrazka}
+          defaultValue={aboutMeData?.image2 || adres2Obrazka}
           onChange={e => setAdres2obrazka(e.target.value)}
         />
+      </label>
+      <label>
+        Wklej obrazek:
+        <input type="file" name="image" onChange={uploadPicture}/>
+
       </label>
       {/* <label>
         Nagranie:
@@ -419,7 +498,7 @@ const Me = () => {
 
         Pierwszy zawodnik:
         Płeć:
-        <div onChange={e => setWyborplec(e.target.value)}>
+        <div defaultValue={aboutMeData?.searchFor[0].sex || wyborPlec} onChange={e => setWyborplec(e.target.value)}>
             <input
               type="radio"
               value="K"
@@ -441,7 +520,7 @@ const Me = () => {
         </div>
         <label>
           Instrument:
-          <select value={wyborInstrument} onChange={e => setWyborinstrument(e.target.value)}>
+          <select defaultValue={aboutMeData?.searchFor[0].instrument || wyborInstrument} onChange={e => setWyborinstrument(e.target.value)}>
             <option value="gitara">Gitara</option>
             <option value="bas">Bas</option>
             <option value="wokal">Wokal</option>
@@ -453,7 +532,7 @@ const Me = () => {
         {secondPlayerAdded && <>
           Drugi zawodnik:
         Płeć:
-        <div onChange={e => setWybor2plec(e.target.value)}>
+        <div defaultValue={aboutMeData?.searchFor[1].plec || wybor2Plec} onChange={e => setWybor2plec(e.target.value)}>
             <input
               type="radio"
               value="K"
@@ -475,7 +554,7 @@ const Me = () => {
         </div>
         <label>
           Instrument:
-          <select value={wybor2Instrument} onChange={e => setWybor2instrument(e.target.value)}>
+          <select defaultValue={aboutMeData?.searchFor[1].instrument || wybor2Instrument} onChange={e => setWybor2instrument(e.target.value)}>
             <option value="gitara">Gitara</option>
             <option value="bas">Bas</option>
             <option value="wokal">Wokal</option>
@@ -487,7 +566,7 @@ const Me = () => {
         {thirdPlayerAdded && <>
           Trzeci zawodnik:
         Płeć:
-        <div onChange={e => setWybor3plec(e.target.value)}>
+        <div defaultValue={aboutMeData?.searchFor[2].sex || wybor3Plec} onChange={e => setWybor3plec(e.target.value)}>
             <input
               type="radio"
               value="K"
@@ -509,7 +588,7 @@ const Me = () => {
         </div>
         <label>
           Instrument:
-          <select value={wybor3Instrument} onChange={e => setWybor3instrument(e.target.value)}>
+          <select defaultValue={aboutMeData?.searchFor[2].instrument || wybor3Instrument} onChange={e => setWybor3instrument(e.target.value)}>
             <option value="gitara">Gitara</option>
             <option value="bas">Bas</option>
             <option value="wokal">Wokal</option>

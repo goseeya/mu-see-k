@@ -34,6 +34,10 @@ const Suggestions = () => {
     setCurrentPhotoIndex(0);
   }
 
+  const getSuggestions = () => {
+    
+  }
+
   let [localhostSuggestions, setLocalhostSuggestions] = useState([]);
   let [localhostMatches, setLocalhostMatches] = useState([]);
   const matchesArray = localhostMatches;
@@ -226,7 +230,7 @@ const Suggestions = () => {
               <FontAwesomeIcon className="Icon fa-3x Current-suggestions-swypeIcons-no" icon={faTimesCircle} onClick={swypeNo} />
               <FontAwesomeIcon className="Icon fa-3x Current-suggestions-swypeIcons-yes" icon={faCheckCircle} onClick={swypeYes} />
             </div>}
-            {noMorePeopleToShow && <h2 style={{color: 'white'}}>Nie ma nikogo więcej :(</h2>}
+            {noMorePeopleToShow && <h2 style={{color: 'white'}}>Nie ma nikogo więcej :( <button onClick={getSuggestions}>Odswiez</button></h2>}
             {!noMorePeopleToShow && <div className="Current-suggestion-about">
               {currentPersonToShow.about}
             </div>}
