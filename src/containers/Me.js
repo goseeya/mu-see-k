@@ -10,12 +10,12 @@ const Me = () => {
 
   const [aboutMeData, setAboutMeData] = useState();
 
-  const [imie, setImie] = useState(aboutMeData?.name || "");
-  const [telefon, setTelefon] = useState(aboutMeData?.phoneNumber || "");
+  const [imie, setImie] = useState();
+  const [telefon, setTelefon] = useState();
   const [lokalizacja, setLokalizacja] = useState(
     aboutMeData?.location || "warszawa"
   );
-  const [plec, setPlec] = useState(aboutMeData?.sex || "");
+  const [plec, setPlec] = useState();
   const [gatunek, setGatunek] = useState(aboutMeData?.genre || "rock");
   const [instrument, setInstrument] = useState(
     aboutMeData?.instrument || "gitara"
@@ -23,8 +23,8 @@ const Me = () => {
   const [zaPieniadze, setZapieniadze] = useState(
     aboutMeData?.forMoney || false
   );
-  const [opis, setOpis] = useState(aboutMeData?.description || "");
-  const [inspiracje, setInspiracje] = useState(aboutMeData?.inspirations || "");
+  const [opis, setOpis] = useState();
+  const [inspiracje, setInspiracje] = useState();
   const [adresObrazka, setAdresobrazka] = useState(aboutMeData?.image1 || "");
   const [adres2Obrazka, setAdres2obrazka] = useState(aboutMeData?.image2 || "");
 
@@ -122,11 +122,11 @@ const Me = () => {
   };
   console.log(aboutMeData);
 
-  const formValid = imie.length <= 20 && telefon.length <= 12 && opis.length <= 600 && inspiracje.length <= 100 && imie && telefon && lokalizacja && plec && opis && gatunek && instrument && zaPieniadze && inspiracje && adresObrazka && adres2Obrazka && wyborInstrument && wyborPlec;
+  const formValid = imie && imie?.length <= 20 && telefon && telefon?.length <= 12 && opis && opis?.length <= 600 && inspiracje && inspiracje?.length <= 100 && imie && telefon && lokalizacja && plec && opis && gatunek && instrument && zaPieniadze && inspiracje && adresObrazka && adres2Obrazka && wyborInstrument && wyborPlec;
   console.log(formValid);
-  console.log(imie.length <= 20);
-  console.log(telefon.length <= 12);
-  console.log(inspiracje.length <= 100);
+  // console.log(imie.length <= 20);
+  // console.log(telefon.length <= 12);
+  // console.log(inspiracje.length <= 100);
   console.log(imie); //
   console.log(telefon); //
   console.log(lokalizacja);
@@ -164,19 +164,19 @@ const Me = () => {
               Login:
               <input
                 type="text"
-                defaultValue={imie}
+                defaultValue={aboutMeData?.name || imie}
                 onChange={(e) => setImie(e.target.value)}
               />
-              {imie.length > 20 && <div className="Validation">Maksymalna liczba znaków to 20.</div>}
+              {imie?.length > 20 && <div className="Validation">Maksymalna liczba znaków to 20.</div>}
             </label>
             <label>
               Numer telefonu:
               <input
                 type="text"
-                defaultValue={telefon}
+                defaultValue={aboutMeData?.phoneNumber || telefon}
                 onChange={(e) => setTelefon(e.target.value)}
               />
-              {telefon.length > 12 && <div className="Validation">Maksymalna liczba znaków to 12.</div>}
+              {telefon?.length > 12 && <div className="Validation">Maksymalna liczba znaków to 12.</div>}
             </label>
             <label>
               Miejsce prób:
@@ -211,10 +211,10 @@ const Me = () => {
               Opis:
               <textarea
                 placeholder="Kilka słów o mnie"
-                defaultValue={opis}
+                defaultValue={aboutMeData?.description || opis}
                 onChange={(e) => setOpis(e.target.value)}
               />
-              {opis.length > 600 && <div className="Validation">Maksymalna liczba znaków to 600.</div>}
+              {opis?.length > 600 && <div className="Validation">Maksymalna liczba znaków to 600.</div>}
 
             </label>
             <label>
@@ -262,14 +262,14 @@ const Me = () => {
                 defaultValue={aboutMeData?.inspiracje || inspiracje}
                 onChange={(e) => setInspiracje(e.target.value)}
               />
-              {inspiracje.length > 100 && <div className="Validation">Maksymalna liczba znaków to 100.</div>}
+              {inspiracje?.length > 100 && <div className="Validation">Maksymalna liczba znaków to 100.</div>}
 
             </label>
             <label>
               Adres pierwszego obrazka:
               <input
                 type="text"
-                defaultValue={adresObrazka}
+                defaultValue={aboutMeData?.image1 || adresObrazka}
                 onChange={(e) => setAdresobrazka(e.target.value)}
               />
             </label>
@@ -277,7 +277,7 @@ const Me = () => {
               Adres drugiego obrazka:
               <input
                 type="text"
-                defaultValue={adres2Obrazka}
+                defaultValue={aboutMeData?.image2 || adres2Obrazka}
                 onChange={(e) => setAdres2obrazka(e.target.value)}
               />
             </label>
