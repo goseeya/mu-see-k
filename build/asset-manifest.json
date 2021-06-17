@@ -1,27 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.6483201f.chunk.css",
-    "main.js": "/static/js/main.bc72d685.chunk.js",
-    "main.js.map": "/static/js/main.bc72d685.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.8002a344.js",
-    "runtime-main.js.map": "/static/js/runtime-main.8002a344.js.map",
-    "static/js/2.0f039144.chunk.js": "/static/js/2.0f039144.chunk.js",
-    "static/js/2.0f039144.chunk.js.map": "/static/js/2.0f039144.chunk.js.map",
-    "static/js/3.d00ef996.chunk.js": "/static/js/3.d00ef996.chunk.js",
-    "static/js/3.d00ef996.chunk.js.map": "/static/js/3.d00ef996.chunk.js.map",
+    "main.css": "/static/css/main.12dbe860.chunk.css",
+    "main.js": "/static/js/main.247f7149.chunk.js",
+    "main.js.map": "/static/js/main.247f7149.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.d5a51c55.js",
+    "runtime-main.js.map": "/static/js/runtime-main.d5a51c55.js.map",
+    "static/js/2.120244ba.chunk.js": "/static/js/2.120244ba.chunk.js",
+    "static/js/2.120244ba.chunk.js.map": "/static/js/2.120244ba.chunk.js.map",
+    "static/js/3.b19151c5.chunk.js": "/static/js/3.b19151c5.chunk.js",
+    "static/js/3.b19151c5.chunk.js.map": "/static/js/3.b19151c5.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.6483201f.chunk.css.map": "/static/css/main.6483201f.chunk.css.map",
-    "static/js/2.0f039144.chunk.js.LICENSE.txt": "/static/js/2.0f039144.chunk.js.LICENSE.txt",
+    "static/css/main.12dbe860.chunk.css.map": "/static/css/main.12dbe860.chunk.css.map",
+    "static/js/2.120244ba.chunk.js.LICENSE.txt": "/static/js/2.120244ba.chunk.js.LICENSE.txt",
     "static/media/Welcome.css": "/static/media/dredziarz.ca5b9eea.jpg",
-    "static/media/Me.css": "/static/media/koncert.279d52b7.jpg",
-    "static/media/RegisterSucceed.css": "/static/media/paniPastelowo.fd073679.jpg",
-    "static/media/RegisterFailed.css": "/static/media/unhappy.55baccfb.png",
-    "static/media/Register.css": "/static/media/vintage.f16931e9.jpg"
+    "static/media/Me.css": "/static/media/koncert.279d52b7.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.8002a344.js",
-    "static/js/2.0f039144.chunk.js",
-    "static/css/main.6483201f.chunk.css",
-    "static/js/main.bc72d685.chunk.js"
+    "static/js/runtime-main.d5a51c55.js",
+    "static/js/2.120244ba.chunk.js",
+    "static/css/main.12dbe860.chunk.css",
+    "static/js/main.247f7149.chunk.js"
   ]
 }

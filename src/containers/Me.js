@@ -212,11 +212,11 @@ const Me = () => {
               <div
                 onChange={(e) => setPlec(e.target.value)}
               >
-                <input type="radio" value="K" name="plec" selected={aboutMeData?.sex && aboutMeData?.sex === "K"} />
+                <input type="radio" value="K" name="plec" selected={aboutMeData?.sex && aboutMeData?.sex == "K"} />
                 Kobieta
-                <input type="radio" value="M" name="plec" selected={aboutMeData?.sex && aboutMeData?.sex === "M"} />
+                <input type="radio" value="M" name="plec" selected={aboutMeData?.sex && aboutMeData?.sex == "M"} />
                 Męczyzna
-                <input type="radio" value="N" name="plec" selected={aboutMeData?.sex && aboutMeData?.sex === "N"} />
+                <input type="radio" value="N" name="plec" selected={aboutMeData?.sex && aboutMeData?.sex == "N"} />
                 Niebinarna
               </div>
             </span>
@@ -263,7 +263,7 @@ const Me = () => {
               >
                 <input type="radio" value="true" name="zaPieniadze" selected={aboutMeData?.forMoney} />
                 Dla kasy
-                <input type="radio" value="false" name="zaPieniadza" select={!aboutMeData?.forMoney} />
+                <input type="radio" value="false" name="zaPieniadza" selected={!aboutMeData?.forMoney} />
                 Dla fun-u!
               </div>
             </span>
