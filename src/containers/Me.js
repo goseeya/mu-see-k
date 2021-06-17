@@ -68,7 +68,7 @@ const Me = () => {
         setAboutMeData(response.data);
         setImie(response.data.name);
         setTelefon(response.data.phoneNumber);
-        setLokalizacja(response.data.location);
+        // setLokalizacja(response.data.location);
         setPlec(response.data.sex);
         // setGatunek(response.data.genre);
         setOpis(response.data.description);
@@ -160,7 +160,7 @@ const Me = () => {
       <Header className="MeHeader" />
       <header className="Me-header">Mój profil</header>
       <>
-        {aboutMeData && (
+        {(aboutMeData && aboutMeData?.name ) && (
           <>
             <div className="myPictures">
               <img src={aboutMeData.image1} className="myPicture" />
@@ -172,7 +172,7 @@ const Me = () => {
 
       {
         <>
-          <p>{aboutMeData ? "Edytuj" : "Wypełnij"} formularz "O mnie"</p>
+          <p>{(aboutMeData && aboutMeData?.name ) ? "Edytuj" : "Wypełnij"} formularz "O mnie"</p>
           <form onSubmit={submitAboutMe} className="Login-form-me">
             <label>
               Login:
