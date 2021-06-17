@@ -12,6 +12,11 @@ const AsideMatches = ({ matches, history, refresh }) => {
     window.location.href = "http://localhost:8080/logout";
   };
 
+  console.log(matches);
+  console.log(matches.length);
+
+  const showNoMatches = !matches || !(matches.length > 0);
+
   return (
     <div className="AsideMatches">
       <header className="AsideMatches AsideMatches-header">
@@ -40,7 +45,7 @@ const AsideMatches = ({ matches, history, refresh }) => {
               className={classNames("Suggestions-liked-image")}
             />
           ))}
-          {!matches && <p className="BrakDopasowan">Brak dopasowań, ale nie trać nadziei :)</p>}
+          {showNoMatches && <p className="BrakDopasowan">Brak dopasowań, ale nie trać nadziei :)</p>}
       </div>
     </div>
   );
