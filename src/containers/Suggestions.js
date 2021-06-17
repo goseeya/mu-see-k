@@ -43,7 +43,7 @@ const Suggestions = () => {
     })
     .then(response => {
       console.log(response);
-      if(response.data.suggestions.length > 0) {
+      if(response?.data?.suggestions?.length > 0) {
         setShowNoMorePeopleToShow(false);
       }
       setLocalhostSuggestions(response.data)}).catch(err => {
