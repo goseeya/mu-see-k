@@ -210,14 +210,13 @@ const Me = () => {
             <span className="label">
               Moja płeć
               <div
-                defaultValue={aboutMeData?.sex || plec || "K"}
                 onChange={(e) => setPlec(e.target.value)}
               >
-                <input type="radio" value="K" name="plec" />
+                <input type="radio" value="K" name="plec" selected={aboutMeData?.sex && aboutMeData?.sex === "K"} />
                 Kobieta
-                <input type="radio" value="M" name="plec" />
+                <input type="radio" value="M" name="plec" selected={aboutMeData?.sex && aboutMeData?.sex === "M"} />
                 Męczyzna
-                <input type="radio" value="N" name="plec" />
+                <input type="radio" value="N" name="plec" selected={aboutMeData?.sex && aboutMeData?.sex === "N"} />
                 Niebinarna
               </div>
             </span>
@@ -260,12 +259,11 @@ const Me = () => {
             <span className="label">
               Chcę grać dla
               <div
-                defaultValue={aboutMeData?.forMoney || zaPieniadze}
                 onChange={(e) => setZapieniadze(e.target.value)}
               >
-                <input type="radio" value="true" name="zaPieniadze" selected />
+                <input type="radio" value="true" name="zaPieniadze" selected={aboutMeData?.forMoney} />
                 Dla kasy
-                <input type="radio" value="false" name="zaPieniadza" />
+                <input type="radio" value="false" name="zaPieniadza" select={!aboutMeData?.forMoney} />
                 Dla fun-u!
               </div>
             </span>
@@ -300,15 +298,14 @@ const Me = () => {
               Pierwszy zawodnik:
               <div style={{ height: "10px" }}></div>
               <div
-                defaultValue={aboutMeData?.searchFor[0]?.sex || wyborPlec}
                 onChange={(e) => setWyborplec(e.target.value)}
               >
                 Płeć:
-                <input type="radio" value="K" name="wyborPlec" selected />
+                <input type="radio" value="K" name="wyborPlec" selected={aboutMeData?.searchFor[0]?.sex && aboutMeData?.searchFor[0]?.sex === "K"} />
                 Kobieta
-                <input type="radio" value="M" name="wyborPlec" />
+                <input type="radio" value="M" name="wyborPlec" selected={aboutMeData?.searchFor[0]?.sex && aboutMeData?.searchFor[0]?.sex === "M"} />
                 Męczyzna
-                <input type="radio" value="N" name="wyborPlec" />
+                <input type="radio" value="N" name="wyborPlec" selected={aboutMeData?.searchFor[0]?.sex && aboutMeData?.searchFor[0]?.sex === "N"} />
                 Niebinarna
               </div>
             </span>
