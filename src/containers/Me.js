@@ -263,7 +263,7 @@ const Me = () => {
               >
                 <input type="radio" value="true" name="zaPieniadze" defaultChecked={aboutMeData && aboutMeData?.forMoney == true} />
                 Dla kasy
-                <input type="radio" value="false" name="zaPieniadze" defaultChecked={aboutMeData && aboutMeData?.forMoney == false} />
+                <input type="radio" value="false" name="zaPieniadze" defaultChecked={aboutMeData && aboutMeData?.name && aboutMeData?.forMoney == false} />
                 Dla fun-u!
               </div>
             </span>
