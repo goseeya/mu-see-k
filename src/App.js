@@ -13,7 +13,7 @@ import RegisterSucceed from './containers/RegisterSucceed';
 import Suggestions from './containers/Suggestions';
 import Register from './containers/Register';
 import RegisterFailed from './containers/RegisterFailed';
-import Matches from './containers/Matches';
+// import Matches from './containers/Matches';
 import Me from './containers/Me';
 // import Login from './containers/Login';
 
@@ -80,9 +80,6 @@ function App() {
           </Route>
           <Route path="/registerFailed">
             <RegisterFailed />
-          </Route>
-          <Route path="/matches">
-            <Matches />
           </Route>
           <Route path="/me">
             <Me />

@@ -6,13 +6,13 @@
     font-size: calc(10px + 2vmin);
     background-repeat: no-repeat;
     background-size: cover;
-    color: black;
+    color: darkblue;
 }
 
 .Me::after {
     content: "";
-    background: url('../resources/kaseta.jpg');
-    opacity: 0.5;
+    background: url('https://cdn.stocksnap.io/img-thumbs/960w/woman-headphones_NOLZXJLYKF.jpg');
+    opacity: 0.2;
     top: 0;
     left: 0;
     bottom: 0;
@@ -24,7 +24,7 @@
     min-height: 100%;
     display: block;
     overflow: auto;
-    height: 1000px;
+    height: 1500px;
 }
 
 .Me-form {
@@ -114,6 +114,25 @@
     display: flex;
     color: rgb(13, 17, 126);
     /* display: contents !important; */
-    align-items: center;
+    align-items: left;
     flex-direction: column;
   }
+
+  label, .label {
+      margin: 10px;
+  }
+
+  html, body {
+    height:100%;
+} 
+body {
+    background-color: white;
+    /* background-image: url('http://www.canvaz.com/portrait/charcoal-1.jpg'); */
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: left top;
+}
+
+.SaveButton {
+    margin-bottom: 20px;
+}

@@ -47,14 +47,14 @@ const Register = () => {
   }
 
     return (
-      <div className="Register">
+      <div className="Register RegisterContainer">
         <header className="RegisterHeader">
         <FontAwesomeIcon className="Icon IconLeft" icon={faArrowLeft} onClick={goBack} />
         </header>
         {!registerSucceed && (<><h1 className="Register-header">
           Zarejestruj się w MuSeeK!
         </h1>
-        <form onSubmit={handleSubmit} className="Login-form">
+        <form onSubmit={handleSubmit} className="RegisterContainer">
       <label>
         E-mail:
         <input

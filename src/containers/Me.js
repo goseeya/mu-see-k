@@ -1,303 +1,82 @@
-import '../styles/Me.css';
-import Header from './Header';
-import axios from 'axios';
-import { useState, useEffect } from 'react'; 
-
-// const aboutMeMock = {
-
-// "name": "Marlena Wytrych",
-//     "sex": "K",
-//     "about": "Urodziłam się po to, aby grać. Mówisz wiesz że będziesz cierpiała i przeklinała cały świat - urodziłam się po to aby grać.",
-//     "mp3": "src/FG654DE08GF48FG.mp3",
-//     "inspirations": [
-//         "Starchursky",
-//         "Elvis",
-//         "Sedaka",
-//         "Speedy Gonzales",
-//         "albo Diana"
-//     ],
-//     "image1": "https://cdn.stocksnap.io/img-thumbs/280h/V2TT0P34KE.jpg",
-//     "image2": "https://cdn.stocksnap.io/img-thumbs/280h/QON4ARVTSC.jpg",
-//     "instrument": "wokal"
-//   };
-
-
-
+import "../styles/Me.css";
+import Header from "./Header";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 const Me = () => {
-
   const [aboutMeData, setAboutMeData] = useState();
-  const [showTheForm, setShowTheForm] = useState(false);
-  const [file, setFile] = useState();
 
   const [imie, setImie] = useState(aboutMeData?.name || "");
   const [telefon, setTelefon] = useState(aboutMeData?.phoneNumber || "");
-  const [lokalizacja, setLokalizacja] = useState(aboutMeData?.location || "");
+  const [lokalizacja, setLokalizacja] = useState(
+    aboutMeData?.location || "warszawa"
+  );
   const [plec, setPlec] = useState(aboutMeData?.sex || "");
-  const [gatunek, setGatunek] = useState(aboutMeData?.genre || "");
-  const [instrument, setInstrument] = useState(aboutMeData?.instrument || "");
-  const [zaPieniadze, setZapieniadze] = useState(aboutMeData?.forMoney || false);
+  const [gatunek, setGatunek] = useState(aboutMeData?.genre || "rock");
+  const [instrument, setInstrument] = useState(
+    aboutMeData?.instrument || "gitara"
+  );
+  const [zaPieniadze, setZapieniadze] = useState(
+    aboutMeData?.forMoney || false
+  );
   const [opis, setOpis] = useState(aboutMeData?.description || "");
   const [inspiracje, setInspiracje] = useState(aboutMeData?.inspirations || "");
   const [adresObrazka, setAdresobrazka] = useState(aboutMeData?.image1 || "");
   const [adres2Obrazka, setAdres2obrazka] = useState(aboutMeData?.image2 || "");
 
-  const [wyborInstrument, setWyborinstrument] = useState(aboutMeData?.searchFor[0].instrument || "");
-  const [wyborPlec, setWyborplec] = useState(aboutMeData?.searchFor[0].sex || "");
+  const [wyborInstrument, setWyborinstrument] = useState(
+    aboutMeData?.searchFor[0].instrument || "gitara"
+  );
+  const [wyborPlec, setWyborplec] = useState(
+    aboutMeData?.searchFor[0].sex || ""
+  );
 
-  const [secondPlayerAdded, setSecondPlayerAdded] = useState(aboutMeData?.phoneNumber || false);
+  const [secondPlayerAdded, setSecondPlayerAdded] = useState(
+    aboutMeData?.phoneNumber || false
+  );
 
-  const [wybor2Instrument, setWybor2instrument] = useState(aboutMeData?.searchFor[1].instrument || "");
-  const [wybor2Plec, setWybor2plec] = useState(aboutMeData?.searchFor[1].sex || "");
+  const [wybor2Instrument, setWybor2instrument] = useState(
+    aboutMeData?.searchFor[1].instrument || "gitara"
+  );
+  const [wybor2Plec, setWybor2plec] = useState(
+    aboutMeData?.searchFor[1].sex || ""
+  );
 
-  const [thirdPlayerAdded, setThirdPlayerAdded] = useState(aboutMeData?.phoneNumber || false);
+  const [thirdPlayerAdded, setThirdPlayerAdded] = useState(
+    aboutMeData?.phoneNumber || false
+  );
 
-  const [wybor3Instrument, setWybor3instrument] = useState(aboutMeData?.searchFor[2].instrument || "");
-  const [wybor3Plec, setWybor3plec] = useState(aboutMeData?.searchFor[2].sex || "");
-
-
+  const [wybor3Instrument, setWybor3instrument] = useState(
+    aboutMeData?.searchFor[2].instrument || "gitara"
+  );
+  const [wybor3Plec, setWybor3plec] = useState(
+    aboutMeData?.searchFor[2].sex || ""
+  );
 
   const getAboutMe = () => {
     axios
-    .post("http://localhost:8080/api/getaboutme", {
-      headers: {
-        'Access-Control-Allow-Origin': true,
-      }
-    })
-    .then(response => {
-      console.log(response);
-      if (response.data === null || !response.data.name) {
-        setShowTheForm(true);
-        setAboutMeData({
-          name: "Lars Ulrich",
-phoneNumber: "802222422",
-location: "Warszawa",
-sex: "M",
-genre: "rock",
-instrument: "perkusja",
-forMoney: true,
-description: "For whom the bell tolls?",
-inspirations: "Judas Priest",
-image1: file || "https://image.shutterstock.com/image-photo/stock-photo-blue-balloon-on-260nw-1600368805.jpg",
-image2: "https://image.shutterstock.com/image-photo/stock-photo-blue-balloon-on-260nw-1600368805.jpg",
-image3: null,
-mp3: "fwtbt.m4a",
-searchFor: [
-    {"instrument": "gitara", "sex": "M"},
-    {"instrument": "wokal", "sex": "M"},
-    {"instrument": "bas", "sex": "M"}
-],
-}
-);
-      } else {
-        setShowTheForm(false);
+      .post("http://localhost:8080/api/getaboutme", {
+        headers: {
+          "Access-Control-Allow-Origin": true,
+        },
+      })
+      .then((response) => {
         setAboutMeData(response.data);
-      }
-      
-    })
-    .catch(function (error) {
-      console.log(error);
-      setAboutMeData({
-                  name: "Lars Ulrich",
-        phoneNumber: "802222422",
-        location: "Warszawa",
-        sex: "M",
-        genre: "rock",
-        instrument: "perkusja",
-        forMoney: true,
-        description: "For whom the bell tolls?",
-        inspirations: "Judas Priest",
-        image1: file || "https://image.shutterstock.com/image-photo/stock-photo-blue-balloon-on-260nw-1600368805.jpg",
-        image2: "https://image.shutterstock.com/image-photo/stock-photo-blue-balloon-on-260nw-1600368805.jpg",
-        image3: null,
-        mp3: "fwtbt.m4a",
-        searchFor: [
-            {"instrument": "gitara", "sex": "M"},
-            {"instrument": "wokal", "sex": "M"},
-            {"instrument": "bas", "sex": "M"}
-        ],
-        }
-        );
-      setShowTheForm(true);
-      console.log(showTheForm);
-    });
-  }
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
 
   useEffect(() => {
-
-   getAboutMe();
+    getAboutMe();
   }, []);
 
   const submitAboutMe = (e) => {
     e.preventDefault();
     console.log("submitAboutMe");
 
-    // axios({
-    //   method: 'post',
-    //   url: 'http://localhost:8080/api/putAboutMe',
-      // headers: {'Access-Control-Allow-Origin': true,},
-      // crossdomain: true, 
-      // data: {
-      //   name: "sfdfsdf",
-      // phoneNumber: "sfdfsdf",
-      // location: "sfdfsdf",
-      // sex: "sfdfsdf",
-      // genre: "sfdfsdf",
-      // instrument: "sfdfsdf",
-      // forMoney: "sfdfsdf",
-      // description: "sfdfsdf",
-      // inspirations: "sfdfsdf",
-      // image1: "sfdfsdf",
-      // image2: "sfdfsdf",
-      // image3: "sfdfsdf",
-      // mp3: "",
-      // searchFor: [
-      //     {
-      //         "instrument": "sfdfsdf",
-      //         "sex": "sfdfsdf"
-      //     },
-      // ],
-      // {
-        // name: "Lars Ulrich",
-        // phoneNumber: "802222422",
-        // location: "Warszawa",
-        // sex: "M",
-        // genre: "rock",
-        // instrument: "perkusja",
-        // forMoney: true,
-        // description: "For whom the bell tolls?",
-        // inspirations: "Judas Priest",
-        // image1: "cliff1.jpg",
-        // image2: "cliff2.jpg",
-        // image3: null,
-        // mp3: "fwtbt.m4a",
-        // searchFor: [
-        //     {"instrument": "gitara", "sex": "M"},
-        //     {"instrument": "wokal", "sex": "M"},
-        //     {"instrument": "bas", "sex": "M"}
-        // ]
-    // }
-    
-      // }
-      // data: {
-      //   name: imie,
-      // phoneNumber: telefon,
-      // location: lokalizacja,
-      // sex: plec,
-      // genre: gatunek,
-      // instrument: instrument,
-      // forMoney: zaPieniadze,
-      // description: opis,
-      // inspirations: inspiracje,
-      // image1: adresObrazka,
-      // image2: adresObrazka,
-      // image3: adresObrazka,
-      // mp3: "",
-      // searchFor: [
-      //     {
-      //         "instrument": wyborInstrument,
-      //         "sex": wyborPlec
-      //     },
-      // ],
-      // }
-    // })
-  //   const moczek = {
-  //     "name": "Lars Ulrich",
-  //     "phoneNumber": "802222422",
-  //     "location": "Warszawa",
-  //     "sex": "M",
-  //     "genre": "rock",
-  //     "instrument": "perkusja",
-  //     "forMoney": true,
-  //     "description": "For whom the bell tolls?",
-  //     "inspirations": "Judas Priest",
-  //     "image1": "cliff1.jpg",
-  //     "image2": "cliff2.jpg",
-  //     "image3": null,
-  //     "mp3": "fwtbt.m4a",
-  //     "searchFor": [
-  //         {"instrument": "gitara", "sex": "M"},
-  //         {"instrument": "wokal", "sex": "M"},
-  //         {"instrument": "bas", "sex": "M"}
-  //     ]
-  // };
-
-    // axios.post('/api/putAboutMe', moczek)
-
     const objectToSend = {
-
-          name: imie,
-          phoneNumber: telefon,
-          location: lokalizacja,
-          sex: plec,
-          genre: gatunek,
-          instrument: instrument,
-          forMoney: zaPieniadze,
-          description: opis,
-          inspirations: inspiracje,
-          image1: file || adresObrazka,
-          image2: adres2Obrazka,
-          "image3": null,
-          "mp3": "fwtbt.m4a",
-          searchFor: [
-              {instrument: wyborInstrument, sex: wyborPlec},
-              {instrument: wybor2Instrument, sex: wybor2Plec},
-              {instrument: wybor3Instrument, sex: wybor3Plec}
-          ]
-      };
-
-
-    
-
-    axios.post('http://localhost:8080/api/putaboutme', 
-    // moczek
-
-    objectToSend
-    
-    
-    
-    
-    , {headers: { 'Content-Type': 'application/json;charset=UTF-8', "Access-Control-Allow-Origin": "*", "Accept": "application/json" }})
-
-      
-
-
-  //     "name": imie,
-  //     "phoneNumber": telefon,
-  //     "location": lokalizacja,
-  //     "sex": plec,
-  //     "genre": gatunek,
-  //     "instrument": instrument,
-  //     "forMoney": zaPieniadze,
-  //     "description": opis,
-  //     "inspirations": inspiracje,
-  //     "image1": adresObrazka,
-  //     "image2": adresObrazka,
-  //     "image3": adresObrazka,
-  //     "mp3": "",
-  //     "searchFor": [
-  //         {
-  //             "instrument": wyborInstrument,
-  //             "sex": wyborPlec
-  //         },
-  //     ],
-
-    .then(function (response) {
-      console.log(response);
-      // showTheForm = false;
-      getAboutMe();
-    })
-    .catch(function (error) {
-      console.log(error);
-      setShowTheForm(true);
-    });
-  }
-  console.log(aboutMeData);
-
-  const uploadPicture = (e) => {
-    setFile(e.target.files[0]);
-    const objectToSend = {
-
       name: imie,
       phoneNumber: telefon,
       location: lokalizacja,
@@ -307,305 +86,305 @@ searchFor: [
       forMoney: zaPieniadze,
       description: opis,
       inspirations: inspiracje,
-      image1: e.target.files[0],
+      image1: adresObrazka,
       image2: adres2Obrazka,
-      "image3": null,
-      "mp3": "fwtbt.m4a",
+      image3: null,
+      mp3: "fwtbt.m4a",
       searchFor: [
-          {instrument: wyborInstrument, sex: wyborPlec},
-          {instrument: wybor2Instrument, sex: wybor2Plec},
-          {instrument: wybor3Instrument, sex: wybor3Plec}
-      ]
+        { instrument: wyborInstrument, sex: wyborPlec },
+        { instrument: wybor2Instrument, sex: wybor2Plec },
+        { instrument: wybor3Instrument, sex: wybor3Plec },
+      ],
+    };
+
+    axios
+      .post("http://localhost:8080/api/putaboutme", objectToSend, {
+        headers: {
+          "Content-Type": "application/json;charset=UTF-8",
+          "Access-Control-Allow-Origin": "*",
+          Accept: "application/json",
+        },
+      })
+
+      .then(function (response) {
+        console.log(response);
+        getAboutMe();
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
+  console.log(aboutMeData);
 
+  const formValid = imie.length <= 20 && telefon.length <= 12 && opis.length <= 600 && inspiracje.length <= 100 && imie && telefon && lokalizacja && plec && opis && gatunek && instrument && zaPieniadze && inspiracje && adresObrazka && adres2Obrazka && wyborInstrument && wyborPlec;
+  
 
+  return (
+    <div className="Me">
+      <Header className="MeHeader" />
+      <header className="Me-header">Mój profil</header>
+      <>
+        {aboutMeData && (
+          <>
+            <div className="myPictures">
+              <img src={aboutMeData.image1} className="myPicture" />
+              <img src={aboutMeData.image2} className="myPicture" />
+            </div>
+          </>
+        )}
+      </>
 
-
-axios.post('http://localhost:8080/api/putaboutme', 
-// moczek
-
-objectToSend
-
-
-
-
-)
-
-    // this.setState({
-    //     /* contains the preview, if you want to show the picture to the user
-    //        you can access it with this.state.currentPicture
-    //    */
-    //     picturePreview : URL.createObjectURL(e.target.files[0]),
-    //     /* this contains the file we want to send */
-    //     pictureAsFile : e.target.files[0]
-    // })
-};
-    return (
-      <div className="Me">
-        <Header className="MeHeader" />
-        <header className="Me-header">
-          Mój profil
-        </header>
-        <> {aboutMeData && (<><div className ="myPictures">
-          <img src={aboutMeData.image1} className="myPicture" />
-          <img src={aboutMeData.image2} className="myPicture" />
-        </div></>)}</>
-
-{/* GG{JSON.stringify(showTheForm)}GG */}
-
-          { <>
+      {
+        <>
           <p>{aboutMeData ? "Edytuj" : "Wypełnij"} formularz "O mnie"</p>
           <form onSubmit={submitAboutMe} className="Login-form-me">
-      <label>
-        Login:
-        <input
-          type="text"
-          defaultValue={aboutMeData?.name || ""}
-          onChange={e => setImie(e.target.value)}
-        />
-      </label>
-      <label>
-        Numer telefonu:
-        <input
-          type="text"
-          defaultValue={aboutMeData?.phoneNumber || telefon}
-          onChange={e => setTelefon(e.target.value)}
-        />
-      </label>
+            <label>
+              Login:
+              <input
+                type="text"
+                defaultValue={aboutMeData?.name || ""}
+                onChange={(e) => setImie(e.target.value)}
+              />
+              {imie.length > 20 && <div className="Validation">Maksymalna liczba znaków to 20.</div>}
+            </label>
+            <label>
+              Numer telefonu:
+              <input
+                type="text"
+                defaultValue={aboutMeData?.phoneNumber || telefon}
+                onChange={(e) => setTelefon(e.target.value)}
+              />
+              {telefon.length > 12 && <div className="Validation">Maksymalna liczba znaków to 12.</div>}
+            </label>
+            <label>
+              Miejsce prób:
+              <select
+                onChange={(e) => setLokalizacja(e.target.value)}
+              >
+                <option value="warszawa" selected>
+                  Warszawa
+                </option>
+                <option value="piaseczno">Piaseczno</option>
+                <option value="lublin">Lublin</option>
+                <option value="kielce">Kielce</option>
+                <option value="radom">Radom</option>
+                <option value="olsztyn">Olsztyn</option>
+              </select>
+            </label>
+            <span className="label">
+              Moja płeć
+              <div
+                defaultValue={aboutMeData?.sex || plec || "K"}
+                onChange={(e) => setPlec(e.target.value)}
+              >
+                <input type="radio" value="K" name="plec" />
+                Kobieta
+                <input type="radio" value="M" name="plec" />
+                Męczyzna
+                <input type="radio" value="N" name="plec" />
+                Niebinarna
+              </div>
+            </span>
+            <label>
+              Opis:
+              <textarea
+                placeholder="Kilka słów o mnie"
+                defaultValue={aboutMeData?.description || opis}
+                onChange={(e) => setOpis(e.target.value)}
+              />
+              {opis.length > 600 && <div className="Validation">Maksymalna liczba znaków to 600.</div>}
 
-      <label>
-       Miejsce prób:
-          <select defaultValue={aboutMeData?.location || lokalizacja} onChange={e => setLokalizacja(e.target.value)}>
-            <option value="warszawa">Warszawa</option>
-            <option value="piaseczno">Piaseczno</option>
-            <option value="lublin">Lublin</option>
-            <option value="kielce">Kielce</option>
-            <option value="radom">Radom</option>
-            <option value="olsztyn">Olsztyn</option>
-          </select>
-        </label>
+            </label>
+            <label>
+              Gatunek muzyczny, jaki chcę uprawiać:
+              <select
+                onChange={(e) => setGatunek(e.target.value)}
+              >
+                <option value="rock" selected>
+                  Rock
+                </option>
+                <option value="pop">Pop</option>
+                <option value="hipHip">Hip-hop</option>
+                <option value="poezjaSpiewana">Poezja śpiewana</option>
+              </select>
+            </label>
+            <label>
+              Mój instrument to:
+              <select
+                onChange={(e) => setInstrument(e.target.value)}
+              >
+                <option value="gitara" selected>
+                  Gitara
+                </option>
+                <option value="bas">Bas</option>
+                <option value="wokal">Wokal</option>
+                <option value="perkusja">Perkusja</option>
+              </select>
+            </label>
+            <span className="label">
+              Chcę grać dla
+              <div
+                defaultValue={aboutMeData?.forMoney || zaPieniadze}
+                onChange={(e) => setZapieniadze(e.target.value)}
+              >
+                <input type="radio" value="true" name="zaPieniadze" selected />
+                Dla kasy
+                <input type="radio" value="false" name="zaPieniadza" />
+                Dla fun-u!
+              </div>
+            </span>
+            <label>
+              Inspiracje:
+              <input
+                type="text"
+                defaultValue={aboutMeData?.inspiracje || inspiracje}
+                onChange={(e) => setInspiracje(e.target.value)}
+              />
+              {inspiracje.length > 100 && <div className="Validation">Maksymalna liczba znaków to 100.</div>}
 
+            </label>
+            <label>
+              Adres pierwszego obrazka:
+              <input
+                type="text"
+                defaultValue={aboutMeData?.image1 || adresObrazka}
+                onChange={(e) => setAdresobrazka(e.target.value)}
+              />
+            </label>
+            <label>
+              Adres drugiego obrazka:
+              <input
+                type="text"
+                defaultValue={aboutMeData?.image2 || adres2Obrazka}
+                onChange={(e) => setAdres2obrazka(e.target.value)}
+              />
+            </label>
+            <h2 style={{ color: "darkBlue" }}>Kogo szukam?</h2>
+            <span className="label">
+              Pierwszy zawodnik:
+              <div style={{ height: "10px" }}></div>
+              <div
+                defaultValue={aboutMeData?.searchFor[0].sex || wyborPlec}
+                onChange={(e) => setWyborplec(e.target.value)}
+              >
+                Płeć:
+                <input type="radio" value="K" name="wyborPlec" selected />
+                Kobieta
+                <input type="radio" value="M" name="wyborPlec" />
+                Męczyzna
+                <input type="radio" value="N" name="wyborPlec" />
+                Niebinarna
+              </div>
+            </span>
 
+            <label>
+              Instrument:
+              <select
+                onChange={(e) => setWyborinstrument(e.target.value)}
+              >
+                <option value="gitara" selected>
+                  Gitara
+                </option>
+                <option value="bas">Bas</option>
+                <option value="wokal">Wokal</option>
+                <option value="perkusja">Perkusja</option>
+              </select>
+            </label>
+            {!secondPlayerAdded && (
+              <p>
+                Dodaj drugiego zawodnika{" "}
+                <button onClick={() => setSecondPlayerAdded(true)}>+</button>
+              </p>
+            )}
+            {secondPlayerAdded && (
+              <>
+                <span className="label">
+                  <div style={{ height: "10px" }}></div> Drugi zawodnik:
+                  <div style={{ height: "10px" }}></div>
+                  <div
+                    defaultValue={aboutMeData?.searchFor[1].plec || wybor2Plec}
+                    onChange={(e) => setWybor2plec(e.target.value)}
+                  >
+                    Płeć:
+                    <input type="radio" value="K" name="wybor2Plec" selected />
+                    Kobieta
+                    <input type="radio" value="M" name="wybor2Plec" />
+                    Męczyzna
+                    <input type="radio" value="N" name="wybor2Plec" />
+                    Niebinarna
+                  </div>
+                </span>
 
+                <label>
+                  Instrument:
+                  <select
+                    onChange={(e) => setWybor2instrument(e.target.value)}
+                  >
+                    <option value="gitara" selected>
+                      Gitara
+                    </option>
+                    <option value="bas">Bas</option>
+                    <option value="wokal">Wokal</option>
+                    <option value="perkusja">Perkusja</option>
+                  </select>
+                </label>
+              </>
+            )}
+            {secondPlayerAdded && !thirdPlayerAdded && (
+              <p>
+                Dodaj trzeciego zawodnika (max. liczba){" "}
+                <button onClick={() => setThirdPlayerAdded(true)}>+</button>
+              </p>
+            )}
+            {thirdPlayerAdded && (
+              <>
+                <span className="label">
+                  Trzeci zawodnik:
+                  <div style={{ height: "10px" }}></div>
+                  <div
+                    defaultValue={aboutMeData?.searchFor[2].sex || wybor3Plec}
+                    onChange={(e) => setWybor3plec(e.target.value)}
+                  >
+                    Płeć:
+                    <input type="radio" value="K" selected name="wybor3Plec" />
+                    Kobieta
+                    <input type="radio" value="M" name="wybor3Plec" />
+                    Męczyzna
+                    <input type="radio" value="N" name="wybor3Plec" />
+                    Niebinarna
+                  </div>
+                </span>
 
+                <label>
+                  Instrument:
+                  <select
+                    onChange={(e) => setWybor3instrument(e.target.value)}
+                  >
+                    <option value="gitara" selected>
+                      Gitara
+                    </option>
+                    <option value="bas">Bas</option>
+                    <option value="wokal">Wokal</option>
+                    <option value="perkusja">Perkusja</option>
+                  </select>
+                </label>
+              </>
+            )}
+            {!formValid && <div className="Validation">Formularz pusty lub niepoprawnie wypełniony.</div>}
 
-            Moja płeć
-      <div defaultValue={aboutMeData?.sex || plec} onChange={e => setPlec(e.target.value)}>
-            <input
-              type="radio"
-              value="K"
-              name="plec"
-            />
-            Kobieta
-            <input
-              type="radio"
-              value="M"
-              name="plec"
-            />
-            Męczyzna
-            <input
-              type="radio"
-              value="N"
-              name="plec"
-            />
-            Niebinarna
-        </div>
+            {
+              <input
+                type="submit"
+                className="SaveButton"
+                disabled={!formValid}
+                value="Zapisz moje ustawienia"
+              />
+            }
+          </form>
+        </>
+      }
+    </div>
+  );
+};
 
-        <label>
-        Opis:
-        <textarea
-          placeholder="Kilka słów o mnie"
-          defaultValue={aboutMeData?.description || opis}
-          onChange={e => setOpis(e.target.value)}
-        />
-      </label>
-
-
-      <label>
-          Gatunek muzyczny, jaki chcę uprawiać:
-          <select defaultValue={aboutMeData?.genre || gatunek} onChange={e => setGatunek(e.target.value)}>
-            <option value="rock">Rock</option>
-            <option value="pop">Pop</option>
-            <option value="hipHip">Hip-hop</option>
-            <option value="poezjaSpiewana">Poezja śpiewana</option>
-          </select>
-        </label>
-
-        <label>
-          Mój instrument to:
-          <select defaultValue={aboutMeData?.instrument || instrument} onChange={e => setInstrument(e.target.value)}>
-            <option value="gitara">Gitara</option>
-            <option value="bas">Bas</option>
-            <option value="wokal">Wokal</option>
-            <option value="perkusja">Perkusja</option>
-          </select>
-        </label>
-
-
-
-        Chcę grać dla
-      <div defaultValue={aboutMeData?.forMoney || zaPieniadze} onChange={e => setZapieniadze(e.target.value)}>
-            <input
-              type="radio"
-              value="true"
-              name="zaPieniadze"
-            />
-            Dla kasy
-            <input
-              type="radio"
-              value="false"
-              name="zaPieniadza"
-            />
-            Dla fun-u!
-        </div>
-
-      <label>
-        Inspiracje:
-        <input
-          type="text"
-          defaultValue={aboutMeData?.inspiracje || inspiracje}
-          onChange={e => setInspiracje(e.target.value)}
-        />
-      </label>
-      <label>
-        Adres pierwszego obrazka:
-        <input
-          type="text"
-          defaultValue={aboutMeData?.image1 || adresObrazka}
-          onChange={e => setAdresobrazka(e.target.value)}
-        />
-      </label>
-      <label>
-        Adres drugiego obrazka:
-        <input
-          type="text"
-          defaultValue={aboutMeData?.image2 || adres2Obrazka}
-          onChange={e => setAdres2obrazka(e.target.value)}
-        />
-      </label>
-      <label>
-        Wklej obrazek:
-        <input type="file" name="image" onChange={uploadPicture}/>
-
-      </label>
-      {/* <label>
-        Nagranie:
-        <input
-          type="text"
-          value={nagranie}
-          onChange={e => setNagranie(e.target.value)}
-        />
-      </label> */}
-      <h2>Kogo szukam?</h2>
-
-        Pierwszy zawodnik:
-        Płeć:
-        <div defaultValue={aboutMeData?.searchFor[0].sex || wyborPlec} onChange={e => setWyborplec(e.target.value)}>
-            <input
-              type="radio"
-              value="K"
-              name="wyborPlec"
-            />
-            Kobieta
-            <input
-              type="radio"
-              value="M"
-              name="wyborPlec"
-            />
-            Męczyzna
-            <input
-              type="radio"
-              value="N"
-              name="wyborPlec"
-            />
-            Niebinarna
-        </div>
-        <label>
-          Instrument:
-          <select defaultValue={aboutMeData?.searchFor[0].instrument || wyborInstrument} onChange={e => setWyborinstrument(e.target.value)}>
-            <option value="gitara">Gitara</option>
-            <option value="bas">Bas</option>
-            <option value="wokal">Wokal</option>
-            <option value="perkusja">Perkusja</option>
-          </select>
-        </label>
-
-        {!secondPlayerAdded && <p>Dodaj drugiego zawodnika <button onClick={() => setSecondPlayerAdded(true)}>+</button></p>}
-        {secondPlayerAdded && <>
-          Drugi zawodnik:
-        Płeć:
-        <div defaultValue={aboutMeData?.searchFor[1].plec || wybor2Plec} onChange={e => setWybor2plec(e.target.value)}>
-            <input
-              type="radio"
-              value="K"
-              name="wybor2Plec"
-            />
-            Kobieta
-            <input
-              type="radio"
-              value="M"
-              name="wybor2Plec"
-            />
-            Męczyzna
-            <input
-              type="radio"
-              value="N"
-              name="wybor2Plec"
-            />
-            Niebinarna
-        </div>
-        <label>
-          Instrument:
-          <select defaultValue={aboutMeData?.searchFor[1].instrument || wybor2Instrument} onChange={e => setWybor2instrument(e.target.value)}>
-            <option value="gitara">Gitara</option>
-            <option value="bas">Bas</option>
-            <option value="wokal">Wokal</option>
-            <option value="perkusja">Perkusja</option>
-          </select>
-        </label>
-        </>}
-        {secondPlayerAdded && !thirdPlayerAdded && <p>Dodaj trzeciego zawodnika (max. liczba) <button onClick={() => setThirdPlayerAdded(true)}>+</button></p>}
-        {thirdPlayerAdded && <>
-          Trzeci zawodnik:
-        Płeć:
-        <div defaultValue={aboutMeData?.searchFor[2].sex || wybor3Plec} onChange={e => setWybor3plec(e.target.value)}>
-            <input
-              type="radio"
-              value="K"
-              name="wybor3Plec"
-            />
-            Kobieta
-            <input
-              type="radio"
-              value="M"
-              name="wybor3Plec"
-            />
-            Męczyzna
-            <input
-              type="radio"
-              value="N"
-              name="wybor3Plec"
-            />
-            Niebinarna
-        </div>
-        <label>
-          Instrument:
-          <select defaultValue={aboutMeData?.searchFor[2].instrument || wybor3Instrument} onChange={e => setWybor3instrument(e.target.value)}>
-            <option value="gitara">Gitara</option>
-            <option value="bas">Bas</option>
-            <option value="wokal">Wokal</option>
-            <option value="perkusja">Perkusja</option>
-          </select>
-        </label>
-        </>}
-
-      {<input type="submit" value="Zapisz moje ustawienia" />}
-        
-    </form>
-          </>}
-      </div>
-    );
-  }
-  
-  export default Me;
-  
+export default Me;

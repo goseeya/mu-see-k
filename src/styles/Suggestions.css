@@ -152,4 +152,22 @@ body, #root, .App, .Suggestions {
 }
 
 
+.showSuggestionsButton {
+  margin-bottom: 20px;
+}
 
+.AsideMatchesTitle {
+  display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.IconReload {
+  cursor: pointer;
+}
+
+.IconReloadSuggestions {
+  cursor: pointer;
+  margin-left: 10px;
+}

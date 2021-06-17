@@ -62,6 +62,10 @@
   justify-content: flex-start;
 }
 
+.AsideMatches {
+  color: darkblue;
+}
+
 .RegisterHeader {
   justify-content: flex-start;
 
@@ -225,4 +229,19 @@ body, #root, .App, .Register {
 
 .RegisterButton {
   margin-top: 20px;
+}
+
+.RegisterContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.IconReload {
+  margin-left: 20px;
+  cursor: pointer !important;
+}
+
+.BrakDopasowan {
+  margin-left: 10px;
 }
