@@ -212,11 +212,11 @@ const Me = () => {
               <div
                 onChange={(e) => setPlec(e.target.value)}
               >
-                <input type="radio" value="K" name="plec" checked={aboutMeData?.sex && aboutMeData?.sex == "K"} />
+                <input type="radio" value="K" name="plec" defaultChecked={aboutMeData?.sex && aboutMeData?.sex == "K"} />
                 Kobieta
-                <input type="radio" value="M" name="plec" checked={aboutMeData?.sex && aboutMeData?.sex == "M"} />
+                <input type="radio" value="M" name="plec" defaultChecked={aboutMeData?.sex && aboutMeData?.sex == "M"} />
                 Męczyzna
-                <input type="radio" value="N" name="plec" checked={aboutMeData?.sex && aboutMeData?.sex == "N"} />
+                <input type="radio" value="N" name="plec" defaultChecked={aboutMeData?.sex && aboutMeData?.sex == "N"} />
                 Niebinarna
               </div>
             </span>
@@ -261,9 +261,9 @@ const Me = () => {
               <div
                 onChange={(e) => setZapieniadze(e.target.value)}
               >
-                <input type="radio" value="true" name="zaPieniadze" checked={aboutMeData?.forMoney} />
+                <input type="radio" value="true" name="zaPieniadze" defaultChecked={aboutMeData?.forMoney} />
                 Dla kasy
-                <input type="radio" value="false" name="zaPieniadza" checked={!aboutMeData?.forMoney} />
+                <input type="radio" value="false" name="zaPieniadza" defaultChecked={!aboutMeData?.forMoney} />
                 Dla fun-u!
               </div>
             </span>
@@ -301,11 +301,11 @@ const Me = () => {
                 onChange={(e) => setWyborplec(e.target.value)}
               >
                 Płeć:
-                <input type="radio" value="K" name="wyborPlec" checked={aboutMeData?.searchFor[0]?.sex && aboutMeData?.searchFor[0]?.sex === "K"} />
+                <input type="radio" value="K" name="wyborPlec" defaultChecked={aboutMeData?.searchFor[0]?.sex && aboutMeData?.searchFor[0]?.sex === "K"} />
                 Kobieta
-                <input type="radio" value="M" name="wyborPlec" checked={aboutMeData?.searchFor[0]?.sex && aboutMeData?.searchFor[0]?.sex === "M"} />
+                <input type="radio" value="M" name="wyborPlec" defaultChecked={aboutMeData?.searchFor[0]?.sex && aboutMeData?.searchFor[0]?.sex === "M"} />
                 Męczyzna
-                <input type="radio" value="N" name="wyborPlec" checked={aboutMeData?.searchFor[0]?.sex && aboutMeData?.searchFor[0]?.sex === "N"} />
+                <input type="radio" value="N" name="wyborPlec" defaultChecked={aboutMeData?.searchFor[0]?.sex && aboutMeData?.searchFor[0]?.sex === "N"} />
                 Niebinarna
               </div>
             </span>
