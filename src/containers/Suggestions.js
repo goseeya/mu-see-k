@@ -62,40 +62,40 @@ const Suggestions = () => {
       .catch((err) => {
         console.log(localhostSuggestions?.suggestions);
         console.log(err);
-      //   setLocalhostSuggestions({
-      //     "genre": "rock",
-      //     "location": "Warszawa",
-      //     "formoney": true,
-      //     "suggestions": [
-      //         {
-      //             "userId": 3,
-      //             "name": "Lars Ulrich",
-      //             "sex": "M",
-      //             "instrument": "perkusja",
-      //             "about": "For whom the bell tolls?",
-      //             "mp3": "fwtbt.m4a",
-      //             "inspirations": "Judas Priest",
-      //             "image1": "cliff1.jpg",
-      //             "image2": "cliff2.jpg",
-      //             "image3": null,
-      //             "likesMe": false
-      //         },
-      //        {
-      //             "userId": 4,
-      //             "name": "Kirk Hammet",
-      //             "sex": "M",
-      //             "instrument": "gitara",
-      //             "about": "For whom the bell tolls?",
-      //             "mp3": "fwtbt.m4a",
-      //             "inspirations": "Judas Priest",
-      //             "image1": "cliff1.jpg",
-      //             "image2": "cliff2.jpg",
-      //             "image3": null,
-      //             "likesMe": true
-      //         }
-      //     ]
-      // })
-      // setShowNoMorePeopleToShow(false);
+        setLocalhostSuggestions({
+          "genre": "rock",
+          "location": "Warszawa",
+          "formoney": true,
+          "suggestions": [
+              {
+                  "userId": 3,
+                  "name": "Lars Ulrich",
+                  "sex": "M",
+                  "instrument": "perkusja",
+                  "about": "For whom the bell tolls?",
+                  "mp3": "fwtbt.m4a",
+                  "inspirations": "Judas Priest",
+                  "image1": "cliff1.jpg",
+                  "image2": "cliff2.jpg",
+                  "image3": null,
+                  "likesMe": false
+              },
+             {
+                  "userId": 4,
+                  "name": "Kirk Hammet",
+                  "sex": "M",
+                  "instrument": "gitara",
+                  "about": "For whom the bell tolls?",
+                  "mp3": "fwtbt.m4a",
+                  "inspirations": "Judas Priest",
+                  "image1": "cliff1.jpg",
+                  "image2": "cliff2.jpg",
+                  "image3": null,
+                  "likesMe": true
+              }
+          ]
+      })
+      setShowNoMorePeopleToShow(false);
 
       });
   };
@@ -167,11 +167,11 @@ const Suggestions = () => {
       })
       .catch(function (error) {
         console.log(error);
-        // if (localhostSuggestions?.suggestions[currentSuggestionIndex]?.likesMe) {
-        //   console.log("likeee");
-        //   createNotification();
-        //   getMatches();
-        // }
+        if (localhostSuggestions?.suggestions[currentSuggestionIndex]?.likesMe) {
+          console.log("likeee");
+          createNotification();
+          getMatches();
+        }
       });
     swype();
   };
