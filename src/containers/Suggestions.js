@@ -233,42 +233,106 @@ const Suggestions = () => {
       setLocalhostMatches(response.data.matched)})
       .catch(err => {
         console.log(err);
-    //     setLocalhostMatches(
+        setLocalhostMatches(
 
-    //       [{
-    //           "id": 1,
-    //           "name": "Cliff Burton",
-    //           "phone": "804665422",
-    //           "sex": "M",
-    //           "instrument": "bas",
-    //           "genre": "rock",
-    //           "location": "Warszawa",
-    //           "formoney": true,
-    //           "about": "For whom the bell tolls?",
-    //           "inspirations": "Judas Priest",
-    //           "mp3": "fwtbt.m4a",
-    //           "image1": "https://image.shutterstock.com/image-photo/skeptic-sad-border-collie-dog-260nw-1775324372.jpg",
-    //           "image2": "https://image.shutterstock.com/image-photo/skeptic-sad-border-collie-dog-260nw-1775324372.jpg",
-    //           "image3": null
-    //       },
-    //       {
-    //         "id": 2,
-    //         "name": "Cliff2 Burton2",
-    //         "phone": "804665422",
-    //         "sex": "M",
-    //         "instrument": "bas",
-    //         "genre": "rock",
-    //         "location": "Warszawa",
-    //         "formoney": true,
-    //         "about": "For whom the bell tolls?",
-    //         "inspirations": "Judas Priest",
-    //         "mp3": "fwtbt.m4a",
-    //         "image1": "https://image.shutterstock.com/image-photo/happy-birthday-children-girls-confetti-260nw-1297100113.jpg",
-    //         "image2": "https://cdn.stocksnap.io/img-thumbs/280h/wine-toast_11WERM9KQ9.jpg",
-    //         "image3": null
-    //     }]
+          [{
+              "id": 1,
+              "name": "Cliff Burton",
+              "phone": "804665422",
+              "sex": "M",
+              "instrument": "bas",
+              "genre": "rock",
+              "location": "Warszawa",
+              "formoney": true,
+              "about": "For whom the bell tolls?",
+              "inspirations": "Judas Priest",
+              "mp3": "fwtbt.m4a",
+              "image1": "https://image.shutterstock.com/image-photo/skeptic-sad-border-collie-dog-260nw-1775324372.jpg",
+              "image2": "https://image.shutterstock.com/image-photo/skeptic-sad-border-collie-dog-260nw-1775324372.jpg",
+              "image3": null
+          },
+          {
+            "id": 2,
+            "name": "Cliff2 Burton2",
+            "phone": "804665422",
+            "sex": "M",
+            "instrument": "bas",
+            "genre": "rock",
+            "location": "Warszawa",
+            "formoney": true,
+            "about": "For whom the bell tolls?",
+            "inspirations": "Judas Priest",
+            "mp3": "fwtbt.m4a",
+            "image1": "https://image.shutterstock.com/image-photo/happy-birthday-children-girls-confetti-260nw-1297100113.jpg",
+            "image2": "https://cdn.stocksnap.io/img-thumbs/280h/wine-toast_11WERM9KQ9.jpg",
+            "image3": null
+        },
+        {
+          "id": 9,
+          "name": "Cliff2 Burton2",
+          "phone": "804665422",
+          "sex": "M",
+          "instrument": "bas",
+          "genre": "rock",
+          "location": "Warszawa",
+          "formoney": true,
+          "about": "For whom the bell tolls?",
+          "inspirations": "Judas Priest",
+          "mp3": "fwtbt.m4a",
+          "image1": "https://image.shutterstock.com/image-photo/happy-birthday-children-girls-confetti-260nw-1297100113.jpg",
+          "image2": "https://cdn.stocksnap.io/img-thumbs/280h/wine-toast_11WERM9KQ9.jpg",
+          "image3": null
+      },
+      {
+        "id": 4,
+        "name": "Cliff2 Burton2",
+        "phone": "804665422",
+        "sex": "M",
+        "instrument": "bas",
+        "genre": "rock",
+        "location": "Warszawa",
+        "formoney": true,
+        "about": "For whom the bell tolls?",
+        "inspirations": "Judas Priest",
+        "mp3": "fwtbt.m4a",
+        "image1": "https://image.shutterstock.com/image-photo/happy-birthday-children-girls-confetti-260nw-1297100113.jpg",
+        "image2": "https://cdn.stocksnap.io/img-thumbs/280h/wine-toast_11WERM9KQ9.jpg",
+        "image3": null
+    },
+    {
+      "id": 5,
+      "name": "Cliff2 Burton2",
+      "phone": "804665422",
+      "sex": "M",
+      "instrument": "bas",
+      "genre": "rock",
+      "location": "Warszawa",
+      "formoney": true,
+      "about": "For whom the bell tolls?",
+      "inspirations": "Judas Priest",
+      "mp3": "fwtbt.m4a",
+      "image1": "https://image.shutterstock.com/image-photo/happy-birthday-children-girls-confetti-260nw-1297100113.jpg",
+      "image2": "https://cdn.stocksnap.io/img-thumbs/280h/wine-toast_11WERM9KQ9.jpg",
+      "image3": null
+  },
+  {
+    "id": 2,
+    "name": "Cliff2 Burton2",
+    "phone": "804665422",
+    "sex": "M",
+    "instrument": "bas",
+    "genre": "rock",
+    "location": "Warszawa",
+    "formoney": true,
+    "about": "For whom the bell tolls?",
+    "inspirations": "Judas Priest",
+    "mp3": "fwtbt.m4a",
+    "image1": "https://image.shutterstock.com/image-photo/happy-birthday-children-girls-confetti-260nw-1297100113.jpg",
+    "image2": "https://cdn.stocksnap.io/img-thumbs/280h/wine-toast_11WERM9KQ9.jpg",
+    "image3": null
+}]
       
-    // );
+    );
       });
   }
   useEffect(() => {
