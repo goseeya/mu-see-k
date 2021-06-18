@@ -12,7 +12,7 @@ const Me = () => {
   const [imie, setImie] = useState(aboutMeData?.name || "");
   const [telefon, setTelefon] = useState(aboutMeData?.phoneNumber || "");
   const [lokalizacja, setLokalizacja] = useState(
-    aboutMeData?.location || "warszawa"
+    aboutMeData?.location || "Warszawa"
   );
   const [plec, setPlec] = useState(aboutMeData?.sex || "");
   const [gatunek, setGatunek] = useState(aboutMeData?.genre || "rock");
@@ -35,25 +35,25 @@ const Me = () => {
   );
 
   const [secondPlayerAdded, setSecondPlayerAdded] = useState(
-    aboutMeData?.phoneNumber || false
+    aboutMeData?.phoneNumber && aboutMeData?.searchFor[1]?.sex || false
   );
 
   const [wybor2Instrument, setWybor2instrument] = useState(
-    aboutMeData?.searchFor[1]?.instrument || "gitara"
+    aboutMeData && aboutMeData.searchFor[1] && aboutMeData.searchFor[1].instrument || "gitara"
   );
   const [wybor2Plec, setWybor2plec] = useState(
-    aboutMeData?.searchFor[1]?.sex || ""
+    aboutMeData && aboutMeData.searchFor[1] && aboutMeData.searchFor[1].sex || ""
   );
 
   const [thirdPlayerAdded, setThirdPlayerAdded] = useState(
-    aboutMeData?.phoneNumber || false
+    (aboutMeData && aboutMeData.searchFor[2] && aboutMeData.searchFor[2].sex) || false
   );
 
   const [wybor3Instrument, setWybor3instrument] = useState(
-    aboutMeData?.searchFor[2]?.instrument || "gitara"
+    (aboutMeData && aboutMeData.searchFor[2] && aboutMeData.searchFor[2].instrument) || "gitara"
   );
   const [wybor3Plec, setWybor3plec] = useState(
-    aboutMeData?.searchFor[2]?.sex || ""
+    aboutMeData?.searchFor[2]?.sex
   );
 
   const getAboutMe = () => {
@@ -203,14 +203,14 @@ const Me = () => {
             <label>
               Miejsce prób:
               <select onChange={(e) => setLokalizacja(e.target.value)}>
-                <option value="warszawa" selected>
+                <option value="Warszawa" selected={aboutMeData?.name && aboutMeData?.location == "Warszawa"}>
                   Warszawa
                 </option>
-                <option value="piaseczno">Piaseczno</option>
-                <option value="lublin">Lublin</option>
-                <option value="kielce">Kielce</option>
-                <option value="radom">Radom</option>
-                <option value="olsztyn">Olsztyn</option>
+                <option value="Piaseczno" selected={aboutMeData?.name && aboutMeData?.location == "Piaseczno"}>Piaseczno</option>
+                <option value="Lublin" selected={aboutMeData?.name && aboutMeData?.location == "Lublin"}>Lublin</option>
+                <option value="Kielce" selected={aboutMeData?.name && aboutMeData?.location == "Kielce"}>Kielce</option>
+                <option value="Radom" selected={aboutMeData?.name && aboutMeData?.location == "Radom"}>Radom</option>
+                <option value="Olsztyn" selected={aboutMeData?.name && aboutMeData?.location == "Olsztyn"}>Olsztyn</option>
               </select>
             </label>
             <span className="label">
@@ -255,23 +255,23 @@ const Me = () => {
             <label>
               Gatunek muzyczny, jaki chcę uprawiać:
               <select onChange={(e) => setGatunek(e.target.value)}>
-                <option value="rock" selected>
+                <option value="rock" selected={aboutMeData?.name && aboutMeData?.genre == "rock"}>
                   Rock
                 </option>
-                <option value="pop">Pop</option>
-                <option value="hipHip">Hip-hop</option>
-                <option value="poezjaSpiewana">Poezja śpiewana</option>
+                <option value="pop" selected={aboutMeData?.name && aboutMeData?.genre == "pop"}>Pop</option>
+                <option value="metal" selected={aboutMeData?.name && aboutMeData?.genre == "metal"}>Metal</option>
+                <option value="hip hop" selected={aboutMeData?.name && aboutMeData?.genre == "hip hop"}>Hip-hop</option>
               </select>
             </label>
             <label>
               Mój instrument to:
               <select onChange={(e) => setInstrument(e.target.value)}>
-                <option value="gitara" selected>
+                <option value="gitara"  selected={aboutMeData?.name && aboutMeData?.instrument == "gitara"}>
                   Gitara
                 </option>
-                <option value="bas">Bas</option>
-                <option value="wokal">Wokal</option>
-                <option value="perkusja">Perkusja</option>
+                <option value="bas" selected={aboutMeData?.name && aboutMeData?.instrument == "bas"}>Bas</option>
+                <option value="wokal" selected={aboutMeData?.name && aboutMeData?.instrument == "wokal"}>Wokal</option>
+                <option value="perkusja" selected={aboutMeData?.name && aboutMeData?.genre == "perkusja"}>Perkusja</option>
               </select>
             </label>
             <span className="label">
@@ -368,12 +368,16 @@ const Me = () => {
             <label>
               Instrument:
               <select onChange={(e) => setWyborinstrument(e.target.value)}>
-                <option value="gitara" selected>
+                <option value="gitara" selected={aboutMeData?.searchFor[0]?.instrument &&
+                    aboutMeData?.searchFor[0]?.instrument === "gitara"}>
                   Gitara
                 </option>
-                <option value="bas">Bas</option>
-                <option value="wokal">Wokal</option>
-                <option value="perkusja">Perkusja</option>
+                <option value="bas" selected={aboutMeData?.searchFor[0]?.instrument &&
+                    aboutMeData?.searchFor[0]?.instrument === "bas"}>Bas</option>
+                <option value="wokal" selected={aboutMeData?.searchFor[0]?.instrument &&
+                    aboutMeData?.searchFor[0]?.instrument === "wokal"}>Wokal</option>
+                <option value="perkusja" selected={aboutMeData?.searchFor[0]?.instrument &&
+                    aboutMeData?.searchFor[0]?.instrument === "perkusja"}>Perkusja</option>
               </select>
             </label>
             {!secondPlayerAdded && (
@@ -392,11 +396,20 @@ const Me = () => {
                     onChange={(e) => setWybor2plec(e.target.value)}
                   >
                     Płeć:
-                    <input type="radio" value="K" name="wybor2Plec" selected />
+                    <input type="radio" value="K" name="wybor2Plec" defaultChecked={
+                    aboutMeData?.searchFor[1]?.sex &&
+                    aboutMeData?.searchFor[1]?.sex === "K"
+                  } />
                     Kobieta
-                    <input type="radio" value="M" name="wybor2Plec" />
+                    <input type="radio" value="M" name="wybor2Plec" defaultChecked={
+                    aboutMeData?.searchFor[1]?.sex &&
+                    aboutMeData?.searchFor[1]?.sex === "M"
+                  } />
                     Męczyzna
-                    <input type="radio" value="N" name="wybor2Plec" />
+                    <input type="radio" value="N" name="wybor2Plec" defaultChecked={
+                    aboutMeData?.searchFor[1]?.sex &&
+                    aboutMeData?.searchFor[1]?.sex === "N"
+                  } />
                     Niebinarna
                   </div>
                 </span>
@@ -404,12 +417,16 @@ const Me = () => {
                 <label>
                   Instrument:
                   <select onChange={(e) => setWybor2instrument(e.target.value)}>
-                    <option value="gitara" selected>
+                    <option value="gitara"  selected={aboutMeData?.searchFor[1]?.instrument &&
+                    aboutMeData?.searchFor[1]?.instrument === "gitara"}>
                       Gitara
                     </option>
-                    <option value="bas">Bas</option>
-                    <option value="wokal">Wokal</option>
-                    <option value="perkusja">Perkusja</option>
+                    <option value="bas" selected={aboutMeData?.searchFor[1]?.instrument &&
+                    aboutMeData?.searchFor[1]?.instrument === "bas"}>Bas</option>
+                    <option value="wokal" selected={aboutMeData?.searchFor[1]?.instrument &&
+                    aboutMeData?.searchFor[1]?.instrument === "wokal"}>Wokal</option>
+                    <option value="perkusja" selected={aboutMeData?.searchFor[1]?.instrument &&
+                    aboutMeData?.searchFor[1]?.instrument === "perkusja"}>Perkusja</option>
                   </select>
                 </label>
               </>
@@ -430,11 +447,20 @@ const Me = () => {
                     onChange={(e) => setWybor3plec(e.target.value)}
                   >
                     Płeć:
-                    <input type="radio" value="K" selected name="wybor3Plec" />
+                    <input type="radio" value="K" defaultChecked={
+                    aboutMeData?.searchFor[2]?.sex &&
+                    aboutMeData?.searchFor[2]?.sex === "K"
+                  } name="wybor3Plec" />
                     Kobieta
-                    <input type="radio" value="M" name="wybor3Plec" />
+                    <input type="radio" value="M" name="wybor3Plec" defaultChecked={
+                    aboutMeData?.searchFor[2]?.sex &&
+                    aboutMeData?.searchFor[2]?.sex === "M"
+                  } />
                     Męczyzna
-                    <input type="radio" value="N" name="wybor3Plec" />
+                    <input type="radio" value="N" name="wybor3Plec" defaultChecked={
+                    aboutMeData?.searchFor[2]?.sex &&
+                    aboutMeData?.searchFor[2]?.sex === "N"
+                  } />
                     Niebinarna
                   </div>
                 </span>
@@ -442,12 +468,16 @@ const Me = () => {
                 <label>
                   Instrument:
                   <select onChange={(e) => setWybor3instrument(e.target.value)}>
-                    <option value="gitara" selected>
+                    <option value="gitara" selected={aboutMeData?.searchFor[2]?.instrument &&
+                    aboutMeData?.searchFor[2]?.instrument === "gitara"}>
                       Gitara
                     </option>
-                    <option value="bas">Bas</option>
-                    <option value="wokal">Wokal</option>
-                    <option value="perkusja">Perkusja</option>
+                    <option value="bas" selected={aboutMeData?.searchFor[2]?.instrument &&
+                    aboutMeData?.searchFor[2]?.instrument === "bas"}>Bas</option>
+                    <option value="wokal" selected={aboutMeData?.searchFor[2]?.instrument &&
+                    aboutMeData?.searchFor[2]?.instrument === "wokal"}>Wokal</option>
+                    <option value="perkusja" selected={aboutMeData?.searchFor[2]?.instrument &&
+                    aboutMeData?.searchFor[2]?.instrument === "perkusja"}>Perkusja</option>
                   </select>
                 </label>
               </>
