@@ -35,8 +35,9 @@ const Me = () => {
   );
 
   const [secondPlayerAdded, setSecondPlayerAdded] = useState(
-    aboutMeData?.phoneNumber && aboutMeData?.searchFor[1]?.sex || false
+    (aboutMeData?.phoneNumber && aboutMeData?.searchFor[1]?.sex) || false
   );
+
 
   const [wybor2Instrument, setWybor2instrument] = useState(
     aboutMeData && aboutMeData.searchFor[1] && aboutMeData.searchFor[1].instrument || "gitara"
@@ -79,6 +80,14 @@ const Me = () => {
         // setLokalizacja(response.data.location);
         setWyborinstrument(response.data.searchFor[0].instrument);
         setWyborplec(response.data.searchFor[0].sex);
+
+        if(response.data.searchFor[1].sex) {
+          setSecondPlayerAdded(true);
+        }
+        if(response.data.searchFor[2].sex) {
+          setThirdPlayerAdded(true);
+        }
+
       })
       .catch(function (error) {
         console.log(error);
@@ -126,6 +135,8 @@ const Me = () => {
       .then(function (response) {
         console.log(response);
         getAboutMe();
+
+
         history.push("/");
       })
       .catch(function (error) {
@@ -392,7 +403,7 @@ const Me = () => {
                   <div style={{ height: "10px" }}></div> Drugi zawodnik:
                   <div style={{ height: "10px" }}></div>
                   <div
-                    defaultValue={aboutMeData?.searchFor[1]?.plec || wybor2Plec}
+                    defaultValue={aboutMeData?.searchFor[1]?.sex || wybor2Plec}
                     onChange={(e) => setWybor2plec(e.target.value)}
                   >
                     Płeć:
@@ -437,7 +448,7 @@ const Me = () => {
                 <button onClick={() => setThirdPlayerAdded(true)}>+</button>
               </p>
             )}
-            {thirdPlayerAdded && (
+            {(thirdPlayerAdded || aboutMeData?.searchFor[2]?.instrument) && (
               <>
                 <span className="label">
                   Trzeci zawodnik:
