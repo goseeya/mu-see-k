@@ -40,10 +40,39 @@
 
 .AsideMatches {
   min-width: 325px;
-  max-width: fit-content;
+  width: 100%;
+  /* max-width: fit-content; */
   background-color: gainsboro;
   flex-grow: 1;
 }
+
+@media (min-width : 640px) {
+  /* Styles */
+  .AsideMatches {
+    max-width: fit-content;
+}
+
+.Current-suggestion-about {
+  width: 100%;
+}
+  
+  .Suggestions-container {
+  }
+  }
+
+@media only screen and (max-device-width : 640px) {
+  /* Styles */
+  .AsideMatches {
+    max-width: none;
+width: 100%  }
+
+.Current-suggestion-about {
+  width: 100%;
+}
+  
+  .Suggestions-container {
+  }
+  }
 
 .Current-suggestion-about {
   width: 800px;
@@ -75,6 +104,7 @@
 @media only screen and (max-device-width : 640px) {
   /* Styles */
   .AsideMatches {
+    max-width: none;
 width: 100%  }
 
 .Current-suggestion-about {
