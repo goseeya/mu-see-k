@@ -1,5 +1,5 @@
 .Matches {
-  background-image: url('../resources/gitara.jpg');
+  background-image: url("../resources/gitara.jpg");
   display: flex;
   flex-direction: column;
   align-items: center;

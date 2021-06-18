@@ -1,139 +1,140 @@
 .Me {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: darkblue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: darkblue;
 }
 
 .Me::after {
-    content: "";
-    background: url('https://cdn.stocksnap.io/img-thumbs/960w/woman-headphones_NOLZXJLYKF.jpg');
-    opacity: 0.2;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    background-repeat: no-repeat;
-    background-size: cover;
-    right: 0;
-    position: absolute;
-    z-index: -1;
-    min-height: 100%;
-    display: block;
-    overflow: auto;
-    height: 1800px;
+  content: "";
+  background: url("https://cdn.stocksnap.io/img-thumbs/960w/woman-headphones_NOLZXJLYKF.jpg");
+  opacity: 0.2;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+  min-height: 100%;
+  display: block;
+  overflow: auto;
+  height: 1800px;
 }
 
 .Me-form {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .Me-header {
-    justify-content: flex-start;
-    text-align: center;
-    font-size: 40px;
-    color: rgb(13, 17, 126);
+  justify-content: flex-start;
+  text-align: center;
+  font-size: 40px;
+  color: rgb(13, 17, 126);
 }
 
 .MeHeader {
-    justify-content: flex-start;
-    padding-left: 10px;
-    background: linear-gradient( 262deg, #1057ca, #24151b);
-    display: flex;
-    align-items: center;
-    position: relative;
-    box-shadow: 0 1px 8px 0 rgb(0 17 25 / 27%);
-    z-index: 2;
-    box-sizing: inherit;
-    width: 100%;
-    background-color: gainsboro;
-    flex-grow: 1;
-    background: linear-gradient( 262deg, #1057ca, #24151b);
-    display: flex;
-    align-items: center;
-    position: relative;
-    box-shadow: 0 1px 8px 0 rgb(0 17 25 / 27%);
-    height: 60px;
-    z-index: 2;
-    box-sizing: inherit;
+  justify-content: flex-start;
+  padding-left: 10px;
+  background: linear-gradient(262deg, #1057ca, #24151b);
+  display: flex;
+  align-items: center;
+  position: relative;
+  box-shadow: 0 1px 8px 0 rgb(0 17 25 / 27%);
+  z-index: 2;
+  box-sizing: inherit;
+  width: 100%;
+  background-color: gainsboro;
+  flex-grow: 1;
+  background: linear-gradient(262deg, #1057ca, #24151b);
+  display: flex;
+  align-items: center;
+  position: relative;
+  box-shadow: 0 1px 8px 0 rgb(0 17 25 / 27%);
+  height: 60px;
+  z-index: 2;
+  box-sizing: inherit;
 }
 
 .Register-container {
-    flex-grow: 4;
-    background-color: darkblue;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  flex-grow: 4;
+  background-color: darkblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media only screen and (max-device-width: 640px) {
-    .Register-container-2 {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    body,
-    #root,
-    .App,
-    .Me {
-        color: darkblue;
-    }
-    .myPictures {
-        padding: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .myPicture {
-        width: 300px;
-        height: 400px;
-        margin: 10px;
-    }
-}
-
-
-.Login {
-    background-image: url('../resources/koncert.jpg');
+  .Register-container-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  body,
+  #root,
+  .App,
+  .Me {
+    color: darkblue;
+  }
+  .myPictures {
+    padding: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: white;
-    height: 500px;
   }
-  
-  .Login-form-me {
-    display: flex;
-    color: rgb(13, 17, 126);
-    /* display: contents !important; */
-    align-items: left;
-    flex-direction: column;
+  .myPicture {
+    width: 300px;
+    height: 400px;
+    margin: 10px;
   }
+}
 
-  label, .label {
-      margin: 10px;
-  }
+.Login {
+  background-image: url("../resources/koncert.jpg");
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  height: 500px;
+}
 
-  html, body {
-    height:100%;
-} 
+.Login-form-me {
+  display: flex;
+  color: rgb(13, 17, 126);
+  /* display: contents !important; */
+  align-items: left;
+  flex-direction: column;
+}
+
+label,
+.label {
+  margin: 10px;
+}
+
+html,
 body {
-    background-color: white;
-    /* background-image: url('http://www.canvaz.com/portrait/charcoal-1.jpg'); */
-    background-size: auto 100%;
-    background-repeat: no-repeat;
-    background-position: left top;
+  height: 100%;
+}
+body {
+  background-color: white;
+  /* background-image: url('http://www.canvaz.com/portrait/charcoal-1.jpg'); */
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  background-position: left top;
 }
 
 .SaveButton {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }

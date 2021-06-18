@@ -1,9 +1,6 @@
 .Register {
-  /* background-image: url('../resources/vintage.jpg'); */
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
-  /* justify-content: center; */
   font-size: calc(10px + 2vmin);
   background-repeat: no-repeat;
   background-size: cover;
@@ -12,7 +9,7 @@
 }
 .Register::after {
   content: "";
-  background: url('https://cdn.stocksnap.io/img-thumbs/280h/smiling-woman_XZMVJHEGNT.jpg');
+  background: url("https://cdn.stocksnap.io/img-thumbs/280h/smiling-woman_XZMVJHEGNT.jpg");
   opacity: 0.5;
   top: 0;
   left: 0;
@@ -21,7 +18,7 @@
   background-size: cover;
   right: 0;
   position: absolute;
-  z-index: -1;   
+  z-index: -1;
 }
 
 .Register-form {
@@ -30,24 +27,10 @@
   flex-direction: column;
 }
 
-
 .Register {
-  /* background-image: url('../resources/paniFlet.jpg'); */
-  /* display: contents;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  background-repeat: no-repeat;
-  background-size: cover; */
   color: white;
-  /* height: 500px; */
   display: flex;
-  /* width: 60%; */
-  /* flex-direction: row; */
   flex-wrap: wrap;
-  /* align-items: center; */
-
 }
 
 .Register-header {
@@ -56,7 +39,6 @@
   text-align: center;
   font-size: 40px;
   color: rgb(13, 17, 126);
-  
 }
 .IconLeft {
   justify-content: flex-start;
@@ -65,27 +47,31 @@
 .AsideMatches {
   color: darkblue;
 }
+@media only screen and (max-device-width: 640px) {
+  .AsideMatches {
+    max-width: none;
+    width: 100%;
+  }
+
+  .Current-suggestion-about {
+    width: 100%;
+  }
+}
 
 .RegisterHeader {
   justify-content: flex-start;
 
   padding-left: 10px;
-  background: linear-gradient(
-    262deg
-    ,#1057ca,#24151b);
+  background: linear-gradient(262deg, #1057ca, #24151b);
   display: flex;
   align-items: center;
   position: relative;
   box-shadow: 0 1px 8px 0 rgb(0 17 25 / 27%);
   z-index: 2;
   box-sizing: inherit;
-  /* justify-content: space-around; */
   min-width: 100%;
   background-color: gainsboro;
-  /* flex-grow: 1; */
-  background: linear-gradient(
-    262deg
-    ,#1057ca,#24151b);
+  background: linear-gradient(262deg, #1057ca, #24151b);
   display: flex;
   align-items: center;
   position: relative;
@@ -93,40 +79,7 @@
   height: 60px;
   z-index: 2;
   box-sizing: inherit;
-  /* justify-content: space-around; */
 }
-/* 
-.AsideMatches-header {
-  
-  background: linear-gradient(
-    262deg
-    ,#1057ca,#24151b);
-  display: flex;
-  align-items: center;
-  position: relative;
-  box-shadow: 0 1px 8px 0 rgb(0 17 25 / 27%);
-  height: 60px;
-  z-index: 2;
-  box-sizing: inherit;
-  justify-content: space-around;
-}
-
-.AsideMatches {
-  min-width: 325px;
-  background-color: gainsboro;
-  flex-grow: 1;
-}
-
-.Current-suggestion-about {
-  width: 800px;
-  text-align: center;
-}
-
-.Current-suggestion-inspirations {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  text-align: center;
-} */
 
 .Register-container {
   flex-grow: 4;
@@ -136,24 +89,11 @@
   justify-content: center;
 }
 
-@media only screen and (max-device-width : 640px) {
-  /* Styles */
-  /* .AsideMatches {
-width: 100%  }
-
-.Current-suggestion-about {
-  width: 100%;
-} */
-  
-  .Register-container {
-  }
-  }
-
 .Register-container-2 {
   display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 h2 {
@@ -161,61 +101,18 @@ h2 {
   margin-left: 10px;
 }
 
-/* .Suggestions-liked-image {
-  width: 138px;
-  height: 180px;
-  margin: 10px;
-  border: 2px solid white;
-}
-
-.Suggestions-liked-image-match {
-  border: 2px solid red;
-} */
-
 .Icon {
   color: white;
   cursor: pointer;
-  filter:drop-shadow(4px 2px 1px rgb(41, 40, 40));
-}
-/* 
-.Current-suggestion {
-  /* display: flex;
-  align-self: center;
-  border-radius: 8px;
-  box-shadow: 2px 2px 4px #000000;
+  filter: drop-shadow(4px 2px 1px rgb(41, 40, 40));
 }
 
-.Current-suggestions-radio-buttons {
-  margin-top: -25px;
-}
-
-.Current-suggestions-swypeIcons {
-  /* margin-top: 10px;
-  margin: 20px;
-}
-
-.Current-suggestions-swypeIcons-no {
-  margin-right: 20px;
-  color: red;
-}
-
-.Current-suggestions-swypeIcons-yes {
-  margin-right: 20px;
-  color: green;
-}
-.Suggestions-container-suggestionTitle {
-  color: white;
-} */
-
-body, #root, .App, .Register {
-  /* display: flex; */
+body,
+#root,
+.App,
+.Register {
   min-height: 100vh;
   color: darkblue;
-  /* flex-direction: column; */
-  /* font-size: 62.5%; */
-  /* background: #dadada; */
-  /* font-family: "Open Sans", sans-serif; */
-  /* line-height: 2; */
 }
 
 .Validation {

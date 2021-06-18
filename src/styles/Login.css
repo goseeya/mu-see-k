@@ -1,5 +1,5 @@
 .Login {
-  background-image: url('../resources/koncert.jpg');
+  background-image: url("../resources/koncert.jpg");
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,7 +14,6 @@
 .Login-form-me {
   display: flex;
   color: rgb(13, 17, 126);
-  /* display: contents !important; */
   align-items: center;
   flex-direction: column;
 }
@@ -22,12 +21,12 @@
 label {
   margin: 10px;
 }
-html, body {
-  height:100%;
-} 
+html,
+body {
+  height: 100%;
+}
 body {
   background-color: white;
-  /* background-image: url('http://www.canvaz.com/portrait/charcoal-1.jpg'); */
   background-size: auto 100%;
   background-repeat: no-repeat;
   background-position: left top;

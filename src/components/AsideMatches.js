@@ -1,5 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSignOutAlt, faBriefcase, faRedo } from "@fortawesome/free-solid-svg-icons";
+import {
+  faSignOutAlt,
+  faBriefcase,
+  faRedo,
+} from "@fortawesome/free-solid-svg-icons";
 import classNames from "classnames";
 import { withRouter } from "react-router-dom";
 
@@ -11,9 +15,6 @@ const AsideMatches = ({ matches, history, refresh }) => {
   const goToLogout = () => {
     window.location.href = "http://localhost:8080/logout";
   };
-
-  console.log(matches);
-  console.log(matches.length);
 
   const showNoMatches = !matches || !(matches.length > 0);
 
@@ -33,11 +34,16 @@ const AsideMatches = ({ matches, history, refresh }) => {
         </a>
       </header>
       <div className="AsideMatches AsideMatches-matchesContainer">
-        <div className="AsideMatchesTitle"><h2>Podgląd dopasowań</h2><span className="IconReload"><FontAwesomeIcon
-          className="IconReload"
-          icon={faRedo}
-          onClick={refresh}
-        /></span></div>
+        <div className="AsideMatchesTitle">
+          <h2>Podgląd dopasowań</h2>
+          <span className="IconReload">
+            <FontAwesomeIcon
+              className="IconReload"
+              icon={faRedo}
+              onClick={refresh}
+            />
+          </span>
+        </div>
         {matches &&
           matches.map((match) => (
             <img
@@ -45,7 +51,11 @@ const AsideMatches = ({ matches, history, refresh }) => {
               className={classNames("Suggestions-liked-image")}
             />
           ))}
-          {showNoMatches && <p className="BrakDopasowan">Brak dopasowań, ale nie trać nadziei :)</p>}
+        {showNoMatches && (
+          <p className="BrakDopasowan">
+            Brak dopasowań, ale nie trać nadziei :)
+          </p>
+        )}
       </div>
     </div>
   );

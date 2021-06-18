@@ -1,33 +1,17 @@
 .Suggestions {
-  /* background-image: url('../resources/paniFlet.jpg'); */
-  /* display: contents;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  background-repeat: no-repeat;
-  background-size: cover; */
   color: white;
-  /* height: 500px; */
   display: flex;
-  /* width: 60%; */
   flex-direction: row;
   flex-wrap: wrap;
-  /* align-items: center; */
-
 }
 
 .Suggestions-header {
   font-size: 40px;
   color: pink;
-  
 }
 
 .AsideMatches-header {
-  
-  background: linear-gradient(
-    262deg
-    ,#1057ca,#24151b);
+  background: linear-gradient(262deg, #1057ca, #24151b);
   display: flex;
   align-items: center;
   position: relative;
@@ -41,38 +25,30 @@
 .AsideMatches {
   min-width: 325px;
   width: 100%;
-  /* max-width: fit-content; */
   background-color: gainsboro;
   flex-grow: 1;
 }
 
-@media (min-width : 640px) {
-  /* Styles */
+@media (min-width: 640px) {
   .AsideMatches {
     max-width: fit-content;
-}
-
-.Current-suggestion-about {
-  width: 100%;
-}
-  
-  .Suggestions-container {
-  }
   }
 
-@media only screen and (max-device-width : 640px) {
-  /* Styles */
+  .Current-suggestion-about {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-device-width: 640px) {
   .AsideMatches {
     max-width: none;
-width: 100%  }
+    width: 100%;
+  }
 
-.Current-suggestion-about {
-  width: 100%;
+  .Current-suggestion-about {
+    width: 100%;
+  }
 }
-  
-  .Suggestions-container {
-  }
-  }
 
 .Current-suggestion-about {
   width: 800px;
@@ -86,7 +62,6 @@ width: 100%  }
 }
 
 .Suggestions-container {
-  /* min-width: 500px; */
   flex-grow: 4;
   width: 300px;
   background-color: darkblue;
@@ -101,25 +76,22 @@ width: 100%  }
   text-align: center;
 }
 
-@media only screen and (max-device-width : 640px) {
-  /* Styles */
+@media only screen and (max-device-width: 640px) {
   .AsideMatches {
     max-width: none;
-width: 100%  }
+    width: 100%;
+  }
 
-.Current-suggestion-about {
-  width: 100%;
+  .Current-suggestion-about {
+    width: 100%;
+  }
 }
-  
-  .Suggestions-container {
-  }
-  }
 
 .Suggestions-container-2 {
   display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 h2 {
@@ -140,11 +112,10 @@ h2 {
 
 .Icon {
   cursor: pointer;
-  filter:drop-shadow(4px 2px 1px rgb(41, 40, 40));
+  filter: drop-shadow(4px 2px 1px rgb(41, 40, 40));
 }
 
 .Current-suggestion {
-  /* display: flex; */
   align-self: center;
   border-radius: 8px;
   box-shadow: 2px 2px 4px #000000;
@@ -155,7 +126,6 @@ h2 {
 }
 
 .Current-suggestions-swypeIcons {
-  /* margin-top: 10px; */
   margin: 20px;
 }
 
@@ -172,16 +142,12 @@ h2 {
   color: white;
 }
 
-body, #root, .App, .Suggestions {
-  /* display: flex; */
+body,
+#root,
+.App,
+.Suggestions {
   min-height: 100vh;
-  /* flex-direction: column; */
-  /* font-size: 62.5%; */
-  /* background: #dadada; */
-  /* font-family: "Open Sans", sans-serif; */
-  /* line-height: 2; */
 }
-
 
 .showSuggestionsButton {
   margin-bottom: 20px;
@@ -190,9 +156,9 @@ body, #root, .App, .Suggestions {
 
 .AsideMatchesTitle {
   display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .IconReload {
@@ -212,4 +178,50 @@ body, #root, .App, .Suggestions {
   width: 300px;
   height: 400px;
   margin: 10px;
+}
+
+.notify-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: flex-start;
+  align-content: flex-start;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.notify-item {
+  width: 250px;
+  margin: 5px 10px;
+  color: #FFF;
+  border-radius: 5px;
+}
+
+.notify-item:hover {
+  opacity: 0.8;
+  box-shadow: 0 0 10px 0 rgb(15, 15, 15);
+}
+
+.notify-item > p {
+  font-family: 'Lora', serif;
+  margin: 10px;
+  opacity: .8;
+}
+
+.notify-item.success {
+  background-color: rgba(81, 163, 81, 0.4);
+}
+
+.notify-item.error {
+  background-color: rgba(203, 100, 94, 0.8);
+}
+
+.notify-item.info {
+  background-color: rgba(33, 150, 243, 0.8);
+}
+
+.notify-title {
+  font-weight: 700;
 }
