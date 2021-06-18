@@ -4,7 +4,6 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
-
 const Me = () => {
   let history = useHistory();
 
@@ -127,40 +126,38 @@ const Me = () => {
       .then(function (response) {
         console.log(response);
         getAboutMe();
-        history.push('/');
+        history.push("/");
       })
       .catch(function (error) {
         console.log(error);
-
       });
   };
   console.log(aboutMeData);
 
-  const formValid = imie?.length <= 20 && telefon?.length <= 12 && opis?.length <= 600 && inspiracje?.length <= 100 && imie && telefon && lokalizacja && plec && opis && gatunek && instrument && inspiracje && adresObrazka && adres2Obrazka && wyborInstrument && wyborPlec;
-  console.log(formValid);
-  console.log(imie?.length <= 20);
-  console.log(telefon?.length <= 12);
-  console.log(inspiracje?.length <= 100);
-  console.log(imie); //
-  console.log(telefon); //
-  console.log(lokalizacja);
-  console.log(plec);
-  console.log(opis); //
-  console.log(gatunek);
-  console.log(instrument);
-  console.log(zaPieniadze);
-  console.log(inspiracje);
-  console.log(adresObrazka); //
-  console.log(adres2Obrazka); //
-  console.log(wyborPlec);
-  console.log(wyborInstrument);
+  const formValid =
+    imie?.length <= 20 &&
+    telefon?.length <= 12 &&
+    opis?.length <= 600 &&
+    inspiracje?.length <= 100 &&
+    imie &&
+    telefon &&
+    lokalizacja &&
+    plec &&
+    opis &&
+    gatunek &&
+    instrument &&
+    inspiracje &&
+    adresObrazka &&
+    adres2Obrazka &&
+    wyborInstrument &&
+    wyborPlec;
 
   return (
     <div className="Me">
       <Header className="MeHeader" />
       <header className="Me-header">Mój profil</header>
       <>
-        {(aboutMeData && aboutMeData?.name ) && (
+        {aboutMeData && aboutMeData?.name && (
           <>
             <div className="myPictures">
               <img src={aboutMeData.image1} className="myPicture" />
@@ -172,7 +169,10 @@ const Me = () => {
 
       {
         <>
-          <p>{(aboutMeData && aboutMeData?.name ) ? "Edytuj" : "Wypełnij"} formularz "O mnie"</p>
+          <p>
+            {aboutMeData && aboutMeData?.name ? "Edytuj" : "Wypełnij"} formularz
+            "O mnie"
+          </p>
           <form onSubmit={submitAboutMe} className="Login-form-me">
             <label>
               Login:
@@ -181,7 +181,11 @@ const Me = () => {
                 defaultValue={aboutMeData?.name || imie}
                 onChange={(e) => setImie(e.target.value)}
               />
-              {imie?.length > 20 && <div className="Validation">Maksymalna liczba znaków to 20.</div>}
+              {imie?.length > 20 && (
+                <div className="Validation">
+                  Maksymalna liczba znaków to 20.
+                </div>
+              )}
             </label>
             <label>
               Numer telefonu:
@@ -190,13 +194,15 @@ const Me = () => {
                 defaultValue={aboutMeData?.phoneNumber || telefon}
                 onChange={(e) => setTelefon(e.target.value)}
               />
-              {telefon?.length > 12 && <div className="Validation">Maksymalna liczba znaków to 12.</div>}
+              {telefon?.length > 12 && (
+                <div className="Validation">
+                  Maksymalna liczba znaków to 12.
+                </div>
+              )}
             </label>
             <label>
               Miejsce prób:
-              <select
-                onChange={(e) => setLokalizacja(e.target.value)}
-              >
+              <select onChange={(e) => setLokalizacja(e.target.value)}>
                 <option value="warszawa" selected>
                   Warszawa
                 </option>
@@ -209,14 +215,27 @@ const Me = () => {
             </label>
             <span className="label">
               Moja płeć
-              <div
-                onChange={(e) => setPlec(e.target.value)}
-              >
-                <input type="radio" value="K" name="plec" defaultChecked={aboutMeData?.sex && aboutMeData?.sex == "K"} />
+              <div onChange={(e) => setPlec(e.target.value)}>
+                <input
+                  type="radio"
+                  value="K"
+                  name="plec"
+                  defaultChecked={aboutMeData?.sex && aboutMeData?.sex == "K"}
+                />
                 Kobieta
-                <input type="radio" value="M" name="plec" defaultChecked={aboutMeData?.sex && aboutMeData?.sex == "M"} />
+                <input
+                  type="radio"
+                  value="M"
+                  name="plec"
+                  defaultChecked={aboutMeData?.sex && aboutMeData?.sex == "M"}
+                />
                 Męczyzna
-                <input type="radio" value="N" name="plec" defaultChecked={aboutMeData?.sex && aboutMeData?.sex == "N"} />
+                <input
+                  type="radio"
+                  value="N"
+                  name="plec"
+                  defaultChecked={aboutMeData?.sex && aboutMeData?.sex == "N"}
+                />
                 Niebinarna
               </div>
             </span>
@@ -227,14 +246,15 @@ const Me = () => {
                 defaultValue={aboutMeData?.description || opis}
                 onChange={(e) => setOpis(e.target.value)}
               />
-              {opis?.length > 600 && <div className="Validation">Maksymalna liczba znaków to 600.</div>}
-
+              {opis?.length > 600 && (
+                <div className="Validation">
+                  Maksymalna liczba znaków to 600.
+                </div>
+              )}
             </label>
             <label>
               Gatunek muzyczny, jaki chcę uprawiać:
-              <select
-                onChange={(e) => setGatunek(e.target.value)}
-              >
+              <select onChange={(e) => setGatunek(e.target.value)}>
                 <option value="rock" selected>
                   Rock
                 </option>
@@ -245,9 +265,7 @@ const Me = () => {
             </label>
             <label>
               Mój instrument to:
-              <select
-                onChange={(e) => setInstrument(e.target.value)}
-              >
+              <select onChange={(e) => setInstrument(e.target.value)}>
                 <option value="gitara" selected>
                   Gitara
                 </option>
@@ -258,12 +276,24 @@ const Me = () => {
             </label>
             <span className="label">
               Chcę grać dla
-              <div
-                onChange={(e) => setZapieniadze(e.target.value)}
-              >
-                <input type="radio" value={true} name="zaPieniadze" defaultChecked={aboutMeData && aboutMeData?.forMoney == true} />
+              <div onChange={(e) => setZapieniadze(e.target.value)}>
+                <input
+                  type="radio"
+                  value={true}
+                  name="zaPieniadze"
+                  defaultChecked={aboutMeData && aboutMeData?.forMoney == true}
+                />
                 Dla kasy
-                <input type="radio" value={false} name="zaPieniadze" defaultChecked={aboutMeData && aboutMeData?.name && aboutMeData?.forMoney == false} />
+                <input
+                  type="radio"
+                  value={false}
+                  name="zaPieniadze"
+                  defaultChecked={
+                    aboutMeData &&
+                    aboutMeData?.name &&
+                    aboutMeData?.forMoney == false
+                  }
+                />
                 Dla fun-u!
               </div>
             </span>
@@ -274,8 +304,11 @@ const Me = () => {
                 defaultValue={aboutMeData?.inspirations || inspiracje}
                 onChange={(e) => setInspiracje(e.target.value)}
               />
-              {inspiracje?.length > 100 && <div className="Validation">Maksymalna liczba znaków to 100.</div>}
-
+              {inspiracje?.length > 100 && (
+                <div className="Validation">
+                  Maksymalna liczba znaków to 100.
+                </div>
+              )}
             </label>
             <label>
               Adres pierwszego obrazka:
@@ -297,24 +330,44 @@ const Me = () => {
             <span className="label">
               Pierwszy zawodnik:
               <div style={{ height: "10px" }}></div>
-              <div
-                onChange={(e) => setWyborplec(e.target.value)}
-              >
+              <div onChange={(e) => setWyborplec(e.target.value)}>
                 Płeć:
-                <input type="radio" value="K" name="wyborPlec" defaultChecked={aboutMeData?.searchFor[0]?.sex && aboutMeData?.searchFor[0]?.sex === "K"} />
+                <input
+                  type="radio"
+                  value="K"
+                  name="wyborPlec"
+                  defaultChecked={
+                    aboutMeData?.searchFor[0]?.sex &&
+                    aboutMeData?.searchFor[0]?.sex === "K"
+                  }
+                />
                 Kobieta
-                <input type="radio" value="M" name="wyborPlec" defaultChecked={aboutMeData?.searchFor[0]?.sex && aboutMeData?.searchFor[0]?.sex === "M"} />
+                <input
+                  type="radio"
+                  value="M"
+                  name="wyborPlec"
+                  defaultChecked={
+                    aboutMeData?.searchFor[0]?.sex &&
+                    aboutMeData?.searchFor[0]?.sex === "M"
+                  }
+                />
                 Męczyzna
-                <input type="radio" value="N" name="wyborPlec" defaultChecked={aboutMeData?.searchFor[0]?.sex && aboutMeData?.searchFor[0]?.sex === "N"} />
+                <input
+                  type="radio"
+                  value="N"
+                  name="wyborPlec"
+                  defaultChecked={
+                    aboutMeData?.searchFor[0]?.sex &&
+                    aboutMeData?.searchFor[0]?.sex === "N"
+                  }
+                />
                 Niebinarna
               </div>
             </span>
 
             <label>
               Instrument:
-              <select
-                onChange={(e) => setWyborinstrument(e.target.value)}
-              >
+              <select onChange={(e) => setWyborinstrument(e.target.value)}>
                 <option value="gitara" selected>
                   Gitara
                 </option>
@@ -350,9 +403,7 @@ const Me = () => {
 
                 <label>
                   Instrument:
-                  <select
-                    onChange={(e) => setWybor2instrument(e.target.value)}
-                  >
+                  <select onChange={(e) => setWybor2instrument(e.target.value)}>
                     <option value="gitara" selected>
                       Gitara
                     </option>
@@ -390,9 +441,7 @@ const Me = () => {
 
                 <label>
                   Instrument:
-                  <select
-                    onChange={(e) => setWybor3instrument(e.target.value)}
-                  >
+                  <select onChange={(e) => setWybor3instrument(e.target.value)}>
                     <option value="gitara" selected>
                       Gitara
                     </option>
@@ -403,7 +452,11 @@ const Me = () => {
                 </label>
               </>
             )}
-            {!formValid && <div className="Validation">Formularz pusty lub niepoprawnie wypełniony.</div>}
+            {!formValid && (
+              <div className="Validation">
+                Formularz pusty lub niepoprawnie wypełniony.
+              </div>
+            )}
 
             {
               <input
