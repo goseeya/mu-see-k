@@ -136,7 +136,7 @@ const Me = () => {
   };
   console.log(aboutMeData);
 
-  const formValid = imie?.length <= 20 && telefon?.length <= 12 && opis?.length <= 600 && inspiracje?.length <= 100 && imie && telefon && lokalizacja && plec && opis && gatunek && instrument && !!zaPieniadze && inspiracje && adresObrazka && adres2Obrazka && wyborInstrument && wyborPlec;
+  const formValid = imie?.length <= 20 && telefon?.length <= 12 && opis?.length <= 600 && inspiracje?.length <= 100 && imie && telefon && lokalizacja && plec && opis && gatunek && instrument && inspiracje && adresObrazka && adres2Obrazka && wyborInstrument && wyborPlec;
   console.log(formValid);
   console.log(imie?.length <= 20);
   console.log(telefon?.length <= 12);
