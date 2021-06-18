@@ -21,7 +21,7 @@ const Me = () => {
     aboutMeData?.instrument || "gitara"
   );
   const [zaPieniadze, setZapieniadze] = useState(
-    aboutMeData?.forMoney || ""
+    aboutMeData?.forMoney || false
   );
   const [opis, setOpis] = useState(aboutMeData?.description || "");
   const [inspiracje, setInspiracje] = useState(aboutMeData?.inspirations || "");
@@ -261,9 +261,9 @@ const Me = () => {
               <div
                 onChange={(e) => setZapieniadze(e.target.value)}
               >
-                <input type="radio" value="true" name="zaPieniadze" defaultChecked={aboutMeData && aboutMeData?.forMoney == true} />
+                <input type="radio" value={true} name="zaPieniadze" defaultChecked={aboutMeData && aboutMeData?.forMoney == true} />
                 Dla kasy
-                <input type="radio" value="false" name="zaPieniadze" defaultChecked={aboutMeData && aboutMeData?.name && aboutMeData?.forMoney == false} />
+                <input type="radio" value={false} name="zaPieniadze" defaultChecked={aboutMeData && aboutMeData?.name && aboutMeData?.forMoney == false} />
                 Dla fun-u!
               </div>
             </span>
