@@ -21,7 +21,7 @@ const Me = () => {
     aboutMeData?.instrument || "gitara"
   );
   const [zaPieniadze, setZapieniadze] = useState(
-    aboutMeData?.forMoney || false
+    aboutMeData?.forMoney || ""
   );
   const [opis, setOpis] = useState(aboutMeData?.description || "");
   const [inspiracje, setInspiracje] = useState(aboutMeData?.inspirations || "");
