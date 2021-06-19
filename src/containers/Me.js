@@ -161,7 +161,6 @@ const Me = () => {
     adres2Obrazka &&
     wyborInstrument &&
     wyborPlec;
-    getAboutMe();
   return (
     <div className="Me">
       <Header className="MeHeader" />
