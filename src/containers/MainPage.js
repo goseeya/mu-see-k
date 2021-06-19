@@ -199,29 +199,29 @@ const MainPage = () => {
       <div className="Suggestions-container">
         {showSuggestions && (
           <Suggestions
-            noMorePeopleToShow
+            noMorePeopleToShow={noMorePeopleToShow}
             getSuggestions={getSuggestions}
-            suggestionsArray
-            localhostSuggestions
-            currentPersonToShow
-            currentPhotoIndex
-            swypeNo
-            swypeYes
+            suggestionsArray={suggestionsArray}
+            localhostSuggestions={localhostSuggestions}
+            currentPersonToShow={currentPersonToShow}
+            currentPhotoIndex={currentPhotoIndex}
+            swypeNo={swypeNo}
+            swypeYes={swypeYes}
             toggleSuggestions={toggleSuggestions}
-            onPhotoChange
+            onPhotoChange={swypeYes}
           />
         )}
         {!showSuggestions && (
           <Matches
-            localhostMatches
-            matchesArray
-            currentMatchToShow
-            currentMatchIndex
-            currentPhotoIndex
-            RightArrowClick
-            LeftArrowClick
+            localhostMatches={localhostMatches}
+            matchesArray={matchesArray}
+            currentMatchToShow={currentMatchToShow}
+            currentMatchIndex={currentMatchIndex}
+            currentPhotoIndex={currentPhotoIndex}
+            RightArrowClick={RightArrowClick}
+            LeftArrowClick={LeftArrowClick}
             toggleSuggestions={toggleSuggestions}
-            onPhotoChange
+            onPhotoChange={onPhotoChange}
           />
         )}
       </div>
