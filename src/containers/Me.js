@@ -600,7 +600,7 @@ const Me = () => {
                 <button onClick={() => setThirdPlayerAdded(true)}>+</button>
               </p>
             )}
-            {(thirdPlayerAdded || aboutMeData?.searchFor[2]?.instrument) && (
+            {(thirdPlayerAdded && (
               <>
                 <span className="label">
                   Trzeci zawodnik:
