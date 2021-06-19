@@ -50,7 +50,7 @@ const Me = () => {
   );
 
   const [thirdPlayerAdded, setThirdPlayerAdded] = useState(
-    (aboutMeData && aboutMeData.searchFor[2] && aboutMeData.searchFor[2].sex) ||
+    (aboutMeData?.phoneNumber && aboutMeData?.searchFor[2]?.sex) ||
       false
   );
 
