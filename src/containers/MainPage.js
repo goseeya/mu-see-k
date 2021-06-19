@@ -200,14 +200,13 @@ const MainPage = () => {
         {showSuggestions && (
           <Suggestions
             noMorePeopleToShow
-            getSuggestions
+            getSuggestions={getSuggestions}
             suggestionsArray
             localhostSuggestions
             currentPersonToShow
             currentPhotoIndex
             swypeNo
             swypeYes
-            getSuggestions
             toggleSuggestions={toggleSuggestions}
             onPhotoChange
           />
