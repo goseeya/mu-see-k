@@ -94,9 +94,9 @@ const Me = () => {
       });
   };
 
-  useEffect(() => {
-    getAboutMe();
-  }, []);
+  // useEffect(() => {
+  //   getAboutMe();
+  // }, []);
 
   const submitAboutMe = (e) => {
     e.preventDefault();
@@ -514,7 +514,6 @@ const Me = () => {
                   <div style={{ height: "10px" }}></div> Drugi zawodnik:
                   <div style={{ height: "10px" }}></div>
                   <div
-                    defaultValue={aboutMeData?.searchFor[1]?.sex || wybor2Plec}
                     onChange={(e) => setWybor2plec(e.target.value)}
                   >
                     Płeć:
@@ -600,13 +599,12 @@ const Me = () => {
                 <button onClick={() => setThirdPlayerAdded(true)}>+</button>
               </p>
             )}
-            {(thirdPlayerAdded && (
+            {thirdPlayerAdded && (
               <>
                 <span className="label">
                   Trzeci zawodnik:
                   <div style={{ height: "10px" }}></div>
                   <div
-                    defaultValue={aboutMeData?.searchFor[2]?.sex || wybor3Plec}
                     onChange={(e) => setWybor3plec(e.target.value)}
                   >
                     Płeć:
@@ -649,8 +647,8 @@ const Me = () => {
                     <option
                       value="gitara"
                       selected={
-                        aboutMeData?.searchFor[2]?.instrument &&
-                        aboutMeData?.searchFor[2]?.instrument === "gitara"
+                        aboutMeData && aboutMeData.searchFor[2] && aboutMeData.searchFor[2].instrument &&
+                        aboutMeData.searchFor[2].instrument === "gitara"
                       }
                     >
                       Gitara
@@ -658,8 +656,8 @@ const Me = () => {
                     <option
                       value="bas"
                       selected={
-                        aboutMeData?.searchFor[2]?.instrument &&
-                        aboutMeData?.searchFor[2]?.instrument === "bas"
+                        aboutMeData && aboutMeData.searchFor[2] && aboutMeData.searchFor[2].instrument &&
+                        aboutMeData.searchFor[2].instrument === "bas"
                       }
                     >
                       Bas
@@ -667,8 +665,8 @@ const Me = () => {
                     <option
                       value="wokal"
                       selected={
-                        aboutMeData?.searchFor[2]?.instrument &&
-                        aboutMeData?.searchFor[2]?.instrument === "wokal"
+                        aboutMeData && aboutMeData.searchFor[2] && aboutMeData.searchFor[2].instrument &&
+                        aboutMeData.searchFor[2].instrument === "wokal"
                       }
                     >
                       Wokal
@@ -676,8 +674,8 @@ const Me = () => {
                     <option
                       value="perkusja"
                       selected={
-                        aboutMeData?.searchFor[2]?.instrument &&
-                        aboutMeData?.searchFor[2]?.instrument === "perkusja"
+                        aboutMeData && aboutMeData.searchFor[2] && aboutMeData.searchFor[2].instrument &&
+                        aboutMeData.searchFor[2].instrument === "perkusja"
                       }
                     >
                       Perkusja
