@@ -162,8 +162,6 @@ const Me = () => {
     wyborInstrument &&
     wyborPlec;
 
-    console.log(thirdPlayerAdded);
-    console.log(aboutMeData && aboutMeData.searchFor[2].instrument)
 
   return (
     <div className="Me">
