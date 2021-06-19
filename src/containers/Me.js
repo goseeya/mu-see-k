@@ -162,6 +162,9 @@ const Me = () => {
     wyborInstrument &&
     wyborPlec;
 
+    console.log(thirdPlayerAdded);
+    console.log(aboutMeData?.searchFor[2]?.instrument)
+
   return (
     <div className="Me">
       <Header className="MeHeader" />
@@ -600,7 +603,7 @@ const Me = () => {
                 <button onClick={() => setThirdPlayerAdded(true)}>+</button>
               </p>
             )}
-            {(thirdPlayerAdded || aboutMeData?.searchFor[2]?.instrument) && (
+            {(thirdPlayerAdded || aboutMeData?.searchFor[2]?.instrument) ? (
               <>
                 <span className="label">
                   Trzeci zawodnik:
@@ -685,7 +688,7 @@ const Me = () => {
                   </select>
                 </label>
               </>
-            )}
+            ) : <div></div>}
             {!formValid && (
               <div className="Validation">
                 Formularz pusty lub niepoprawnie wypełniony.
