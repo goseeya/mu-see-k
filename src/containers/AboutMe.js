@@ -103,7 +103,6 @@ const AboutMe = () => {
       searchFor: [
         { instrument: wyborInstrument, sex: wyborPlec },
         { instrument: wybor2Instrument, sex: wybor2Plec },
-        { instrument: "", sex: "" },
       ],
     };
 
@@ -486,14 +485,6 @@ const AboutMe = () => {
                 </option>
               </select>
             </label>
-            {!secondPlayerAdded && (
-              <p>
-                Dodaj drugiego zawodnika (max. liczba){" "}
-                <button onClick={() => setSecondPlayerAdded(true)}>+</button>
-              </p>
-            )}
-            {secondPlayerAdded && (
-              <>
                 <span className="label">
                   <div style={{ height: "10px" }}></div> Drugi zawodnik:
                   <div style={{ height: "10px" }}></div>
@@ -576,8 +567,6 @@ const AboutMe = () => {
                     </option>
                   </select>
                 </label>
-              </>
-            )}
 
             {!formValid && (
               <div className="Validation">

@@ -17,8 +17,8 @@ import "react-notifications/lib/notifications.css";
 import { useState, useEffect } from "react";
 import AsideMatches from "../components/AsideMatches";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Suggestions from "./Suggestions";
-import Matches from "./Matches";
+import Suggestions from "../components/Suggestions";
+import Matches from "../components/Matches";
 
 const MainPage = () => {
   const [currentSuggestionIndex, setCurrentSuggestionIndex] = useState(0);
@@ -208,7 +208,7 @@ const MainPage = () => {
             swypeNo={swypeNo}
             swypeYes={swypeYes}
             toggleSuggestions={toggleSuggestions}
-            onPhotoChange={swypeYes}
+            onPhotoChange={onPhotoChange}
           />
         )}
         {!showSuggestions && (
