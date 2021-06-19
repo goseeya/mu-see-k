@@ -49,19 +49,6 @@ const Me = () => {
       ""
   );
 
-  const [thirdPlayerAdded, setThirdPlayerAdded] = useState(
-    (aboutMeData?.phoneNumber && aboutMeData?.searchFor[2]?.sex) ||
-      false
-  );
-
-  const [wybor3Instrument, setWybor3instrument] = useState(
-    (aboutMeData &&
-      aboutMeData.searchFor[2] &&
-      aboutMeData.searchFor[2].instrument) ||
-      "gitara"
-  );
-  const [wybor3Plec, setWybor3plec] = useState(aboutMeData?.searchFor[2]?.sex);
-
   const getAboutMe = () => {
     axios
       .post("http://localhost:8080/api/getaboutme", {
@@ -84,9 +71,6 @@ const Me = () => {
 
         if (response.data.searchFor[1].sex) {
           setSecondPlayerAdded(true);
-        }
-        if (response.data.searchFor[2].sex) {
-          setThirdPlayerAdded(true);
         }
       })
       .catch(function (error) {
@@ -119,7 +103,7 @@ const Me = () => {
       searchFor: [
         { instrument: wyborInstrument, sex: wyborPlec },
         { instrument: wybor2Instrument, sex: wybor2Plec },
-        { instrument: wybor3Instrument, sex: wybor3Plec },
+        { instrument: "", sex: "" },
       ],
     };
 
@@ -161,7 +145,6 @@ const Me = () => {
     adres2Obrazka &&
     wyborInstrument &&
     wyborPlec;
-
 
   return (
     <div className="Me">
@@ -505,7 +488,7 @@ const Me = () => {
             </label>
             {!secondPlayerAdded && (
               <p>
-                Dodaj drugiego zawodnika{" "}
+                Dodaj drugiego zawodnika (max. liczba){" "}
                 <button onClick={() => setSecondPlayerAdded(true)}>+</button>
               </p>
             )}
@@ -595,98 +578,7 @@ const Me = () => {
                 </label>
               </>
             )}
-            {secondPlayerAdded && !thirdPlayerAdded && (
-              <p>
-                Dodaj trzeciego zawodnika (max. liczba){" "}
-                <button onClick={() => setThirdPlayerAdded(true)}>+</button>
-              </p>
-            )}
-            {(thirdPlayerAdded || aboutMeData?.searchFor[2]?.instrument) ? (
-              <>
-                <span className="label">
-                  Trzeci zawodnik:
-                  <div style={{ height: "10px" }}></div>
-                  <div
-                    defaultValue={aboutMeData?.searchFor[2]?.sex || wybor3Plec}
-                    onChange={(e) => setWybor3plec(e.target.value)}
-                  >
-                    Płeć:
-                    <input
-                      type="radio"
-                      value="K"
-                      defaultChecked={
-                        aboutMeData?.searchFor[2]?.sex &&
-                        aboutMeData?.searchFor[2]?.sex === "K"
-                      }
-                      name="wybor3Plec"
-                    />
-                    Kobieta
-                    <input
-                      type="radio"
-                      value="M"
-                      name="wybor3Plec"
-                      defaultChecked={
-                        aboutMeData?.searchFor[2]?.sex &&
-                        aboutMeData?.searchFor[2]?.sex === "M"
-                      }
-                    />
-                    Męczyzna
-                    <input
-                      type="radio"
-                      value="N"
-                      name="wybor3Plec"
-                      defaultChecked={
-                        aboutMeData?.searchFor[2]?.sex &&
-                        aboutMeData?.searchFor[2]?.sex === "N"
-                      }
-                    />
-                    Niebinarna
-                  </div>
-                </span>
 
-                <label>
-                  Instrument:
-                  <select onChange={(e) => setWybor3instrument(e.target.value)}>
-                    <option
-                      value="gitara"
-                      selected={
-                        aboutMeData?.searchFor[2]?.instrument &&
-                        aboutMeData?.searchFor[2]?.instrument === "gitara"
-                      }
-                    >
-                      Gitara
-                    </option>
-                    <option
-                      value="bas"
-                      selected={
-                        aboutMeData?.searchFor[2]?.instrument &&
-                        aboutMeData?.searchFor[2]?.instrument === "bas"
-                      }
-                    >
-                      Bas
-                    </option>
-                    <option
-                      value="wokal"
-                      selected={
-                        aboutMeData?.searchFor[2]?.instrument &&
-                        aboutMeData?.searchFor[2]?.instrument === "wokal"
-                      }
-                    >
-                      Wokal
-                    </option>
-                    <option
-                      value="perkusja"
-                      selected={
-                        aboutMeData?.searchFor[2]?.instrument &&
-                        aboutMeData?.searchFor[2]?.instrument === "perkusja"
-                      }
-                    >
-                      Perkusja
-                    </option>
-                  </select>
-                </label>
-              </>
-            ) : <div></div>}
             {!formValid && (
               <div className="Validation">
                 Formularz pusty lub niepoprawnie wypełniony.
