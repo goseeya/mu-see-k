@@ -3,7 +3,7 @@ import { withRouter } from "react-router-dom";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const RegisterFailed = ({ history }) => {
+const RegistrationFailed = ({ history }) => {
   const goBack = () => {
     history.goBack();
   };
@@ -28,4 +28,4 @@ const RegisterFailed = ({ history }) => {
   );
 };
 
-export default withRouter(RegisterFailed);
+export default withRouter(RegistrationFailed);

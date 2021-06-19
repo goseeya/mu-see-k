@@ -4,7 +4,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
-const Me = () => {
+const AboutMe = () => {
   let history = useHistory();
 
   const [aboutMeData, setAboutMeData] = useState();
@@ -600,4 +600,4 @@ const Me = () => {
   );
 };
 
-export default Me;
+export default AboutMe;

@@ -6,11 +6,11 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import RegisterSucceed from './containers/RegisterSucceed';
-import Suggestions from './containers/Suggestions';
+import RegistrationSucceed from './containers/RegistrationSucceed';
 import Register from './containers/Register';
-import RegisterFailed from './containers/RegisterFailed';
-import Me from './containers/Me';
+import RegistrationFailed from './containers/RegistrationFailed';
+import AboutMe from './containers/AboutMe';
+import MainPage from './containers/MainPage';
 
 function App() {
   return (
@@ -18,25 +18,25 @@ function App() {
       <div className="App">
         <Switch>
           <Route path="/suggestions">
-            <Suggestions />
+            <MainPage />
           </Route>
           <Route path="/register">
             <Register />
           </Route>
-          <Route path="/registerSucceed">
-            <RegisterSucceed />
+          <Route path="/registrationSucceed">
+            <RegistrationSucceed />
           </Route>
-          <Route path="/registerFailed">
-            <RegisterFailed />
+          <Route path="/registrationFailed">
+            <RegistrationFailed />
           </Route>
           <Route path="/me">
-            <Me />
+            <AboutMe />
           </Route>          
           <Route path="/myProfile">
-            <Me />
+            <AboutMe />
           </Route>
           <Route path="/">
-            <Suggestions />
+            <MainPage />
           </Route>
         </Switch>
       </div>

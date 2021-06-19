@@ -28,11 +28,11 @@ const Register = () => {
       .then(function (response) {
         console.log(response);
         registerSucceed = true;
-        history.push("/registerSucceed");
+        history.push("/registrationSucceed");
       })
       .catch(function (error) {
         console.log(error);
-        history.push("/registerFailed");
+        history.push("/registrationFailed");
       });
   };
 
