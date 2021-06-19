@@ -163,7 +163,7 @@ const Me = () => {
     wyborPlec;
 
     console.log(thirdPlayerAdded);
-    console.log(aboutMeData.searchFor[2].instrument)
+    console.log(aboutMeData && aboutMeData.searchFor[2].instrument)
 
   return (
     <div className="Me">
